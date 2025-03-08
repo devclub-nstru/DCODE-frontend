@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#nav-bar{
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;;
+    font-size: 2rem;
+    padding: 0.75rem 2rem;
+}
+#logo {
+    font-size: 3rem;
+
+}
+.nav-items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* width: 40%; */
+    gap: 1rem;
+    
+}
+.nav-items .item {
+    padding: 0.5rem 0.5rem;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.507);
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#account img {
+    height: 3.75rem;
+    width: 3.75rem;
+    padding: 0;
+    border-radius: 50%;
+}

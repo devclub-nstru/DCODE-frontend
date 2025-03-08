@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.footer {
+    min-height: 25vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+#credits {
+    color: #c1c1c1;
+    font-size: 1.5rem;
+}
+.footer-links {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.75rem;
+    gap: 0.5rem;
+}
+.footer-links a {
+    text-decoration: none
+};
+a {
+    opacity: 0.5;
+}
