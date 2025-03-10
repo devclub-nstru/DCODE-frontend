@@ -48,7 +48,6 @@ function Hero() {
           <h3 className="sec-txt">Officially preparing things</h3>
         </div>
       </div>
-      <div className="border"></div>
     </>
   );
 }

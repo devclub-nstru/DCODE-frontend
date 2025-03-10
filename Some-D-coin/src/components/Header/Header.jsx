@@ -49,7 +49,7 @@ function navbar() {
             </svg>
             <span id="coin-count">0</span>
           </NavLink>
-          <NavLink to="/#" className="item">
+          <NavLink to="/shop" className="item">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -69,7 +69,7 @@ function navbar() {
           <NavLink to="/about" className="item">
             About
           </NavLink>
-          <NavLink to="/Contact" className="item">
+          <NavLink to="contact" className="item">
             Contact
           </NavLink>
           <NavLink to="/#" id="account">
