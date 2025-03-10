@@ -32,7 +32,7 @@ const styles = {
     width: '100%',
     minHeight: '4rem',
     padding: '0.75rem',
-    paddingLeft: '2.5rem',
+    paddingLeft: '2.85rem',
     border: '1px solid #ddd',
     borderRadius: '0.5rem',
     fontSize: '1rem',
@@ -54,7 +54,7 @@ const styles = {
     color: '#0056b3',
     fontSize: "1rem",
     textDecoration: 'none',
-    fontSize: '0.875rem',
+    // fontSize: '0.875rem',
     cursor: 'pointer',
   },
   authTabs: {

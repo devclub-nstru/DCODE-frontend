@@ -154,6 +154,13 @@ const GitHubIssues = () => {
       ],
     },
   ]);
+  let numbers = 0;
+  const issuesNums = issues.filter((issue) => {
+    if (issue.labels.includes("already-assigned")) {
+      numbers += 1;
+    }
+    return numbers;
+  });
 
   // Function to create a new issue
   const createNewIssue = () => {
@@ -182,13 +189,16 @@ const GitHubIssues = () => {
                 className={`tab ${activeTab === "Available" ? "active" : ""}`}
                 onClick={() => setActiveTab("Available")}
               >
-                Available <span className="count">15</span>
+                Available{" "}
+                <span className="count">
+                  {issues.length - issuesNums.length}
+                </span>
               </button>
               <button
                 className={`tab ${activeTab === "Assigned" ? "active" : ""}`}
                 onClick={() => setActiveTab("Assigned")}
               >
-                Assigned <span className="count">19</span>
+                Assigned <span className="count">{issuesNums.length}</span>
               </button>
             </div>
           </div>
@@ -242,9 +252,9 @@ const GitHubIssues = () => {
                       </div>
                     </div>
                     <div className="issue-stats">
-                      <button class="btn">
-                        <span class="btn__visible">
-                          <span>Buy Now</span>
+                      <button>
+                        <span class="box">
+                          Buy Now{" "}
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             x="0px"

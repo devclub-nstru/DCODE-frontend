@@ -6,8 +6,9 @@
 
 .card {
   width: 20rem;
-  background: white;
-  padding: 0.4em;
+  background: #2c2c2c;
+  padding: 0.6em;
+  padding-bottom: 2em;
   border-radius: 0.25rem;
 }
 
@@ -46,7 +47,7 @@ a {
 
 .heading {
   font-weight: 600;
-  color: rgb(88, 87, 87);
+  color: rgb(255, 255, 255);
   padding: 0.25rem;
 }
 

@@ -12,13 +12,13 @@
     gap: 0.25rem;
     padding: 0.5rem 1rem 0.5rem 0.75rem; /* py-2 pr-4 pl-3 */
     transition: all 0.2s ease-in-out; /* duration-200 */
-    border-bottom: 1px solid #e5e7eb; /* border-gray-100 */
-    color: #d0adf0; /* text-gray-700 */
+    border-bottom: 1px solid #0056b3; /* border-gray-100 */
+    color: #ffffff; /* text-gray-700 */
   }
   
   .nav-link:hover {
     background-color: #f9fafb; /* hover:bg-gray-50 */
-    color: #c2410c; /* hover:text-orange-700 */
+    color: #0056b3; /* hover:text-orange-700 */
   }
   
   .nav-link.lg-hover:hover {
@@ -27,7 +27,7 @@
   }
   
   .nav-link.active {
-    color: #c2410c; /* text-orange-700 */
+    color: #0056b3; /* text-orange-700 */
   }
 
 #nav-bar{
@@ -47,6 +47,7 @@
 }
 #logo {
     font-size: 3rem;
+    color: #ffffff;
 
 }
 .nav-items{
