@@ -3,7 +3,7 @@ import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import { Mail, Lock, User } from "lucide-react";
 
-const API_URL = "http://localhost:3005/api/auth";
+const API_URL = "http://localhost:3000/api/auth";
 
 const styles = {
   authContainer: {
@@ -176,7 +176,6 @@ function Auth() {
         throw new Error(data.message || "Google authentication failed");
       }
 
-      // Save token and redirect
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
       
