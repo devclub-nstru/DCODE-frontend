@@ -1,270 +1,260 @@
 /* GitHubIssues.css */
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 /* Main container */
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  height: 100vh;
+}
 .github-issues {
-    width: 100%;
-    max-width: 1200px;
-    margin: 2rem auto;
-    border: 1px solid #3d444d;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-    background-color: #0d1117;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    overflow: hidden;
-  }
-  
-  /* Header section */
-  .header {
-    padding: 16px;
-    border-bottom: 1px solid #ffffff90;
-    background-color: #00000000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .search-section {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .search-filter {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    background-color: #f6f8fa;
-    padding: 6px 12px;
-    border-radius: 6px;
-  }
-  
-  .mono {
-    font-family: monospace;
-    font-size: 14px;
-  }
-  
-  .green {
-    color: #22863a;
-  }
-  
+  margin-top: 10rem;
+  width: 100%;
+  max-width: 80vw;
+  border: 1px solid #3d444d;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  /* background-color: #0d1117; */
+  backdrop-filter: brightness(60%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+  overflow: hidden;
+}
 
-  
-  .action-buttons {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .outline-button {
-    padding: 6px 12px;
-    border: 1px solid #3d444d;
-    border-radius: 6px;
-    background-color: #282130;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  .outline-button:hover {
-    background-color: #6d6d6d1a;
-  }
-  
-  .new-issue-button {
-    padding: 6px 12px;
-    background-color: #2ea44f;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  
-  .new-issue-button:hover {
-    background-color: #2c974b;
-  }
-  
-  /* Tab Navigation */
-  .tab-navigation {
-    border-bottom: 1px solid #e1e4e8;
-  }
-  
-  .tabs-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 16px;
-  }
-  
-  .tabs {
-    display: flex;
-  }
-  
-  .tab {
-    padding: 12px 16px;
-    background: none;
-    border: none;
-    font-size: 14px;
-    cursor: pointer;
-    position: relative;
-  }
-  
-  .tab.active {
-    font-weight: 600;
-  }
-  
-  .tab.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background-color: #f9826c;
-  }
-  
-  .count {
-    margin-left: 4px;
-    color: #6a737d;
-  }
-  
-  .filters {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  /* Dropdown */
-  .dropdown {
-    position: relative;
-  }
-  
-  .dropdown-button {
-    padding: 6px 8px;
-    background: none;
-    border: none;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .dropdown-button:hover {
-    background-color: #52555a;
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-    right: 0;
-    top: 100%;
-    margin-top: 4px;
-    width: 200px;
-    background-color: #52555a;
-    border: 1px solid #ffffff90;
-    border-radius: 6px;
-    box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
-    z-index: 10;
-  }
-  
-  .dropdown-item {
-    padding: 8px 16px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  .dropdown-item:hover {
-    background-color: #3f4041;
-  }
-  
-  /* Issue List */
-  .issue-list {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .issue-item {
-    display: flex;
-    padding: 16px;
-    border-bottom: 1px solid #ffffff90;
-    align-items: flex-start;
-  }
-  
-  .issue-item:hover {
-    background-color: #161b22;
-  }
-  
-  .issue-icon {
-    margin-right: 12px;
-    margin-top: 4px;
-  }
-  
-  .green-icon {
-    color: #22863a;
-  }
-  
-  .issue-content {
-    flex: 1;
-    min-width: 0;
-  }
-  
-  .issue-title-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .issue-title {
-    color: #f0f6fc;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0;
-  }
-  
-  .label {
-    padding: 2px 8px;
-    font-size: 12px;
-    border-radius: 12px;
-    background-color: #ff52638d;
-    color: #ffffff;
-  }
-  .available-label {
-    padding: 2px 8px;
-    font-size: 12px;
-    border-radius: 12px;
-    background-color: #e0c91c;
-    color: #000;
-  }
-  
-  .issue-meta {
-    font-size: 14px;
-    color: #6a737d;
-    margin-top: 4px;
-  }
-  
-  .issue-stats {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-left: 16px;
-  }
+/* Header section */
+.header {
+  padding: 16px;
+  border-bottom: 1px solid #ffffff90;
+  background-color: #00000000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  /* From Uiverse.io by joe-watson-sbf */ 
+.search-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-filter {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #f6f8fa;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.mono {
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.green {
+  color: #22863a;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.outline-button {
+  padding: 6px 12px;
+  border: 1px solid #3d444d;
+  border-radius: 6px;
+  background-color: #282130;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.outline-button:hover {
+  background-color: #6d6d6d1a;
+}
+
+.new-issue-button {
+  padding: 6px 12px;
+  background-color: #2ea44f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.new-issue-button:hover {
+  background-color: #2c974b;
+}
+
+/* Tab Navigation */
+
+.tabs-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tab {
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+}
+
+.tab.active {
+  font-weight: 600;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #f9826c;
+}
+
+.count {
+  margin-left: 4px;
+  color: #6a737d;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-button {
+  padding: 6px 8px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.dropdown-button:hover {
+  background-color: #52555a;
+}
+
+.dropdown-item {
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #3f4041;
+}
+
+/* Issue List */
+.issue-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.issue-item {
+  display: flex;
+  padding: 16px;
+  border-bottom: 1px solid #ffffff90;
+  align-items: flex-start;
+}
+
+.issue-item:hover {
+  background-color: #161b2266;
+}
+
+.issue-icon {
+  margin-right: 12px;
+  margin-top: 4px;
+}
+
+.green-icon {
+  color: #22863a;
+}
+
+.issue-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.issue-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.issue-title {
+  color: #f0f6fc;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.label {
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: 12px;
+  background-color: #ff52638d;
+  color: #ffffff;
+}
+.available-label {
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: 12px;
+  background-color: #e0c91c;
+  color: #000;
+}
+
+.issue-meta {
+  font-size: 14px;
+  color: #6a737d;
+  margin-top: 4px;
+}
+
+.issue-stats {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: 16px;
+}
+
+/* From Uiverse.io by joe-watson-sbf */
 .btn {
   font-size: 1rem;
   font-weight: 300;
   text-transform: uppercase;
   line-height: 0.5em;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   border: none;
   background-color: #2ea44f;
   color: #fff;
@@ -275,28 +265,15 @@
 
 .btn > * {
   display: inline-block;
-  transition: all ease-in-out .3s;
 }
 
 .btn__visible {
   padding: 1.2rem 1.5rem;
   text-align: center;
-}
-
-.btn__invisible {
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  /* padding: 1.2rem 0; */
-  left: 0;
-  top: -100%;
-}
-
-
-.btn:hover .btn__visible {
-  transform: translateY(100%);
+  /* gap: 1rem; */
 }
 
 .btn:hover .btn__invisible {
@@ -307,25 +284,23 @@
   outline: none;
 }
 
-  
-  .comment-count {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    color: #6a737d;
-    font-size: 14px;
-    
-  }
-  
-  .avatar-group {
-    display: flex;
-    margin-left: -4px;
-  }
-  
-  .avatar {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.475);
-    margin-left: -4px;
-  }
+.comment-count {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #6a737d;
+  font-size: 14px;
+}
+
+.avatar-group {
+  display: flex;
+  margin-left: -4px;
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.475);
+  margin-left: -4px;
+}

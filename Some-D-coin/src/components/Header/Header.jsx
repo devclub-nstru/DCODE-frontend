@@ -12,7 +12,12 @@ function navbar() {
           </a>
         </div>
         <div className="nav-items">
-          <NavLink to="/#" className="item">
+          <NavLink
+            to="/#"
+            className={({ isActive }) =>
+              `nav-link ${isActive ? "active" : ""} lg-hover`
+            }
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
@@ -51,7 +56,12 @@ function navbar() {
             </svg>
             <span id="coin-count">0</span>
           </NavLink>
-          <NavLink to="/shop" className="item">
+          <NavLink
+            to="/shop"
+            className={({ isActive }) =>
+              `nav-link ${isActive ? "active" : ""} lg-hover`
+            }
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -68,10 +78,105 @@ function navbar() {
             </svg>
             <span>Shop</span>
           </NavLink>
-          <NavLink to="/about" className="item">
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              `nav-link ${isActive ? "active" : ""} lg-hover`
+            }
+          >
+            <svg
+              fill="#fff"
+              height="2rem"
+              width="2rem"
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 502.643 502.643"
+              xml:space="preserve"
+              stroke="#fff"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                {" "}
+                <g>
+                  {" "}
+                  <g>
+                    {" "}
+                    <path d="M251.256,237.591c37.166,0,67.042-30.048,67.042-66.977c0.043-37.037-29.876-66.999-67.042-66.999 c-36.908,0-66.869,29.962-66.869,66.999C184.387,207.587,214.349,237.591,251.256,237.591z"></path>{" "}
+                    <path d="M305.032,248.506H197.653c-19.198,0-34.923,17.602-34.923,39.194v107.854c0,1.186,0.604,2.243,0.669,3.473h175.823 c0.129-1.229,0.626-2.286,0.626-3.473V287.7C339.912,266.108,324.187,248.506,305.032,248.506z"></path>{" "}
+                    <path d="M431.588,269.559c29.832,0,53.754-24.008,53.754-53.668s-23.922-53.711-53.754-53.711 c-29.617,0-53.582,24.051-53.582,53.711C377.942,245.53,401.972,269.559,431.588,269.559z"></path>{" "}
+                    <path d="M474.708,278.317h-86.046c-15.445,0-28.064,14.107-28.064,31.472v86.413c0,0.928,0.453,1.812,0.518,2.826h141.03 c0.065-1.014,0.496-1.898,0.496-2.826v-86.413C502.707,292.424,490.11,278.317,474.708,278.317z"></path>{" "}
+                    <path d="M71.011,269.559c29.789,0,53.733-24.008,53.733-53.668S100.8,162.18,71.011,162.18c-29.638,0-53.603,24.051-53.603,53.711 S41.373,269.559,71.011,269.559L71.011,269.559z"></path>{" "}
+                    <path d="M114.109,278.317H27.977C12.576,278.317,0,292.424,0,309.789v86.413c0,0.928,0.453,1.812,0.539,2.826h141.03 c0.065-1.014,0.475-1.898,0.475-2.826v-86.413C142.087,292.424,129.489,278.317,114.109,278.317z"></path>{" "}
+                  </g>{" "}
+                  <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g>{" "}
+                  <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g>{" "}
+                  <g> </g>{" "}
+                </g>{" "}
+              </g>
+            </svg>
             About
           </NavLink>
-          <NavLink to="/contact" className="item">
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `nav-link ${isActive ? "active" : ""} lg-hover`
+            }
+          >
+            <svg
+              fill="#fff"
+              viewBox="0 0 64 64"
+              version="1.1"
+              xml:space="preserve"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              stroke="#fff"
+              height="2rem"
+              width="2rem"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                {" "}
+                <g id="_x32_5_attachment"></g> <g id="_x32_4_office"></g>{" "}
+                <g id="_x32_3_pin"></g> <g id="_x32_2_business_card"></g>{" "}
+                <g id="_x32_1_form"></g> <g id="_x32_0_headset"></g>{" "}
+                <g id="_x31_9_video_call"></g> <g id="_x31_8_letter_box"></g>{" "}
+                <g id="_x31_7_papperplane">
+                  {" "}
+                  <g>
+                    {" "}
+                    <g>
+                      {" "}
+                      <path d="M62.9891,2.5618c-0.0765-0.5779-0.6611-0.9805-1.2299-0.8401L7.4043,15.2065c-0.3535,0.0879-0.6318,0.3608-0.7256,0.7129 s0.0112,0.7275,0.2744,0.9795l13.9343,13.3583l-2.7649,17.1495c-0.1079,0.6712,0.4969,1.2576,1.1582,1.1445l18.0805-3.1324 l17.1832,9.6988c0.1523,0.0859,0.3218,0.1289,0.4917,0.1289c0.1523,0,0.3047-0.0347,0.4453-0.1045 c0.2969-0.1475,0.5015-0.4331,0.5459-0.7617l6.9639-51.5542C63.0031,2.7372,63.0007,2.6487,62.9891,2.5618z M9.647,16.7109 L56.8914,4.9902L22.2545,28.7978L9.647,16.7109z M36.9146,43.4663l-16.5942,2.875l2.4995-15.5054L58.8633,6.0615L36.9146,43.4663 z M54.2427,52.6504l-15.3231-8.6492l21.4231-36.509L54.2427,52.6504z"></path>{" "}
+                      <path d="M14.4438,51.6099l-4.6948,5.209c-0.3701,0.4102-0.3369,1.0425,0.0732,1.4121c0.1909,0.1724,0.4307,0.2573,0.6689,0.2573 c0.2734,0,0.5459-0.1113,0.7432-0.3306l4.6948-5.209c0.3701-0.4102,0.3369-1.0425-0.0732-1.4121 C15.4463,51.1675,14.8135,51.2002,14.4438,51.6099z"></path>{" "}
+                      <path d="M5.9478,29.0562l-4.6909,5.2085c-0.3696,0.4106-0.3364,1.043,0.0742,1.4126c0.1909,0.1719,0.4302,0.2568,0.6685,0.2568 c0.2739,0,0.5459-0.1113,0.7437-0.3311l4.6909-5.2085c0.3696-0.4106,0.3364-1.043-0.0742-1.4126 C6.9487,28.6128,6.3179,28.6455,5.9478,29.0562z"></path>{" "}
+                      <path d="M40.8164,55.4331l-4.6909,5.2051c-0.3701,0.4102-0.3369,1.0425,0.0732,1.4121c0.1909,0.1724,0.4307,0.2573,0.6689,0.2573 c0.2734,0,0.5459-0.1113,0.7432-0.3306l4.6909-5.2051c0.3701-0.4102,0.3369-1.0425-0.0732-1.4121 C41.8188,54.9907,41.186,55.0234,40.8164,55.4331z"></path>{" "}
+                    </g>{" "}
+                  </g>{" "}
+                </g>{" "}
+                <g id="_x31_6_laptop"></g> <g id="_x31_5_connection"></g>{" "}
+                <g id="_x31_4_phonebook"></g>{" "}
+                <g id="_x31_3_classic_telephone"></g>{" "}
+                <g id="_x31_2_sending_mail"></g> <g id="_x31_1_man_talking"></g>{" "}
+                <g id="_x31_0_date"></g> <g id="_x30_9_review"></g>{" "}
+                <g id="_x30_8_email"></g> <g id="_x30_7_information"></g>{" "}
+                <g id="_x30_6_phone_talking"></g>{" "}
+                <g id="_x30_5_women_talking"></g> <g id="_x30_4_calling"></g>{" "}
+                <g id="_x30_3_women"></g> <g id="_x30_2_writing"></g>{" "}
+                <g id="_x30_1_chatting"></g>{" "}
+              </g>
+            </svg>
             Contact
           </NavLink>
           <NavLink to="/login" id="account">
@@ -82,7 +187,6 @@ function navbar() {
           </NavLink>
         </div>
       </nav>
-      <div className="border"></div>
     </>
   );
 }

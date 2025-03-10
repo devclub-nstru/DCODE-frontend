@@ -2,8 +2,8 @@ import { useRef, useEffect } from "react";
 import "./Squares.css";
 
 const Squares = ({
-  direction = "right",
-  speed = 1,
+  direction = "up",
+  speed = 0.5,
   borderColor = "#999",
   squareSize = 40,
   hoverFillColor = "#222",

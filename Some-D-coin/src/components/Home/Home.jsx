@@ -1,6 +1,5 @@
 import React from "react";
 import "./Home.css";
-import Squares from "../Element/Squares";
 
 function Hero() {
   return (
@@ -44,7 +43,14 @@ function Hero() {
           </svg>
         </div>
         <div className="hero-txts">
-          <h1 className="main-txt">Welcome To The Era</h1>
+          <span className="main-txt">
+            <button id="Hero" data-text="Awesome">
+              <span class="actual-text">&nbsp;DevClub&nbsp;</span>
+              <span aria-hidden="true" class="hover-text">
+                &nbsp;DevClub&nbsp;
+              </span>
+            </button>
+          </span>
           <h3 className="sec-txt">Officially preparing things</h3>
         </div>
       </div>

@@ -3,14 +3,13 @@ import { Mail, Lock, User } from 'lucide-react';
 
 const styles = {
   authContainer: {
-    minHeight: '85vh',
-    background: 'linear-gradient(135deg, #004e92 0%, #000428 100%)',
+    minHeight: '100vh',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
   },
   authForm: {
-    background: 'white',
+    background: "rgb(25, 25, 25)",
     padding: '2rem',
     borderRadius: '1rem',
     boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
@@ -22,9 +21,9 @@ const styles = {
   formTitle: {
     textAlign: 'center',
     marginBottom: '2rem',
-    color: '#333',
+    color: '#fff',
     fontSize: '2rem',
-    fontWeight: 600,
+    fontWeight: 500,
   },
   formGroup: {
     marginBottom: '1.5rem',
@@ -53,6 +52,7 @@ const styles = {
   },
   formLink: {
     color: '#0056b3',
+    fontSize: "1rem",
     textDecoration: 'none',
     fontSize: '0.875rem',
     cursor: 'pointer',
@@ -68,14 +68,15 @@ const styles = {
     padding: '1rem',
     textAlign: 'center',
     cursor: 'pointer',
-    color: isActive ? '#0056b3' : '#666',
-    borderBottom: isActive ? '2px solid #0056b3' : 'none',
+    fontWeight: "600",
+    color: isActive ? '#0056b3' : '#999',
+    borderBottom: isActive ? '4px solid #0056b3' : 'none',
     transition: 'all 0.2s',
   }),
   formFooter: {
     textAlign: 'center',
     marginTop: '1.5rem',
-    fontSize: '0.875rem',
+    fontSize: '1rem',
     color: '#666',
   },
   iconContainer: {
