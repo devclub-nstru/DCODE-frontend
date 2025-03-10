@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./GitHubIssues.css"; // Make sure to create this CSS file
 
 const GitHubIssues = () => {
-  const [activeTab, setActiveTab] = useState("open");
+  const [activeTab, setActiveTab] = useState("Available");
   const [issues, setIssues] = useState([
     {
       id: 1,
@@ -222,16 +222,16 @@ const GitHubIssues = () => {
         <div className="tabs-container">
           <div className="tabs">
             <button
-              className={`tab ${activeTab === "open" ? "active" : ""}`}
-              onClick={() => setActiveTab("open")}
+              className={`tab ${activeTab === "Available" ? "active" : ""}`}
+              onClick={() => setActiveTab("Available")}
             >
-              Open <span className="count">15</span>
+              Available <span className="count">15</span>
             </button>
             <button
-              className={`tab ${activeTab === "closed" ? "active" : ""}`}
-              onClick={() => setActiveTab("closed")}
+              className={`tab ${activeTab === "Assigned" ? "active" : ""}`}
+              onClick={() => setActiveTab("Assigned")}
             >
-              Closed <span className="count">19</span>
+              Assigned <span className="count">19</span>
             </button>
           </div>
           <div className="filters">
@@ -302,7 +302,7 @@ const GitHubIssues = () => {
               {issue.labels.includes("assignment-available") && (
                 <button class="btn">
                   <span class="btn__visible">Buy Now</span>
-                  <span class="btn__invisible">
+                  <span class="btn__invisible ">
                     {" "}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

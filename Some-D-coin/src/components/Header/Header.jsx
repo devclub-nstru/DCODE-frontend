@@ -7,7 +7,9 @@ function navbar() {
     <>
       <nav id="nav-bar">
         <div className="logo">
-          <span id="logo">DCODE</span>
+          <a href="/#">
+            <span id="logo">DCODE</span>
+          </a>
         </div>
         <div className="nav-items">
           <NavLink to="/#" className="item">
@@ -69,10 +71,10 @@ function navbar() {
           <NavLink to="/about" className="item">
             About
           </NavLink>
-          <NavLink to="contact" className="item">
+          <NavLink to="/contact" className="item">
             Contact
           </NavLink>
-          <NavLink to="/#" id="account">
+          <NavLink to="/login" id="account">
             <img
               src="https://cdn.pixabay.com/photo/2022/06/05/07/04/person-7243410_1280.png"
               alt=""
