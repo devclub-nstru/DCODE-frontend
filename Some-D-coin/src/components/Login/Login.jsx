@@ -54,7 +54,7 @@ const styles = {
     color: '#0056b3',
     fontSize: "1rem",
     textDecoration: 'none',
-    fontSize: '0.875rem',
+    // fontSize: '0.875rem',
     cursor: 'pointer',
   },
   authTabs: {
