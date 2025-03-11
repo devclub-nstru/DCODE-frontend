@@ -13,9 +13,6 @@ export default function UserCard(props) {
           <div class="heading">
             A heading that must span over two lines 
             {/* {props.data} */}
-            <div class="author">
-              By <span class="name">User</span> 4 days ago
-            </div>
           </div>
         </a>
       </div>

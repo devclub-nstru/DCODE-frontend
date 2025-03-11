@@ -1,7 +1,7 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 .border {
   height: 1px;
@@ -9,94 +9,99 @@
   background-color: rgba(255, 255, 255, 0.507);
 }
 .footer {
-    margin: 1rem 0;
-    min-height: 10vh;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
+  padding: 0 2rem;
+  margin: 2rem 0;
+  min-height: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 #credits {
-    color: #c1c1c1;
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  color: #c1c1c1;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .footer-links {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    font-size: 1.75rem;
-    gap: 0.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  gap: 0.5rem;
 }
 .footer-links a {
-    text-decoration: none
-};
-
+  text-decoration: none;
+}
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
 /*     #############     Dikkkkkkaaaaaattttt */
 
 a {
-    opacity: 1;
+  opacity: 1;
 }
 
 /*     #############     Dikkkkkkaaaaaattttt */
 
 .button {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    background-color: rgb(20, 20, 20);
-    border: none;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
-    cursor: pointer;
-    transition-duration: 0.3s;
-    overflow: hidden;
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-  }
-  
-  .svgIcon {
-    width: 0.75rem;
-    transition-duration: 0.3s;
-  }
-  
-  .svgIcon path {
-    fill: white;
-  }
-  
-  .button:hover {
-    width: 7rem;
-    border-radius: 3.5rem;
-    transition-duration: 0.3s;
-    background-color: rgb(181, 160, 255);
-    align-items: center;
-  }
-  
-  .button:hover .svgIcon {
-    /* width: 20px; */
-    transition-duration: 0.3s;
-    transform: translateY(-200%);
-  }
-  
-  .button::before {
-    position: absolute;
-    bottom: -20px;
-    content: "Back to Top";
-    color: white;
-    /* transition-duration: .3s; */
-    font-size: 0px;
-  }
-  
-  .button:hover::before {
-    font-size: 0.8rem;
-    opacity: 1;
-    bottom: unset;
-    /* transform: translateY(-30px); */
-    transition-duration: 0.3s;
-  }
-  
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: rgb(0, 0, 0);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0rem;
+  right: 1rem;
+}
+
+.svgIcon {
+  width: 0.75rem;
+  transition-duration: 0.3s;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.button:hover {
+  width: 7rem;
+  border-radius: 3.5rem;
+  transition-duration: 0.3s;
+  background-color: #0e0e0e;
+  align-items: center;
+}
+
+.button:hover .svgIcon {
+  /* width: 20px; */
+  transition-duration: 0.3s;
+  transform: translateY(-200%);
+}
+
+.button::before {
+  position: absolute;
+  bottom: -20px;
+  content: "Back to Top";
+  color: white;
+  /* transition-duration: .3s; */
+  font-size: 0px;
+}
+
+.button:hover::before {
+  font-size: 0.8rem;
+  opacity: 1;
+  bottom: unset;
+  /* transform: translateY(-30px); */
+  transition-duration: 0.3s;
+}
