@@ -3,7 +3,7 @@ import { Mail, Lock, User } from 'lucide-react';
 
 const styles = {
   authContainer: {
-    minHeight: '100vh',
+    Height: 'auto',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',

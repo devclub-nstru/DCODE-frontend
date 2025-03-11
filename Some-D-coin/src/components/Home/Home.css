@@ -1,70 +1,160 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 #main-hero {
-    min-height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.507);
-}
-.hero-txts{
-    line-height: 1.6;
-    height: 100%;
-    text-align: start;
-}
-.main-txt {
-    font-size: 4rem;
-}
-.sec-txt{
-    font-size: 2rem;
+  padding-top: 15rem;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  text-align: center;
 }
 
-/* === removing default button style ===*/
-#Hero {
-    margin: 0;
-    height: auto;
-    background: transparent;
-    padding: 0;
-    border: none;
-    cursor: pointer;
-  }
+.live-btn {
+  font-family: "Inter", monospace;
+  font-size: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #82d48b30;
+  border-radius: 5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#live-txt {
+  box-shadow: 0 0 10px rgba(0, 255, 0, 1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 5rem;
+  background-color: #38e54c45;
+  color: #c8ffbd;
   
-  /* button styling */
-  #Hero {
-    --border-right: 6px;
-    --text-stroke-color: rgba(255,255,255,0.6);
-    --animation-color: #37FF8B;
-    --fs-size: 2em;
-    letter-spacing: 3px;
-    text-decoration: none;
-    font-size: var(--fs-size);
-    font-family: "Arial";
-    position: relative;
-    text-transform: uppercase;
-    /* color: transparent; */
-    -webkit-text-stroke: 1px var(--text-stroke-color);
-  }
-  /* this is the text, when you hover on button */
-  .hover-text {
-    position: absolute;
-    box-sizing: border-box;
-    content: attr(data-text);
-    color: var(--animation-color);
-    width: 0%;
-    inset: 0;
-    border-right: var(--border-right) solid var(--animation-color);
-    overflow: hidden;
-    transition: 0.5s;
-    -webkit-text-stroke: 1px var(--animation-color);
-  }
-  /* hover */
-  #Hero:hover .hover-text {
-    width: 100%;
-    filter: drop-shadow(0 0 23px var(--animation-color))
-  }
+}
+
+.heading #main-txt {
+  margin-top: 2rem;
+  font-family: "Inter", monospace;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.heading #sub-txt {
+  margin-top: 1rem;
+  font-family: "Fira Code", monospace;
+  font-size: 1rem;
+  color: #ffffff75;
+}
+
+.hero-img {
+  margin-top: 15rem;
+}
+
+/* New Section */
+
+.what {
+  padding-top: 15rem;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  text-align: center;
+  font-family: "Inter", monospace;
+  font-size: 2rem;
+}
+
+#what-bold {
+  font-weight: bold;
+}
+#what-sub {
+  color: #ffffff70;
+}
+
+
+.what-cards {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.kard {
+  border: 2px solid #ffffff25;
+  font-size: 1rem;
+  width: 25rem;
+  background: transparent;
+  padding: 0.6em;
+  padding-bottom: 2em;
+  border-radius: 0.5rem;
+  text-align: left;
+}
+
+.kard-image {
+  width: 100%;
+  height: 22rem;
+  border-radius: 0.25rem 0.25rem 0 0;
+  transition: 0.2s;
+}
+.kard-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.kard-image:hover {
+  transform: scale(1.015);
+}
+.kategory {
+  font-size: 1.25em;
+  font-weight: 600;
+  font-family: "Inter",monospace;
+
   
+  color: #ffffff;
+  padding: 0.5rem 0rem;
+}
+
+.kategory:hover {
+  cursor: pointer;
+}
+
+.explanation {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #888888;
+}
+
+.what-btn {
+  margin-top: 5rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  gap: 3rem;
+}
+.what-btn button {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Inter",monospace;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: .15rem;
+
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  gap: .5rem;
+  cursor: pointer;
+}
