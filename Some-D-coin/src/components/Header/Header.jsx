@@ -84,7 +84,7 @@ function navbar() {
               onRequestClose={() => setIsOpen(false)}
               style={{
                 content: {
-                  margin: "auto",
+                  margin: "auto 30rem",
                   textAlign: "center",
                   backgroundColor: "transparent",
                   border: "none",
@@ -96,7 +96,7 @@ function navbar() {
                 overlay: { backgroundColor: "rgba(0, 0, 0, 0.5)" },
               }}
             >
-              <button className="close-btn">Close</button>
+              <button className="close-btn"onClick={() => setIsOpen(false)}>Done</button>
               <Login/>
             </Modal>
 

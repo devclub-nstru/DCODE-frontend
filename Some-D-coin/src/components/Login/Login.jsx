@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode";
 import { Mail, Lock, User } from "lucide-react";
 
-const API_URL = "http://localhost:3000/api/auth";
+const API_URL = "https://dcode-backend-m801.onrender.com/api/auth";
 
 const styles = {
   authContainer: {
