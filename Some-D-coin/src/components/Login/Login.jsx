@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 import { Mail, Lock, User } from "lucide-react";
 
 const API_URL = "https://dcode-backend-m801.onrender.com/api/auth";
 
 const styles = {
   authContainer: {
-    Height: 'auto',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    minHeight: "100vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   authForm: {
     background: "rgb(25, 25, 25)",
@@ -91,6 +92,126 @@ const styles = {
   },
 };
 
+const LoginForm = ({ formData, handleInputChange, handleSubmit, loading, message, isLogin, handleGoogleSuccess, handleGoogleFailure }) => (
+  <form onSubmit={handleSubmit}>
+    <div style={styles.formGroup}>
+      <div style={styles.inputContainer}>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
+          style={styles.formInput}
+          placeholder="Email Address"
+          required
+        />
+        <Mail size={20} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
+      </div>
+    </div>
+    <div style={styles.formGroup}>
+      <div style={styles.inputContainer}>
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleInputChange}
+          style={styles.formInput}
+          placeholder="Password"
+          required
+        />
+        <Lock size={20} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
+      </div>
+    </div>
+    <button type="submit" style={styles.formButton} disabled={loading}>
+      {loading ? "Processing..." : "Login"}
+    </button>
+    
+    <div style={{ width: "100%", display: "flex", justifyContent: "center", marginBottom: "1rem" }}>
+      <div style={{ width: "100%" }}>
+        <GoogleLogin
+          onSuccess={handleGoogleSuccess}
+          onError={handleGoogleFailure}
+          text={isLogin ? "signin_with" : "signup_with"}
+          size="large"
+          width="100%"
+        />
+      </div>
+    </div>
+    
+    {message.text && (
+      <div style={message.isError ? styles.errorMessage : styles.successMessage}>
+        {message.text}
+      </div>
+    )}
+  </form>
+);
+
+const SignupForm = ({ formData, handleInputChange, handleSubmit, loading, message, isLogin, handleGoogleSuccess, handleGoogleFailure}) => (
+  <form onSubmit={handleSubmit}>
+    <div style={styles.formGroup}>
+      <div style={styles.inputContainer}>
+        <input
+          type="text"
+          name="username"
+          value={formData.username}
+          onChange={handleInputChange}
+          style={styles.formInput}
+          placeholder="Username"
+          required
+        />
+        <User size={20} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
+      </div>
+    </div>
+    <div style={styles.formGroup}>
+      <div style={styles.inputContainer}>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
+          style={styles.formInput}
+          placeholder="Email Address"
+          required
+        />
+        <Mail size={20} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
+      </div>
+    </div>
+    <div style={styles.formGroup}>
+      <div style={styles.inputContainer}>
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleInputChange}
+          style={styles.formInput}
+          placeholder="Password"
+          required
+        />
+        <Lock size={20} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
+      </div>
+    </div>
+    <button type="submit" style={styles.formButton} disabled={loading}>
+      {loading ? "Processing..." : "Sign Up"}
+    </button>
+    
+    <div style={{ width: "100%", marginBottom: "1rem" }}>
+      <GoogleLogin
+        onSuccess={handleGoogleSuccess}
+        onError={handleGoogleFailure}
+        text={isLogin ? "signin_with" : "signup_with"}
+        size="large"
+        width="100%"
+      />
+    </div>
+
+    {message.text && (
+      <div style={message.isError ? styles.errorMessage : styles.successMessage}>
+        {message.text}
+      </div>
+    )}
+  </form>
+);
+
 function Auth() {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
@@ -98,18 +219,28 @@ function Auth() {
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    setFormData({
+      username: "",
+      email: "",
+      password: "",
+    });
+    setMessage({ text: "", isError: false });
+  }, [isLogin]);
+
   const [message, setMessage] = useState({ text: "", isError: false });
   const [loading, setLoading] = useState(false);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = useCallback((e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [name]: value,
-    });
-  };
+    }));
+  }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
     setLoading(true);
     setMessage({ text: "", isError: false });
@@ -134,7 +265,6 @@ function Auth() {
         throw new Error(data.message || "Authentication failed");
       }
 
-      // Save token and redirect or update UI
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
       
@@ -143,7 +273,6 @@ function Auth() {
         isError: false,
       });
       
-      // Redirect logic would go here
       console.log("Authentication successful:", data);
       
     } catch (error) {
@@ -154,9 +283,9 @@ function Auth() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [isLogin, formData]);
 
-  const handleGoogleSuccess = async (credentialResponse) => {
+  const handleGoogleSuccess = useCallback(async (credentialResponse) => {
     setLoading(true);
     setMessage({ text: "", isError: false });
 
@@ -183,7 +312,6 @@ function Auth() {
         isError: false,
       });
       
-      // Redirect logic would go here
       console.log("Google authentication successful:", data);
       
     } catch (error) {
@@ -194,136 +322,15 @@ function Auth() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
-  const handleGoogleFailure = (error) => {
+  const handleGoogleFailure = useCallback((error) => {
     console.error("Google Sign-In Error:", error);
     setMessage({
       text: "Google sign-in failed. Please try again.",
       isError: true,
     });
-  };
-
-  const LoginForm = () => (
-    <form onSubmit={handleSubmit}>
-      <div style={styles.formGroup}>
-        <div style={styles.inputContainer}>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            style={styles.formInput}
-            placeholder="Email Address"
-            required
-          />
-          <Mail size={20} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
-        </div>
-      </div>
-      <div style={styles.formGroup}>
-        <div style={styles.inputContainer}>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-            style={styles.formInput}
-            placeholder="Password"
-            required
-          />
-          <Lock size={20} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
-        </div>
-      </div>
-      <button type="submit" style={styles.formButton} disabled={loading}>
-        {loading ? "Processing..." : "Login"}
-      </button>
-      
-      <div style={{ width: "100%", display: "flex", justifyContent: "center", marginBottom: "1rem" }}>
-        <div style={{ width: "100%" }}>
-          <GoogleLogin
-            onSuccess={handleGoogleSuccess}
-            onError={handleGoogleFailure}
-            text={isLogin ? "signin_with" : "signup_with"}
-            size="large"
-            width="100%"
-          />
-        </div>
-      </div>
-      
-      {message.text && (
-        <div style={message.isError ? styles.errorMessage : styles.successMessage}>
-          {message.text}
-        </div>
-      )}
-    </form>
-  );
-
-  const SignupForm = () => (
-    <form onSubmit={handleSubmit}>
-      <div style={styles.formGroup}>
-        <div style={styles.inputContainer}>
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleInputChange}
-            style={styles.formInput}
-            placeholder="Username"
-            required
-          />
-          <User size={20} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
-        </div>
-      </div>
-      <div style={styles.formGroup}>
-        <div style={styles.inputContainer}>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            style={styles.formInput}
-            placeholder="Email Address"
-            required
-          />
-          <Mail size={20} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
-        </div>
-      </div>
-      <div style={styles.formGroup}>
-        <div style={styles.inputContainer}>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-            style={styles.formInput}
-            placeholder="Password"
-            required
-          />
-          <Lock size={20} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
-        </div>
-      </div>
-      <button type="submit" style={styles.formButton} disabled={loading}>
-        {loading ? "Processing..." : "Sign Up"}
-      </button>
-      
-      <div style={{ width: "100%", marginBottom: "1rem" }}>
-      <GoogleLogin
-        onSuccess={handleGoogleSuccess}
-        onError={handleGoogleFailure}
-        text={isLogin ? "signin_with" : "signup_with"}
-        size="large"
-        width="100%"
-      />
-    </div>
-
-      
-      {message.text && (
-        <div style={message.isError ? styles.errorMessage : styles.successMessage}>
-          {message.text}
-        </div>
-      )}
-    </form>
-  );
+  }, []);
 
   return (
     <GoogleOAuthProvider clientId="853600226454-f3v5fo9iuhmf9d635gojskp6kufi3fjj.apps.googleusercontent.com">
@@ -333,11 +340,33 @@ function Auth() {
             <div style={styles.authTab(isLogin)} onClick={() => setIsLogin(true)}>Login</div>
             <div style={styles.authTab(!isLogin)} onClick={() => setIsLogin(false)}>Sign Up</div>
           </div>
-
+  
           <h1 style={styles.formTitle}>{isLogin ? "Welcome Back" : "Create Account"}</h1>
-
-          {isLogin ? <LoginForm /> : <SignupForm />}
-
+  
+          {isLogin ? (
+            <LoginForm
+              formData={formData}
+              handleInputChange={handleInputChange}
+              handleSubmit={handleSubmit}
+              loading={loading}
+              message={message}
+              isLogin={isLogin}
+              handleGoogleSuccess={handleGoogleSuccess}
+              handleGoogleFailure={handleGoogleFailure}
+            />
+          ) : (
+            <SignupForm
+              formData={formData}
+              handleInputChange={handleInputChange}
+              handleSubmit={handleSubmit}
+              loading={loading}
+              message={message}
+              isLogin={isLogin}
+              handleGoogleSuccess={handleGoogleSuccess}
+              handleGoogleFailure={handleGoogleFailure}
+            />
+          )}
+  
           <div style={styles.formFooter}>
             {isLogin ? (
               <p>
