@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Login from "../Login/Login";
 import Modal from "react-modal";
+import { X } from "lucide-react"
+import Auth from "../Login/Login"
 import "./Header.css";
 
 function navbar() {
@@ -13,8 +15,8 @@ function navbar() {
         <div className="logo">
           <a href="/#">
             <svg
-              width="3rem"
-              height="3rem"
+              width="2.5rem"
+              height="2.5rem"
               viewBox="0 0 29 28"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -55,14 +57,23 @@ function navbar() {
           >
             About
           </NavLink>
+
+          <NavLink
+            to="/leaderboard"
+            className={({ isActive }) =>
+              `nav-link ${isActive ? "active" : ""} lg-hover`
+            }
+          >
+            Leaderboard
+          </NavLink>
         </div>
 
         <div className="login">
           {" "}
           <button id="account" onClick={() => setIsOpen(true)}>
             <svg
-              width="2rem"
-              height="2rem"
+              width="27"
+              height="29"
               viewBox="0 0 21 18"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"

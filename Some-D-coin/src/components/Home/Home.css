@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 #main-hero {
-  padding-top: 15rem;
+  padding-top: 17.25rem;
   min-height: 100vh;
   width: 100vw;
   display: flex;
@@ -16,8 +16,9 @@
 
 .live-btn {
   font-family: "Inter", monospace;
-  font-size: 0.75rem;
-  padding: 0.5rem 0.75rem;
+  font-size: 0.45rem;
+  font-weight: 300;
+  padding: 0.35rem 0.75rem;
   border: 1px solid #82d48b30;
   border-radius: 5rem;
 
@@ -37,54 +38,57 @@
 }
 
 .heading #main-txt {
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-family: "Inter", monospace;
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: bold;
+  color: rgba(255, 255, 255, .91);
 }
 
 .heading #sub-txt {
-  margin-top: 1rem;
+  margin-top: .75rem;
   font-family: "Fira Code", monospace;
-  font-size: 1.25rem;
-  color: #ffffff75;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, .76);
 }
 
 .hero-img {
-  margin-top: 8rem;
+  margin-top: 6.3rem;
 }
 .hero-img img{
-  transform: scale(1.25);
+  transform: scale(1.21);
 }
 /* New Section */
 
 .what {
-  padding-top: 15rem;
+  padding-top: 16rem;
   min-height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
+
   /* justify-content: center; */
   align-items: center;
   text-align: center;
   font-family: "Inter", monospace;
-  font-size: 2rem;
+  font-size: 1.9rem;
 }
 
 #what-bold {
+  color: rgba(255, 255, 255, .9);
   font-weight: bold;
 }
 #what-sub {
-  color: #ffffff70;
+  color: rgba(255, 255, 255, .7);
 }
 
 
 .what-cards {
-  margin-top: 4rem;
+  margin-top: 3.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
+  gap: 2.4rem;
   flex-wrap: wrap;
   width: 100%;
 }
@@ -92,19 +96,19 @@
 .kard {
   border: 2px solid #ffffff25;
   font-size: 1rem;
-  width: 25rem;
+  width: 24rem;
   background: transparent;
-  padding: 1.5rem;
+  padding: 1.75rem 1.75rem;
   border-radius: 0.5rem;
   text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .kard-image {
   width: 100%;
-  height: 22rem;
+  height: 18rem;
   border-radius: 0.25rem 0.25rem 0 0;
   background-color: black;
   transition: 0.2s;
@@ -120,8 +124,8 @@
   transform: scale(1.015);
 }
 .kategory {
-  font-size: 1.25em;
-  font-weight: 600;
+  font-size: 1.5em;
+  font-weight: 500;
   font-family: "Inter",monospace;
   color: #ffffff;
 }
@@ -131,8 +135,9 @@
 }
 
 .explanation {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: .9rem;
+  line-height: 1.4;
+  font-weight: 400;
   color: #888888;
 }
 
@@ -145,11 +150,11 @@
   gap: 3rem;
 }
 .what-btn button {
-  padding: 0.75rem 1rem;
+  padding: 0.65rem .75rem;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 300;
   font-family: "Inter",monospace;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, .91);
   color: #000000;
   border: none;
   border-radius: 0.60rem;
@@ -172,12 +177,12 @@
 .what-btn2 button {
   padding: 1rem 1.5rem;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 500;
   font-family: "Inter",monospace;
   background-color: #ffffff;
   color: #000000;
   border: none;
-  border-radius: 0.60rem;
+  border-radius: 0.3rem;
   display: flex;
   justify-content: center;
   align-self: center;

@@ -10,9 +10,9 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.25rem;
+  font-size: .9rem;
   transition: all 0.2s ease-in-out;
-  color: #ffffff70;
+  color: rgba(255, 255, 255, .7);
 }
 
 .nav-link:hover {
@@ -30,8 +30,8 @@ a {
 }
 
 #nav-bar {
-  padding: 5rem 10rem;
-  height: 7vh;
+  padding: 0 15rem;
+  padding-top: 4rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -47,8 +47,9 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.25rem;
-  font-size: 2rem;
+  gap: 0.4rem;
+  font-size: 1.25rem;
+  font-weight: bolder;
   color: #ffffff;
 }
 
@@ -57,25 +58,18 @@ a {
   justify-content: space-between;
   align-items: center;
   /* width: 40%; */
-  gap: 2.5rem;
-}
-.nav-items .item {
-  padding: 0.5rem 0.5rem;
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.507);
-  border-radius: 0.25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 3rem;
 }
 
 
 #account {
-  font-size: 1.5rem;
+  font-size: .9rem;
+  font-family: "Fira Code",monospace;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff70;
+  gap: .25rem;
+  color: rgba(255, 255, 255, .7);
   background-color: transparent;
   border: none;
   cursor: pointer;
