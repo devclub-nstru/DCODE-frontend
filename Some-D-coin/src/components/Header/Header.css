@@ -30,8 +30,8 @@ a {
 }
 
 #nav-bar {
-  padding: 0 15rem;
-  padding-top: 4rem;
+  padding: 0 5rem;
+  padding-top: 2rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
