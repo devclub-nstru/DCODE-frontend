@@ -1,0 +1,26 @@
+.event-timeline {
+    padding-left: 17rem;
+    padding-right: 17rem;
+  }
+  
+  .timeline-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: "Inter",monospace;
+
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .timeline-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 1.5rem 0 2.5rem 0;
+  }
+  
+  .timeline-items {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+    gap: 4rem;
+  }

@@ -1,0 +1,63 @@
+*{
+    font-family: "Inter",monospace;
+}
+
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .timeline-content {
+    flex: 1;
+  }
+  
+  .timeline-id {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0.5rem;
+  }
+  
+  .timeline-item-title {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .timeline-date {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+  }
+  
+  .timeline-description {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 80%;
+  }
+  
+  .ascii-art {
+    font-family: monospace;
+    white-space: pre;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.7rem;
+    margin-left: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .timeline-item {
+      flex-direction: column;
+    }
+  
+    .timeline-description {
+      max-width: 100%;
+    }
+  
+    .ascii-art {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
+  }
