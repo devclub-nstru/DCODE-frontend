@@ -20,6 +20,25 @@ function Hero() {
             it, and grow
           </p>
         </div>
+        <div className="what-btn">
+          <button>
+            Get Started
+            <svg
+              width="1rem"
+              height="1rem"
+              viewBox="0 0 15 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M5.38633 0.461182H4.55337V2.30698H5.38633H11.705L1.46546 13.6521L0.876465 14.3047L2.05446 15.6099L2.64346 14.9572L12.8817 3.61358V10.6131V11.536H14.5476V10.6131V1.69171C14.5476 1.01212 14.0504 0.461182 13.437 0.461182H5.38633Z"
+                fill="black"
+              />
+            </svg>
+          </button>
+        </div>
         <div className="hero-img">
           <img src={HeroImg} alt="" />
         </div>
@@ -34,7 +53,7 @@ function Hero() {
         <div className="what-cards">
           <div class="kard">
             <div class="kard-image">
-              <img src={CardOne} alt="No-img-found" />
+              <img alt="No-img-found" />
             </div>
             <div class="kategory">Pick your challenge</div>
             <div class="explanation">
@@ -45,7 +64,7 @@ function Hero() {
 
           <div class="kard">
             <div class="kard-image">
-              <img src={CardTwo} alt="No-img-found" />
+              <img alt="No-img-found" />
             </div>
             <div class="kategory">Contribute & Earn</div>
             <div class="explanation">
@@ -56,7 +75,7 @@ function Hero() {
 
           <div class="kard">
             <div class="kard-image">
-              <img src={CardThree} alt="No-img-found" />
+              <img alt="No-img-found" />
             </div>
             <div class="kategory">Build Your Reputation</div>
             <div class="explanation">
@@ -66,13 +85,13 @@ function Hero() {
           </div>
         </div>
 
-        <div className="what-btn">
+        <div className="what-btn2">
           <button>
             Get Started
             <svg
-              width="1rem"
-              height="1rem"
-              viewBox="0 0 15 16"
+              width="1.25rem"
+              height="1.25rem"
+              viewBox="0 0 15 10"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >

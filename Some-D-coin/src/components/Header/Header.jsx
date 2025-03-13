@@ -13,8 +13,8 @@ function navbar() {
         <div className="logo">
           <a href="/#">
             <svg
-              width="29"
-              height="28"
+              width="3rem"
+              height="3rem"
               viewBox="0 0 29 28"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -61,8 +61,8 @@ function navbar() {
           {" "}
           <button id="account" onClick={() => setIsOpen(true)}>
             <svg
-              width="21"
-              height="18"
+              width="2rem"
+              height="2rem"
               viewBox="0 0 21 18"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,6 @@ function navbar() {
               onRequestClose={() => setIsOpen(false)}
               style={{
                 content: {
-                  margin: "auto",
                   textAlign: "center",
                   backgroundColor: "transparent",
                   border: "none",
@@ -96,7 +95,6 @@ function navbar() {
                 overlay: { backgroundColor: "rgba(0, 0, 0, 0.5)" },
               }}
             >
-              <button className="close-btn">Close</button>
               <Login/>
             </Modal>
 
