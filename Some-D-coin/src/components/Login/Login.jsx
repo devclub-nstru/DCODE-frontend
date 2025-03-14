@@ -2,8 +2,9 @@ import React, { useState, useCallback, useEffect } from "react";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import { Mail, Lock, User } from "lucide-react";
-
-const API_URL = "https://dcode-backend-m801.onrender.com/api/auth";
+import { signInWithGoogle } from "../../tools/firebase";
+const API_URL = "http://localhost:4000/api/auth";
+import { FcGoogle } from "react-icons/fc";
 
 const styles = {
   authContainer: {
@@ -42,22 +43,22 @@ const styles = {
     outline: "none",
   },
   formButton: {
-    width: '100%',
-    padding: '0.75rem',
-    background: '#0056b3',
-    color: 'white',
-    border: 'none',
-    borderRadius: '0.5rem',
-    fontSize: '1.5rem',
-    cursor: 'pointer',
-    transition: 'background-color 0.2s',
+    width: "100%",
+    padding: "0.75rem",
+    background: "#0056b3",
+    color: "white",
+    border: "none",
+    borderRadius: "0.5rem",
+    fontSize: "1.5rem",
+    cursor: "pointer",
+    transition: "background-color 0.2s",
   },
   formLink: {
-    color: '#0056b3',
+    color: "#0056b3",
     fontSize: "1rem",
-    textDecoration: 'none',
+    textDecoration: "none",
     // fontSize: '0.875rem',
-    cursor: 'pointer',
+    cursor: "pointer",
   },
   authTabs: {
     display: "flex",
@@ -96,123 +97,69 @@ const styles = {
   },
 };
 
-const LoginForm = ({ formData, handleInputChange, handleSubmit, loading, message, isLogin, handleGoogleSuccess, handleGoogleFailure }) => (
-  <form onSubmit={handleSubmit}>
-    <div style={styles.formGroup}>
-      <div style={styles.inputContainer}>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-          style={styles.formInput}
-          placeholder="Email Address"
-          required
-        />
-        <Mail size={20} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
+const LoginForm = ({
+  formData,
+  handleInputChange,
+  handleSubmit,
+  loading,
+  message,
+  isLogin,
+  handleGoogleSuccess,
+  handleGoogleFailure,
+}) => (
+  <form className="w-[25rem]" onSubmit={(f) => f.preventDefault()}>
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        marginBottom: "1rem",
+      }}
+    >
+      <div className="w-full h-full">
+        <button
+          type="submit"
+          onClick={() => signInWithGoogle(API_URL + "/google")}
+          className="flex cursor-pointer items-center gap-[1rem] justify-center w-full h-[3rem] py-3 px-4 border-2 border-gray-300 rounded-lg shadow-sm bg-white hover:bg-gray-200 transition duration-200"
+        >
+          <FcGoogle className="text-2xl mr-2" />
+          <span className="font-medium text-black">Sign in with Google</span>
+        </button>
       </div>
     </div>
-    <div style={styles.formGroup}>
-      <div style={styles.inputContainer}>
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleInputChange}
-          style={styles.formInput}
-          placeholder="Password"
-          required
-        />
-        <Lock size={20} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
-      </div>
-    </div>
-    <button type="submit" style={styles.formButton} disabled={loading}>
-      {loading ? "Processing..." : "Login"}
-    </button>
-    
-    <div style={{ width: "100%", display: "flex", justifyContent: "center", marginBottom: "1rem" }}>
-      <div style={{ width: "100%" }}>
-        <GoogleLogin
-          onSuccess={handleGoogleSuccess}
-          onError={handleGoogleFailure}
-          text={isLogin ? "signin_with" : "signup_with"}
-          size="large"
-          width="100%"
-        />
-      </div>
-    </div>
-    
-    {message.text && (
-      <div style={message.isError ? styles.errorMessage : styles.successMessage}>
-        {message.text}
-      </div>
-    )}
   </form>
 );
 
-const SignupForm = ({ formData, handleInputChange, handleSubmit, loading, message, isLogin, handleGoogleSuccess, handleGoogleFailure}) => (
-  <form onSubmit={handleSubmit}>
-    <div style={styles.formGroup}>
-      <div style={styles.inputContainer}>
-        <input
-          type="text"
-          name="username"
-          value={formData.username}
-          onChange={handleInputChange}
-          style={styles.formInput}
-          placeholder="Username"
-          required
-        />
-        <User size={20} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
+const SignupForm = ({
+  formData,
+  handleInputChange,
+  handleSubmit,
+  loading,
+  message,
+  isLogin,
+  handleGoogleSuccess,
+  handleGoogleFailure,
+}) => (
+  <form onSubmit={(f) => f.preventDefault()} className="w-[25rem]">
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        marginBottom: "1rem",
+      }}
+    >
+      <div className="w-full h-full">
+        <button
+          type="button"
+          onClick={() => signInWithGoogle(API_URL + "/google")}
+          className="flex cursor-pointer items-center gap-[1rem] justify-center w-full h-[3rem] py-3 px-4 border-2 border-gray-300 rounded-lg shadow-sm bg-white hover:bg-gray-200 transition duration-200"
+        >
+          <FcGoogle className="text-2xl mr-2" />
+          <span className="font-medium text-black">Sign up with Google</span>
+        </button>
       </div>
     </div>
-    <div style={styles.formGroup}>
-      <div style={styles.inputContainer}>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-          style={styles.formInput}
-          placeholder="Email Address"
-          required
-        />
-        <Mail size={20} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
-      </div>
-    </div>
-    <div style={styles.formGroup}>
-      <div style={styles.inputContainer}>
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleInputChange}
-          style={styles.formInput}
-          placeholder="Password"
-          required
-        />
-        <Lock size={20} style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
-      </div>
-    </div>
-    <button type="submit" style={styles.formButton} disabled={loading}>
-      {loading ? "Processing..." : "Sign Up"}
-    </button>
-    
-    <div style={{ width: "100%", marginBottom: "1rem" }}>
-      <GoogleLogin
-        onSuccess={handleGoogleSuccess}
-        onError={handleGoogleFailure}
-        text={isLogin ? "signin_with" : "signup_with"}
-        size="large"
-        width="100%"
-      />
-    </div>
-
-    {message.text && (
-      <div style={message.isError ? styles.errorMessage : styles.successMessage}>
-        {message.text}
-      </div>
-    )}
   </form>
 );
 
@@ -244,50 +191,52 @@ function Auth() {
     }));
   }, []);
 
-  const handleSubmit = useCallback(async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setMessage({ text: "", isError: false });
+  const handleSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+      setLoading(true);
+      setMessage({ text: "", isError: false });
 
-    try {
-      const endpoint = isLogin ? `${API_URL}/signin` : `${API_URL}/signup`;
-      const dataToSend = isLogin
-        ? { email: formData.email, password: formData.password }
-        : formData;
+      try {
+        const endpoint = isLogin ? `${API_URL}/signin` : `${API_URL}/signup`;
+        const dataToSend = isLogin
+          ? { email: formData.email, password: formData.password }
+          : formData;
 
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(dataToSend),
-      });
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(dataToSend),
+        });
 
-      const data = await response.json();
+        const data = await response.json();
 
-      if (!response.ok) {
-        throw new Error(data.message || "Authentication failed");
+        if (!response.ok) {
+          throw new Error(data.message || "Authentication failed");
+        }
+
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+
+        setMessage({
+          text: isLogin ? "Login successful!" : "Account created successfully!",
+          isError: false,
+        });
+
+        console.log("Authentication successful:", data);
+      } catch (error) {
+        setMessage({
+          text: error.message || "An error occurred",
+          isError: true,
+        });
+      } finally {
+        setLoading(false);
       }
-
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
-      
-      setMessage({
-        text: isLogin ? "Login successful!" : "Account created successfully!",
-        isError: false,
-      });
-      
-      console.log("Authentication successful:", data);
-      
-    } catch (error) {
-      setMessage({
-        text: error.message || "An error occurred",
-        isError: true,
-      });
-    } finally {
-      setLoading(false);
-    }
-  }, [isLogin, formData]);
+    },
+    [isLogin, formData]
+  );
 
   const handleGoogleSuccess = useCallback(async (credentialResponse) => {
     setLoading(true);
@@ -310,14 +259,13 @@ function Auth() {
 
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
-      
+
       setMessage({
         text: "Google login successful!",
         isError: false,
       });
-      
+
       console.log("Google authentication successful:", data);
-      
     } catch (error) {
       setMessage({
         text: error.message || "An error occurred",
@@ -341,12 +289,24 @@ function Auth() {
       <div style={styles.authContainer}>
         <div style={styles.authForm}>
           <div style={styles.authTabs}>
-            <div style={styles.authTab(isLogin)} onClick={() => setIsLogin(true)}>Login</div>
-            <div style={styles.authTab(!isLogin)} onClick={() => setIsLogin(false)}>Sign Up</div>
+            <div
+              style={styles.authTab(isLogin)}
+              onClick={() => setIsLogin(true)}
+            >
+              Login
+            </div>
+            <div
+              style={styles.authTab(!isLogin)}
+              onClick={() => setIsLogin(false)}
+            >
+              Sign Up
+            </div>
           </div>
-  
-          <h1 style={styles.formTitle}>{isLogin ? "Welcome Back" : "Create Account"}</h1>
-  
+
+          <h1 style={styles.formTitle}>
+            {isLogin ? "Welcome Back" : "Create Account"}
+          </h1>
+
           {isLogin ? (
             <LoginForm
               formData={formData}
@@ -370,17 +330,27 @@ function Auth() {
               handleGoogleFailure={handleGoogleFailure}
             />
           )}
-  
+
           <div style={styles.formFooter}>
             {isLogin ? (
               <p>
                 Don't have an account?{" "}
-                <span style={{ color: "#0056b3", cursor: "pointer" }} onClick={() => setIsLogin(false)}>Sign up now</span>
+                <span
+                  style={{ color: "#0056b3", cursor: "pointer" }}
+                  onClick={() => setIsLogin(false)}
+                >
+                  Sign up now
+                </span>
               </p>
             ) : (
               <p>
                 Already have an account?{" "}
-                <span style={{ color: "#0056b3", cursor: "pointer" }} onClick={() => setIsLogin(true)}>Login here</span>
+                <span
+                  style={{ color: "#0056b3", cursor: "pointer" }}
+                  onClick={() => setIsLogin(true)}
+                >
+                  Login here
+                </span>
               </p>
             )}
           </div>
