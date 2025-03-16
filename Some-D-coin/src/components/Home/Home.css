@@ -43,6 +43,8 @@
   font-size: 3rem;
   font-weight: bold;
   color: rgba(255, 255, 255, .91);
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards;
 }
 
 .heading #sub-txt {
@@ -50,6 +52,17 @@
   font-family: "Fira Code", monospace;
   font-size: 1.1rem;
   color: rgba(255, 255, 255, .76);
+  opacity: 0;
+  animation: fadeIn 2s ease-in .5s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
 }
 
 .hero-img {
@@ -190,6 +203,5 @@
   cursor: pointer;
 }
 .event{
-  margin-top: 10rem;
   margin-bottom: 10rem;
 }

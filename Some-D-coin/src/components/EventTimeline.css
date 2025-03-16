@@ -1,6 +1,9 @@
 .event-timeline {
     padding-left: 8rem;
     padding-right: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .timeline-title {
@@ -17,7 +20,11 @@
     background-color: rgba(255, 255, 255, 0.2);
     margin: 1.5rem 0 2.5rem 0;
   }
-  
+  .line {
+    height: 20vh;
+    width: 2px;
+    background-color: rgb(125, 125, 125);
+  }
   .timeline-items {
     display: flex;
     flex-direction: column;

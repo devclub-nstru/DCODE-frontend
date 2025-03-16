@@ -65,6 +65,7 @@ function EventTimeline() {
     <div className="event-timeline">
       <h1 className="timeline-title">Event Timeline</h1>
       <div className="timeline-divider"></div>
+      <div className="line"></div>
       <div className="timeline-items">
         {events.map((event, index) => (
           <TimelineItem

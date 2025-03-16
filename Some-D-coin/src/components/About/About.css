@@ -5,7 +5,9 @@
 }
 .container {
     min-height: 100vh;
-    padding: 2rem 2rem;
+    width: 100%;
+    padding-top: 10vh;
+    padding-bottom: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
