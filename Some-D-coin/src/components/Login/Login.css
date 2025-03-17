@@ -86,3 +86,39 @@
     color: #0056b3;
     cursor: pointer;
   }
+
+
+
+
+  @media (max-width: 480px) {
+    .auth-container {
+      height: auto;
+
+    }
+  
+    .auth-box {
+      padding: 1.5rem;
+    }
+  
+    .auth-title {
+      font-size: 1.5rem; /* Reduce title font size */
+    }
+  
+    .auth-tab {
+      font-size: 0.9rem; /* Reduce tab font size */
+      padding: 0.8rem;
+    }
+  
+    .google-btn {
+      height: 2.5rem;
+      font-size: 0.9rem;
+    }
+  
+    .google-icon {
+      font-size: 1.2rem;
+    }
+  
+    .auth-footer {
+      font-size: 0.85rem;
+    }
+  }

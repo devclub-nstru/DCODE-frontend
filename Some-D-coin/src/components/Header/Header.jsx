@@ -90,6 +90,7 @@ function navbar() {
           </button>
           <div>
             <Modal
+              className="modal"
               isOpen={isOpen}
               onRequestClose={() => setIsOpen(false)}
               style={{
@@ -120,8 +121,8 @@ function navbar() {
                 onClick={() => setIsOpen(false)}
                 style={{
                   position: "absolute",
-                  top:"30%",
-                  left:"80%",
+                  top:"28%",
+                  left:"61%",
                   background: "transparent",
                   border: "none",
                   cursor: "pointer",

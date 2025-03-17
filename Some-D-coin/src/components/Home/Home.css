@@ -259,3 +259,48 @@
   }
   
 }
+
+
+
+
+
+@media (max-width: 480px) {
+  #main-hero {
+    padding-top: 5rem;
+    min-height: 70vh;
+  }
+
+  .heading #main-txt {
+    font-size: 1.8rem; /* Reduce heading size for smaller screens */
+  }
+
+  .heading #sub-txt {
+    font-size: 0.75rem;
+  }
+
+  .hero-img {
+    margin-top: -3rem;
+    width: 90%;
+  }
+
+  .what {
+    font-size: 1rem; /* Further adjust font size */
+  }
+
+  .kard {
+    width: 16rem; /* Reduce card width */
+    padding: 1rem;
+  }
+
+  .what-btn,
+  .what-btn2 {
+    flex-direction: column; /* Stack buttons */
+    gap: 0.8rem;
+  }
+
+  .what-btn button,
+  .what-btn2 button {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.9rem;
+  }
+}

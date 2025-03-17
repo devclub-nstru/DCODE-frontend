@@ -32,3 +32,30 @@
 .elements {
   display: flex;
 }
+
+@media (max-width: 480px) {
+  .event-timeline {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .timeline-title {
+    font-size: 1.8rem; /* Reduce title size */
+    padding-left: 1rem;
+    text-align: center;
+  }
+
+  .timeline-divider {
+    margin: 1rem 0 2rem 0;
+  }
+
+  .timeline-items {
+    padding-left: 1rem;
+    gap: 2rem; /* Reduce gap between items */
+  }
+
+  .elements {
+    flex-direction: column; /* Stack elements */
+    align-items: center;
+  }
+}

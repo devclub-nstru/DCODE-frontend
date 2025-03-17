@@ -143,3 +143,61 @@ a {
     left: 80% !important;
   }
 }
+
+
+
+
+@media (max-width: 480px) {
+  #nav-bar {
+    padding: 0.8rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .nav-items {
+    display: none; /* Hide nav items by default */
+    flex-direction: column;
+    position: absolute;
+    top: 3.5rem;
+    right: 0;
+    width: 100%;
+    background-color: #000000cc;
+    backdrop-filter: blur(5px);
+    padding: 0.8rem 0;
+    text-align: center;
+  }
+
+  .nav-items.active {
+    display: flex; /* Show nav when active */
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hamburger div {
+    width: 1.3rem;
+    height: 2.5px;
+    background-color: white;
+    margin: 0.2rem;
+  }
+
+  .close-btn {
+    top: 28% !important;
+    left: 75% !important;
+    font-size: 0.9rem;
+    padding: 0.6rem 0.9rem;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+  }
+
+  .logo a {
+    font-size: 1.1rem;
+  }
+  .modal {
+    max-width: 100% !important;
+  }
+}
