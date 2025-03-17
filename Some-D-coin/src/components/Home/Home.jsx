@@ -12,7 +12,7 @@ function Hero() {
       <div id="main-hero">
         <div className="live-btn">
           <span id="live-txt">Live</span>
-          <span>Get Started</span>
+          <span>24 March 2025</span>
         </div>
         <div className="heading">
           <p id="main-txt">Code for impact, contribute for change</p>
@@ -40,8 +40,14 @@ function Hero() {
             </svg>
           </button>
         </div>
-        <div className="hero-img">
-          <img src={HeroImg} alt="" />
+        <div
+          className="hero-img"
+          data-aos="fade-up"
+          data-aos-duration={1500}
+          data-aos-delay={200}
+          data-aos-easing="ease-in-sine"
+        >
+          <img src={"/public/Macbook.png"} alt="" />
         </div>
       </div>
 
@@ -87,7 +93,7 @@ function Hero() {
         </div>
       </section>
       <div className="event">
-      <EventTimeline />
+        <EventTimeline />
       </div>
     </>
   );
