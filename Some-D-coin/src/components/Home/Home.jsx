@@ -52,15 +52,19 @@ function Hero() {
       </div>
 
       <section className="what">
-        <div className="what-heading">
+        <div className="what-heading" data-aos="fade-in">
           <span id="what-bold">What is DCODE? </span>
           <span id="what-sub">Everything you need to know</span>
         </div>
 
         <div className="what-cards">
-          <div class="kard">
+          <div class="kard !rounded-lg" data-aos="fade-up" data-aos-delay="0">
             <div class="kard-image">
-              <img alt="No-img-found" />
+              <img
+                className="rounded-md"
+                alt="No-img-found"
+                src="/Pick_Your_challange.jpeg"
+              />
             </div>
             <div class="kategory">Pick your challenge</div>
             <div class="explanation">
@@ -69,9 +73,13 @@ function Hero() {
             </div>
           </div>
 
-          <div class="kard">
+          <div class="kard !rounded-lg" data-aos="fade-up" data-aos-delay="100">
             <div class="kard-image">
-              <img alt="No-img-found" />
+              <img
+                className="rounded-md"
+                alt="No-img-found"
+                src="/contribute_earn.jpeg"
+              />
             </div>
             <div class="kategory">Contribute & Earn</div>
             <div class="explanation">
@@ -80,9 +88,13 @@ function Hero() {
             </div>
           </div>
 
-          <div class="kard">
+          <div class="kard !rounded-lg" data-aos="fade-up" data-aos-delay="200">
             <div class="kard-image">
-              <img alt="No-img-found" />
+              <img
+                className="rounded-md"
+                alt="No-img-found"
+                src="/build_your_reputation.jpeg"
+              />
             </div>
             <div class="kategory">Build Your Reputation</div>
             <div class="explanation">
@@ -92,7 +104,7 @@ function Hero() {
           </div>
         </div>
       </section>
-      <div className="event">
+      <div className="event !mt-[5rem]">
         <EventTimeline />
       </div>
     </>

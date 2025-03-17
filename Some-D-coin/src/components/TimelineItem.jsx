@@ -2,7 +2,12 @@ import "./TimelineItem.css";
 
 function TimelineItem({ id, title, date, description, showAsciiArt }) {
   return (
-    <div className="timeline-item">
+    <div
+      className="timeline-item"
+      data-aos="fade-right"
+      data-aos-duration="300"
+      data-aos-easing="ease-out"
+    >
       <div className="timeline-content">
         <div className="timeline-id">{id}.</div>
         <h2 className="timeline-item-title">{title}</h2>
@@ -10,7 +15,7 @@ function TimelineItem({ id, title, date, description, showAsciiArt }) {
         <p className="timeline-description">{description}</p>
       </div>
       {showAsciiArt && (
-        <div className="ascii-art">
+        <div className="ascii-art" data-aos="fade-in" data-aos-delay="200">
           <svg
             width="213"
             height="177"

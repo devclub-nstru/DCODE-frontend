@@ -4,7 +4,7 @@ import "./Footer.css";
 function Footer() {
   return (
     <>
-      <div className="border"></div>
+      <div className="border !bg-slate-700 opacity-20 !h-[1px]"></div>
       <div className="footer">
         <span id="credits">© 2025 DOCDE. All Rights Reserved.</span>
 
@@ -17,8 +17,8 @@ function Footer() {
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
                 y="0px"
-                width="2.5rem"
-                height="2.5rem"
+                width="2rem"
+                height="2rem"
                 viewBox="0 0 30 30"
                 fill="white"
               >
@@ -33,8 +33,8 @@ function Footer() {
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
                 y="0px"
-                width="2.5rem"
-                height="2.5rem"
+                width="2rem"
+                height="2rem"
                 viewBox="0 0 50 50"
                 fill="white"
               >
@@ -49,8 +49,8 @@ function Footer() {
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
                 y="0px"
-                width="2.5rem"
-                height="2.5rem"
+                width="2rem"
+                height="2rem"
                 viewBox="0 0 50 50"
                 fill="white"
               >

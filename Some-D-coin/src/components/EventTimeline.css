@@ -1,35 +1,34 @@
 .event-timeline {
-    padding-left: 8rem;
-    padding-right: 8rem;
-  }
-  
-  .timeline-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    font-family: "Inter",monospace;
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
 
-    padding-left: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .timeline-divider {
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.2);
-    margin: 1.5rem 0 2.5rem 0;
-  }
-  .line{
-    width: 2px;
-    height: 200vh;
-    background-color: rgb(149, 149, 149);
-  }
-  .timeline-items {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    padding-left: 2rem;
-    gap: 4rem;
-  }
-  .elements {
-    display: flex;
+.timeline-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: "Inter", monospace;
 
-  }
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.timeline-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 1.5rem 0 2.5rem 0;
+}
+.line {
+  width: 1px;
+  /* height: 100%; */
+  background-color: rgb(149, 149, 149);
+}
+.timeline-items {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-left: 2rem;
+  gap: 4rem;
+}
+.elements {
+  display: flex;
+}

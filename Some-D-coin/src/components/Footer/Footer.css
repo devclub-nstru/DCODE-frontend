@@ -3,11 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
-.border {
+/* .border {
   height: 1px;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.507);
-}
+} */
 .footer {
   padding: 0 2rem;
   margin: 2rem 0;
