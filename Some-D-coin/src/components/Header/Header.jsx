@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Login from "../Login/Login";
 import Modal from "react-modal";
-import { X } from "lucide-react"
-import Auth from "../Login/Login"
+import { X } from "lucide-react";
+import Auth from "../Login/Login";
 import "./Header.css";
 
 function navbar() {
@@ -41,7 +41,7 @@ function navbar() {
           </NavLink>
 
           <NavLink
-            to="/shop"
+            to="/#"
             className={({ isActive }) =>
               `nav-link ${isActive ? "active" : ""} lg-hover`
             }
@@ -59,7 +59,7 @@ function navbar() {
           </NavLink>
 
           <NavLink
-            to="/leaderboard"
+            to="/#"
             className={({ isActive }) =>
               `nav-link ${isActive ? "active" : ""} lg-hover`
             }
@@ -89,7 +89,6 @@ function navbar() {
             <span>Login</span>
           </button>
           <div>
-
             <Modal
               isOpen={isOpen}
               onRequestClose={() => setIsOpen(false)}
@@ -98,22 +97,57 @@ function navbar() {
                   textAlign: "center",
                   backgroundColor: "transparent",
                   border: "none",
-                  display:"flex",
-                  flexDirection:"column",
-                  justifyContent:"center",
-                  alignItems:"center",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "90%", // Responsive width
+                  maxWidth: "40%", // Limit max width
+                  padding: "1rem", // Minimal padding
+                  margin:"0 auto",
                 },
-                overlay: { backgroundColor: "rgba(0, 0, 0, 0.5)" },
+                overlay: {
+                  backgroundColor: "rgba(0, 0, 0, 0.5)",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                },
               }}
             >
-              <Login/>
-            </Modal>
+              {/* Close Button */}
+              <button
+              className="close-btn"
+                onClick={() => setIsOpen(false)}
+                style={{
+                  position: "absolute",
+                  top:"30%",
+                  left:"80%",
+                  background: "transparent",
+                  border: "none",
+                  cursor: "pointer",
+                  color: "#fff",
+                  fontSize: "1.5rem",
+                }}
+              >
+                <X size={40} />
+              </button>
 
+              <Login />
+            </Modal>
           </div>
+        </div>
+        <div class="hamburger" onClick="toggleMenu()">
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
       </nav>
     </>
   );
+}
+
+function toggleMenu() {
+  document.querySelector(".nav-items").classList.toggle("active");
 }
 
 export default navbar;

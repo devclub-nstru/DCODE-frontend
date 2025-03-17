@@ -1,8 +1,4 @@
 import React from "react";
-import HeroImg from "../../assets/Hero-img.png";
-import CardOne from "../../assets/CardImg1.png";
-import CardTwo from "../../assets/CardImg2.png";
-import CardThree from "../../assets/CardImg3.png";
 import EventTimeline from "../EventTimeline";
 import "./Home.css";
 
