@@ -4,6 +4,7 @@ import Login from "../Login/Login";
 import Modal from "react-modal";
 import { X } from "lucide-react";
 import Auth from "../Login/Login";
+import dGif from "../../../public/3dgifmaker07456.gif";
 import "./Header.css";
 
 function navbar() {
@@ -67,6 +68,21 @@ function navbar() {
             About
           </NavLink>
         </div>
+        <div className="your-acc">
+          <div className="xp-counter">
+            <div className="xp-icon">
+              <img src={dGif} alt="Loading Animation" className="btn-gif" />
+            </div>
+            <div className="xp-value">13,165</div>
+          </div>
+          <div className="profile">
+              <img
+                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+                alt="Profile"
+                className="profile-image"
+              />
+            </div>
+        </div>
 
         <div className="login">
           {" "}
@@ -105,7 +121,7 @@ function navbar() {
                   width: "90%", // Responsive width
                   maxWidth: "40%", // Limit max width
                   padding: "1rem", // Minimal padding
-                  margin:"0 auto",
+                  margin: "0 auto",
                 },
                 overlay: {
                   backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -117,12 +133,12 @@ function navbar() {
             >
               {/* Close Button */}
               <button
-              className="close-btn"
+                className="close-btn"
                 onClick={() => setIsOpen(false)}
                 style={{
                   position: "absolute",
-                  top:"28%",
-                  left:"61%",
+                  top: "28%",
+                  left: "61%",
                   background: "transparent",
                   border: "none",
                   cursor: "pointer",
@@ -137,6 +153,7 @@ function navbar() {
             </Modal>
           </div>
         </div>
+
         <div class="hamburger" onClick="toggleMenu()">
           <div></div>
           <div></div>

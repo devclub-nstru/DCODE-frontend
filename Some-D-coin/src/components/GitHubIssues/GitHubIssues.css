@@ -7,23 +7,22 @@
 
 /* Main container */
 .main-container {
+  margin-bottom: 5rem;
   display: flex;
   justify-content: center;
   align-items: start;
   height: 100vh;
 }
 .github-issues {
-  min-height: 80vh;
-  margin: 10rem 0;
+  margin-top: 10rem;
   width: 100%;
   max-width: 80vw;
   border: 1px solid #3d444d;
-  border-radius: 6px;
+  border-radius: 1rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   /* background-color: #0d1117; */
   backdrop-filter: brightness(50%);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,sans-serif;
   overflow: hidden;
 }
 
@@ -96,6 +95,10 @@
 
 .new-issue-button:hover {
   background-color: #2c974b;
+}
+
+.btn-gif {
+  width: 3rem;
 }
 
 /* Tab Navigation */
@@ -264,16 +267,23 @@
 
 
 .box {
-  padding: 15px;
+  padding: 0.5rem;
+  padding: 0.5rem 1.5rem;
   text-align: center;
-  margin: 0 5px;
-  background-color: #2ea44f;
+  font-size: .85rem;
+
   text-transform: uppercase;
   font-weight: 400;
+  border-radius: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: .4rem;
+  transition: .4s;
+  box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.5); /* Green shadow */
+  &:hover {
+    background-color: #2ea44f;
+  }
+  
 }
 
 

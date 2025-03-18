@@ -93,10 +93,48 @@ a {
     cursor: pointer;
 }
 
+.your-acc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.xp-counter {
+  display: flex;
+  align-items: center;
+  /* border: 1px solid #848484; */
+  border-radius: 3rem;
+}
+.xp-value {
+  font-weight: 700;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+}
+
+.profile-image {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
 /* .close-btn:hover {
   background-color: ;
 } */
 .hamburger {
+  display: none;
+}
+
+
+
+
+
+
+.login {
   display: none;
 }
 
