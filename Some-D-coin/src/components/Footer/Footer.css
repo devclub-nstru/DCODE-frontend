@@ -23,6 +23,21 @@
   justify-content: center;
   align-items: center;
 }
+
+.foot-nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  transition: all 0.2s ease-in-out;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.foot-nav-link.active {
+  color: #ffffff;
+}
+
+
 .footer-links {
   text-align: center;
   display: flex;
@@ -106,12 +121,6 @@ a {
   transition-duration: 0.3s;
 }
 
-
-
-
-
-
-
 @media (max-width: 768px) {
   .footer {
     padding: 1rem; /* Reduce padding */
@@ -147,5 +156,4 @@ a {
   .button:hover::before {
     font-size: 0.6rem;
   }
-
 }

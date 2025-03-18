@@ -1,5 +1,5 @@
 import React from "react";
-import "./About.css";
+import "./Team.css";
 import UserCard from "../Card/UserCard";
 
 export default function About() {

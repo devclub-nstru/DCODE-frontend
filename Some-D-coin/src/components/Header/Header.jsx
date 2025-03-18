@@ -41,21 +41,12 @@ function navbar() {
           </NavLink>
 
           <NavLink
-            to="/#"
+            to="/shop"
             className={({ isActive }) =>
               `nav-link ${isActive ? "active" : ""} lg-hover`
             }
           >
             <span id="shop-nav">Shop</span>
-          </NavLink>
-
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              `nav-link ${isActive ? "active" : ""} lg-hover`
-            }
-          >
-            About
           </NavLink>
 
           <NavLink
