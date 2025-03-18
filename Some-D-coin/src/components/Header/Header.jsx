@@ -57,6 +57,15 @@ function navbar() {
           >
             Leaderboard
           </NavLink>
+
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              `nav-link ${isActive ? "active" : ""} lg-hover`
+            }
+          >
+            About
+          </NavLink>
         </div>
 
         <div className="login">

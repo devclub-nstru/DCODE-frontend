@@ -12,7 +12,8 @@ import {
 import Layout from "./Layout.jsx";
 import Home from "./components/Home/Home.jsx";
 import Team from "./components/Team/Team.jsx";
-import Login from "./components/Login/Login.jsx";
+import About from "./components/About/About.jsx";
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,7 +21,7 @@ const router = createBrowserRouter(
       <Route path="" element={<Home />} />
       <Route path='shop' element={<GitHubIssues/>} />
       <Route path="team" element={<Team />} />
-      {/* <Route path='login' element={<Login/>} /> */}
+      <Route path='about' element={<About/>} />
     </Route>
   )
 );
