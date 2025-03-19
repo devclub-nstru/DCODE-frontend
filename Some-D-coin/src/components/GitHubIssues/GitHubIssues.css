@@ -97,9 +97,6 @@
   background-color: #2c974b;
 }
 
-.btn-gif {
-  width: 3rem;
-}
 
 /* Tab Navigation */
 
@@ -204,7 +201,9 @@
 .green-icon {
   color: #22863a;
 }
-
+.blue-icon {
+  color: #005fc4;
+}
 .issue-content {
   flex: 1;
   min-width: 0;
@@ -271,6 +270,7 @@
   padding: 0.5rem 1.5rem;
   text-align: center;
   font-size: .85rem;
+  border: 1px solid rgba(41, 255, 41, 0.6);
 
   text-transform: uppercase;
   font-weight: 400;
@@ -278,8 +278,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: .5rem;
   transition: .4s;
-  box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.5); /* Green shadow */
   &:hover {
     background-color: #2ea44f;
   }

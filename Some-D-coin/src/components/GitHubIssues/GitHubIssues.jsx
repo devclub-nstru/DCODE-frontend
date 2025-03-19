@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./GitHubIssues.css"; // Make sure to create this CSS file
-import dGif from "../../../public/3dgifmaker07456.gif"
+import dGif from "../../../public/Dcode.png"
 
 const GitHubIssues = () => {
   const [activeTab, setActiveTab] = useState("Available");
@@ -15,6 +15,10 @@ const GitHubIssues = () => {
       labels: ["assignment-available"],
       comments: 0,
       avatars: ["https://avatar.iran.liara.run/public"],
+      projectSkills : [
+  "HTML & CSS",          
+  "Git & GitHub",       
+]
     },
     {
       id: 2,
@@ -26,6 +30,11 @@ const GitHubIssues = () => {
       labels: ["assignment-available"],
       comments: 2,
       avatars: ["https://avatar.iran.liara.run/public"],
+      projectSkills : [
+  "HTML & CSS",         
+  "JavaScript & React", 
+  "MongoDB & SQL",      
+]
     },
     {
       id: 3,
@@ -40,6 +49,12 @@ const GitHubIssues = () => {
         "https://avatar.iran.liara.run/public",
         "https://avatar.iran.liara.run/public",
       ],
+      projectSkills : [
+  "JavaScript & React", 
+  "MongoDB & SQL",      
+  "Git & GitHub",       
+  "CI/CD & DevOps",     
+]
     },
     {
       id: 4,
@@ -54,6 +69,14 @@ const GitHubIssues = () => {
         "https://avatar.iran.liara.run/public",
         "https://avatar.iran.liara.run/public",
       ],
+      projectSkills : [
+  "HTML & CSS",         
+  "JavaScript & React", 
+  "Node.js & Express",  
+  "Git & GitHub",       
+  "Docker & Kubernetes",
+  "CI/CD & DevOps",     
+]
     },
     {
       id: 5,
@@ -69,6 +92,12 @@ const GitHubIssues = () => {
         "https://avatar.iran.liara.run/public",
         "https://avatar.iran.liara.run/public",
       ],
+      projectSkills : [
+  "HTML & CSS",         
+  "Git & GitHub",       
+  "Docker & Kubernetes",
+  "CI/CD & DevOps",     
+]
     },
     {
       id: 6,
@@ -83,6 +112,13 @@ const GitHubIssues = () => {
         "https://avatar.iran.liara.run/public",
         "https://avatar.iran.liara.run/public",
       ],
+      projectSkills : [
+  "JavaScript & React", 
+  "Node.js & Express",  
+  "MongoDB & SQL",      
+  "Git & GitHub",       
+  "CI/CD & DevOps",     
+]
     },
     {
       id: 7,
@@ -97,6 +133,10 @@ const GitHubIssues = () => {
         "https://avatar.iran.liara.run/public",
         "https://avatar.iran.liara.run/public",
       ],
+      projectSkills : [
+  "HTML & CSS",         
+  "JavaScript & React", 
+]
     },
     {
       id: 8,
@@ -111,6 +151,12 @@ const GitHubIssues = () => {
         "https://avatar.iran.liara.run/public",
         "https://avatar.iran.liara.run/public",
       ],
+      projectSkills : [
+  "HTML & CSS",         
+  "JavaScript & React", 
+  "Node.js & Express",  
+  "Git & GitHub",       
+]
     },
     {
       id: 9,
@@ -125,6 +171,13 @@ const GitHubIssues = () => {
         "https://avatar.iran.liara.run/public",
         "https://avatar.iran.liara.run/public",
       ],
+      projectSkills : [
+  "HTML & CSS",         
+  "JavaScript & React", 
+  "Node.js & Express",  
+  "Docker & Kubernetes",
+  "CI/CD & DevOps",     
+]
     },
     {
       id: 10,
@@ -139,6 +192,11 @@ const GitHubIssues = () => {
         "https://avatar.iran.liara.run/public",
         "https://avatar.iran.liara.run/public",
       ],
+      projectSkills : [
+  "HTML & CSS",         
+  "JavaScript & React",  
+  "CI/CD & DevOps",      
+]
     },
     {
       id: 11,
@@ -153,6 +211,14 @@ const GitHubIssues = () => {
         "https://avatar.iran.liara.run/public",
         "https://avatar.iran.liara.run/public",
       ],
+      projectSkills : [
+  "HTML & CSS",          
+  "JavaScript & React",  
+  "MongoDB & SQL",      
+  "Git & GitHub",        
+  "Docker & Kubernetes", 
+  "CI/CD & DevOps",      
+]
     },
   ]);
   let numbers = 0;
@@ -163,11 +229,7 @@ const GitHubIssues = () => {
     return numbers;
   });
 
-  // Function to create a new issue
-  const createNewIssue = () => {
-    // Implementation for creating a new issue
-    alert("Create new issue functionality would go here");
-  };
+
 
   return (
     // Main Container
@@ -176,8 +238,8 @@ const GitHubIssues = () => {
         {/* Header Section */}
         <div className="header">
           <div className="action-buttons">
-            <button className="new-issue-button" onClick={createNewIssue}>
-              New issue
+            <button className="new-issue-button">
+              Pick issue
             </button>
           </div>
         </div>
@@ -248,16 +310,18 @@ const GitHubIssues = () => {
                           ))}
                       </div>
                       <div className="issue-meta">
-                        {issue.number} • {issue.author} opened on{" "}
-                        {issue.openedOn}
+                      Skills • {
+                        issue.projectSkills.map((skill, idx) => (
+                          <span key={idx}>{skill}{idx == issue.projectSkills.length-1 ?" ":" | "}</span>
+                        ))}
                       </div>
                     </div>
                     <div className="issue-stats">
                       <button>
                         <span class="box">
                           Buy Now{" "}
-                          <img src={dGif} alt="Loading Animation" className="btn-gif"/>
-                          {issue.price}
+                          <img src={dGif} alt="Loading Animation" height={30} width={30}/>
+                          <div className="issue-price">{issue.price}</div>
                         </span>
                       </button>
                     </div>
@@ -284,7 +348,7 @@ const GitHubIssues = () => {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="green-icon"
+                        className="blue-icon"
                       >
                         <circle cx="12" cy="12" r="10" />
                       </svg>
@@ -308,8 +372,10 @@ const GitHubIssues = () => {
                           ))}
                       </div>
                       <div className="issue-meta">
-                        {issue.number} • {issue.author} opened on{" "}
-                        {issue.openedOn}
+                        Skills • {
+                        issue.projectSkills.map((skill, idx) => (
+                          <span key={idx}>{skill}{idx == issue.projectSkills.length-1 ?" ":" // "}</span>
+                        ))}
                       </div>
                     </div>
 

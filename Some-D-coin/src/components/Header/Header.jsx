@@ -4,7 +4,7 @@ import Login from "../Login/Login";
 import Modal from "react-modal";
 import { X } from "lucide-react";
 import Auth from "../Login/Login";
-import dGif from "../../../public/3dgifmaker07456.gif";
+import dGif from "../../../public/Dcode.png";
 import "./Header.css";
 
 function navbar() {
@@ -84,7 +84,7 @@ function navbar() {
         <div className="your-acc">
           <div className="xp-counter">
             <div className="xp-icon">
-              <img src={dGif} alt="Loading Animation" className="btn-gif" />
+              <img src={dGif} alt="D-coin-icon" height={40} width={40}/>
             </div>
             <div className="xp-value">13,165</div>
           </div>
