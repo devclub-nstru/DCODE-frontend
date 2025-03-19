@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Login from "../Login/Login";
 import Modal from "react-modal";
@@ -9,7 +9,14 @@ import "./Header.css";
 
 function navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const isLogin = true
+  const [isLogin, setisLogin] = useState(null);
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      setisLogin(true);
+    } else {
+      setisLogin(false);
+    }
+  }, []);
 
   return (
     <>
@@ -77,28 +84,27 @@ function navbar() {
           >
             History
           </NavLink>
-
         </div>
-        {isLogin ? 
-        // your-acc
-        <div className="your-acc">
-          <div className="xp-counter">
-            <div className="xp-icon">
-              <img src={dGif} alt="D-coin-icon" height={40} width={40}/>
+        {isLogin == true ? (
+          // your-acc
+          <div className="your-acc">
+            <div className="xp-counter">
+              <div className="xp-icon">
+                <img src={dGif} alt="D-coin-icon" height={40} width={40} />
+              </div>
+              <div className="xp-value">13,165</div>
             </div>
-            <div className="xp-value">13,165</div>
-          </div>
-          <div className="profile">
+            <div className="profile">
               <img
                 src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
                 alt="Profile"
                 className="profile-image"
               />
             </div>
-        </div>
-        :
-        // login btn
-        <div className="login">
+          </div>
+        ) : isLogin == false ? (
+          // login btn
+          <div className="login">
             {" "}
             <button id="account" onClick={() => setIsOpen(true)}>
               <svg
@@ -136,6 +142,7 @@ function navbar() {
                     maxWidth: "40%", // Limit max width
                     padding: "1rem", // Minimal padding
                     margin: "0 auto",
+                    position: "relative",
                   },
                   overlay: {
                     backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -167,10 +174,9 @@ function navbar() {
               </Modal>
             </div>
           </div>
-        }
-        
-
-        
+        ) : (
+          <div className="w-[4.5rem]"></div>
+        )}
 
         <div class="hamburger" onClick="toggleMenu()">
           <div></div>

@@ -10,9 +10,9 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: .9rem;
+  font-size: 0.9rem;
   transition: all 0.2s ease-in-out;
-  color: rgba(255, 255, 255, .7);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .nav-link:hover {
@@ -61,36 +61,34 @@ a {
   gap: 3rem;
 }
 
-
 #account {
-  font-size: .9rem;
-  font-family: "Fira Code",monospace;
+  font-size: 0.9rem;
+  font-family: "Fira Code", monospace;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: .25rem;
-  color: rgba(255, 255, 255, .7);
+  gap: 0.25rem;
+  color: rgba(255, 255, 255, 0.7);
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-
 .close-btn {
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    font-family: "Inter",monospace;
-    background-color: #ffffff;
-    color: #000000;
-    border: none;
-    border-radius: .15rem;
-  
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    gap: .5rem;
-    cursor: pointer;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Inter", monospace;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 0.15rem;
+
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  gap: 0.5rem;
+  cursor: pointer;
 }
 
 .your-acc {
@@ -102,7 +100,7 @@ a {
 .xp-counter {
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
   /* border: 1px solid #848484; */
   border-radius: 3rem;
 }
@@ -129,15 +127,6 @@ a {
 .hamburger {
   display: none;
 }
-
-
-
-
-
-
-
-
-
 
 @media (max-width: 768px) {
   #nav-bar {
@@ -172,16 +161,13 @@ a {
     width: 1.5rem;
     height: 3px;
     background-color: white;
-    margin: .25rem;
+    margin: 0.25rem;
   }
   .close-btn {
     top: 20% !important;
     left: 80% !important;
   }
 }
-
-
-
 
 @media (max-width: 480px) {
   #nav-bar {

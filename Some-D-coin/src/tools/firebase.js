@@ -28,6 +28,7 @@ const signInWithGoogle = async (apiURL) => {
     if (!axres.status) {
       return toast.error(axres.message);
     }
+    localStorage.setItem("token", axres.token);
     toast.success(axres.message);
   } catch (error) {
     console.error("Google Sign-In Error:", error);
