@@ -1,3 +1,4 @@
+/* Contributor Guide */
 .contributor-guide {
     max-width: 900px;
     margin: 0px auto;
@@ -6,84 +7,74 @@
     padding-top: 128px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     font-family: 'Roboto', sans-serif;
-    color: #333;
+    color: #adaeb3; /* Set text color to #adaeb3 */
     line-height: 1.7;
-  }
+}
 
-
-  
-  .guide-title-contri {
+/* Guide Title */
+.guide-title-contri {
     font-size: 2.5rem;
     text-align: center;
-    color: #6a8efb;
+    color: #fff; /* White color */
     margin-bottom: 20px;
     font-weight: 600;
-  }
-  
-  .intro-text-contri-contri {
+}
+
+/* Intro Text */
+.intro-text-contri {
     font-size: 1.1rem;
     text-align: center;
-    color: #555;
+    color: #adaeb3; 
     margin-bottom: 25px;
-  }
-  
-  .section-title-contri {
+}
+
+/* Section Title */
+.section-title-contri {
     font-size: 1.8rem;
     font-weight: 600;
     margin-top: 30px;
-    color: #6a8efb;
-    text-decoration: underline;
-  }
-  
-  .section-text-contri {
+    color: #fff; 
+}
+
+.section-text-contri {
     font-size: 1.1rem;
     margin-bottom: 20px;
-    color: #333;
+    color: #adaeb3; 
     line-height: 1.8;
-  }
-  
-  .step-title-contri {
+}
+
+.step-title-contri {
     font-size: 1.5rem;
     font-weight: bold;
     margin-top: 20px;
-    color: #4c6ef5;
-  }
-  
-  .step-description-contri {
+    color: #fff; 
+}
+
+.step-description-contri {
     font-size: 1.1rem;
     margin-top: 10px;
     margin-bottom: 20px;
-    color: #555;
-  }
-  
-  ul {
-    margin-left: 20px;
-  }
-  
-  li {
-    font-size: 1rem;
-    margin-bottom: 12px;
-    color: #555;
-  }
-  
-  .resource-link-contris {
+    color: #adaeb3; 
+}
+
+
+.resource-link-contris {
     list-style: none;
     padding: 0;
-  }
-  
-  .resource-link-contri {
-    color: #4c6ef5;
+}
+
+.resource-link-contri {
+    color: #fff; 
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
-  }
-  
-  .resource-link-contri:hover {
-    color: #1d4ed8;
-    text-decoration: underline;
-  }
-  
-  .code-snippet-contri {
+}
+
+.resource-link-contri:hover {
+    color: #fff; 
+}
+
+.code-snippet-contri {
     background-color: #f4f4f9;
     padding: 12px;
     border-radius: 6px;
@@ -94,46 +85,80 @@
     overflow-x: auto;
     margin-top: 10px;
     margin-bottom: 25px;
-  }
-  
-  .conduct-list, .guidelines-list, .issue-steps, .pr-tips {
+    color: #2d3748; 
+}
+
+.pr-tips {
     padding-left: 20px;
-  }
-  
-  .conduct-list li,
-  .guidelines-list li,
-  .issue-steps li,
-  .pr-tips li {
+}
+
+.pr-tips li {
     font-size: 1.1rem;
     margin-bottom: 15px;
-    color: #333;
-  }
-  
-  h2, h3 {
-    margin-top: 25px;
-    color: #666;
-  }
-  
-  h3 {
-    font-size: 1.4rem;
-    color: #888;
-  }
-  
-  a {
-    color: #4c6ef5;
+    color: #adaeb3; 
+}
+
+
+.guidelines-list {
+    padding-left: 20px;
+}
+
+.guidelines-list li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #adaeb3; 
+}
+
+
+.issue-steps {
+    padding-left: 20px;
+}
+
+.issue-steps li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #adaeb3; 
+}
+
+
+.conduct-list {
+    padding-left: 20px;
+}
+
+.conduct-list li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #adaeb3; 
+}
+
+
+.resource-link-contri {
+    color: #fff; 
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
-  }
-  
-  a:hover {
-    color: #1d4ed8;
-    text-decoration: underline;
-  }
-  
-  button {
-    background-color: #4c6ef5;
-    color: white;
+}
+
+.resource-link-contri:hover {
+    color: #fff; 
+}
+
+
+.general-link-contri {
+    color: #fff; 
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.general-link-contri:hover {
+    color: #fff; 
+}
+
+
+.button-contri {
+    background-color: #000; 
+    color: white; 
     padding: 10px 20px;
     border-radius: 5px;
     border: none;
@@ -141,40 +166,40 @@
     cursor: pointer;
     transition: background-color 0.3s;
     margin-top: 20px;
-  }
-  
-  button:hover {
-    background-color: #1d4ed8;
-  }
-  
-  /* Media Queries for Responsiveness */
-  @media (max-width: 768px) {
+}
+
+.button-contri:hover {
+    background-color: #fff; 
+    color: #000; 
+}
+
+
+@media (max-width: 768px) {
     .contributor-guide {
-      padding: 20px;
+        padding: 20px;
     }
-  
+
     .guide-title-contri {
-      font-size: 2rem;
+        font-size: 2rem;
     }
-  
+
     .section-title-contri {
-      font-size: 1.5rem;
+        font-size: 1.5rem;
     }
-  
+
     .step-title-contri {
-      font-size: 1.3rem;
+        font-size: 1.3rem;
     }
-  
+
     .step-description-contri {
-      font-size: 1rem;
+        font-size: 1rem;
     }
-  
+
     .resource-link-contri {
-      font-size: 1rem;
+        font-size: 1rem;
     }
-  
+
     .code-snippet-contri {
-      font-size: 0.95rem;
+        font-size: 0.95rem;
     }
-  }
-  
+}
