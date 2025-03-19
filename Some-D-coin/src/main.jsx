@@ -13,6 +13,7 @@ import Layout from "./Layout.jsx";
 import Home from "./components/Home/Home.jsx";
 import Team from "./components/Team/Team.jsx";
 import About from "./components/About/About.jsx";
+import Transaction from "./components/Transaction/Transaction.jsx"
 
 
 const router = createBrowserRouter(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
       <Route path='shop' element={<GitHubIssues/>} />
       <Route path="team" element={<Team />} />
       <Route path='about' element={<About/>} />
+      <Route path='history' element={<Transaction/>} />
     </Route>
   )
 );

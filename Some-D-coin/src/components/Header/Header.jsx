@@ -67,6 +67,16 @@ function navbar() {
           >
             About
           </NavLink>
+
+          <NavLink
+            to="/history"
+            className={({ isActive }) =>
+              `nav-link ${isActive ? "active" : ""} lg-hover`
+            }
+          >
+            History
+          </NavLink>
+
         </div>
         <div className="your-acc">
           <div className="xp-counter">
