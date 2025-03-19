@@ -1,0 +1,177 @@
+.contributor-guide {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.7;
+  }
+  
+  .guide-title {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #4c6ef5;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .intro-text {
+    font-size: 1.1rem;
+    text-align: center;
+    color: #555;
+    margin-bottom: 25px;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 30px;
+    color: #4c6ef5;
+    text-decoration: underline;
+  }
+  
+  .section-text {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #333;
+    line-height: 1.8;
+  }
+  
+  .step-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #4c6ef5;
+  }
+  
+  .step-description {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  ul {
+    margin-left: 20px;
+  }
+  
+  li {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    color: #555;
+  }
+  
+  .resource-links {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .resource-link {
+    color: #4c6ef5;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .resource-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+  }
+  
+  .code-snippet {
+    background-color: #f4f4f9;
+    padding: 12px;
+    border-radius: 6px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    word-wrap: break-word;
+    overflow-x: auto;
+    margin-top: 10px;
+    margin-bottom: 25px;
+  }
+  
+  .conduct-list, .guidelines-list, .issue-steps, .pr-tips {
+    padding-left: 20px;
+  }
+  
+  .conduct-list li,
+  .guidelines-list li,
+  .issue-steps li,
+  .pr-tips li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  h2, h3 {
+    margin-top: 25px;
+    color: #333;
+  }
+  
+  h3 {
+    font-size: 1.4rem;
+  }
+  
+  a {
+    color: #4c6ef5;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  a:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+  }
+  
+  button {
+    background-color: #4c6ef5;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: #1d4ed8;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .contributor-guide {
+      padding: 20px;
+    }
+  
+    .guide-title {
+      font-size: 2rem;
+    }
+  
+    .section-title {
+      font-size: 1.5rem;
+    }
+  
+    .step-title {
+      font-size: 1.3rem;
+    }
+  
+    .step-description {
+      font-size: 1rem;
+    }
+  
+    .resource-link {
+      font-size: 1rem;
+    }
+  
+    .code-snippet {
+      font-size: 0.95rem;
+    }
+  }
+  
