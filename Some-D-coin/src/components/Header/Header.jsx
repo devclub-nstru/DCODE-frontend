@@ -77,12 +77,12 @@ function navbar() {
           </NavLink>
 
           <NavLink
-            to="/history"
+            to="/wallet"
             className={({ isActive }) =>
               `nav-link ${isActive ? "active" : ""} lg-hover`
             }
           >
-            History
+            Wallet
           </NavLink>
         </div>
         {isLogin == true ? (
