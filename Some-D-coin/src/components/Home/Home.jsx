@@ -43,7 +43,7 @@ function Hero() {
           data-aos-delay={200}
           data-aos-easing="ease-in-sine"
         >
-          <img src={"/public/Macbook.png"} alt="" />
+          <img src={"/Macbook.png"} alt="" />
         </div>
       </div>
 

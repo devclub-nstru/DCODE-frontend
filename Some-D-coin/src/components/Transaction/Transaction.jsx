@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import dCode from "../../../public/Dcode.png"
 import "./Transaction.css"
 
 const Transaction = () => {
@@ -179,7 +180,7 @@ const Transaction = () => {
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
-      currency: "USD",
+      currency: "INR",
     }).format(amount)
   }
 
@@ -189,7 +190,8 @@ const Transaction = () => {
     return new Date(dateString).toLocaleDateString("en-US", options)
   }
 
-
+  // dcode img
+  let dImg = <img src={dCode} alt="" height={20} width={20} style={{display:"inline"}}/>
 
   
   return (
@@ -199,15 +201,15 @@ const Transaction = () => {
       <div className="summary-cards">
         <div className="summary-card received">
           <h3>Total Received</h3>
-          <p className="amount">{formatCurrency(totalReceived)}</p>
+          <p className="amount"><img src={dCode} alt="" height={30} width={30} style={{display:"inline"}}/>{(totalReceived)}</p>
         </div>
         <div className="summary-card sent">
           <h3>Total Sent</h3>
-          <p className="amount">{formatCurrency(totalSent)}</p>
+          <p className="amount"><img src={dCode} alt="" height={30} width={30} style={{display:"inline"}}/>{(totalSent)}</p>
         </div>
         <div className="summary-card balance">
           <h3>Net Balance</h3>
-          <p className="amount">{formatCurrency(totalReceived - totalSent)}</p>
+          <p className="amount"><img src={dCode} alt="" height={30} width={30} style={{display:"inline"}}/>{(totalReceived - totalSent)}</p>
         </div>
       </div>
 
@@ -295,7 +297,7 @@ const Transaction = () => {
                       </span>
                       {transaction.type.charAt(0).toUpperCase() + transaction.type.slice(1)}
                     </td>
-                    <td className="amount">{formatCurrency(transaction.amount)}</td>
+                    <td className="amount">{dImg}{" "}{(transaction.amount)}</td>
                     <td>
                       {transaction.paymentMethod
                         .split(" ")
