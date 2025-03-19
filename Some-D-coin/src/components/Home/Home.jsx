@@ -13,7 +13,9 @@ function Hero() {
           <span>24 March 2025</span>
         </div>
         <div className="heading">
-          <p id="main-txt">Code for impact, contribute for change</p>
+          <p id="main-txt" style={{ fontFamily: "outfit" }}>
+            Code for impact, contribute for change
+          </p>
           <p id="sub-txt">
             Open-source is built by contributors like you. Pick an issue, solve
             it, and grow
