@@ -10,9 +10,15 @@ function TimelineItem({ id, title, date, description, showAsciiArt }) {
     >
       <div className="timeline-content">
         <div className="timeline-id">{id}.</div>
-        <h2 className="timeline-item-title">{title}</h2>
-        <div className="timeline-date">{date}</div>
-        <p className="timeline-description">{description}</p>
+        <h2 className="timeline-item-title" style={{ fontFamily: "outfit" }}>
+          {title}
+        </h2>
+        <div className="timeline-date" style={{ fontFamily: "poppins" }}>
+          {date}
+        </div>
+        <p className="timeline-description" style={{ fontFamily: "rubik" }}>
+          {description}
+        </p>
       </div>
       {showAsciiArt && (
         <div className="ascii-art" data-aos="fade-in" data-aos-delay="200">
