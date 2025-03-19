@@ -1,13 +1,9 @@
 import React from "react";
-import dGif from "../../../public/3dgifmaker07456.gif"
 import "./About.css";
 
 function About() {
   return (
     <div className="main-about">
-      <div className="d-gif">
-      <img src={dGif} alt="Loading Animation" />
-      </div>
       <div className="doubt">
         <h1>What is Open-Source?</h1>
         <div className="description">

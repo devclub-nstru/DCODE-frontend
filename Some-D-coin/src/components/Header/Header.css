@@ -97,11 +97,12 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 .xp-counter {
   display: flex;
   align-items: center;
+  gap: .5rem;
   /* border: 1px solid #848484; */
   border-radius: 3rem;
 }
@@ -134,9 +135,6 @@ a {
 
 
 
-.login {
-  display: none;
-}
 
 
 

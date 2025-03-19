@@ -7,13 +7,6 @@
     align-items: center;
     gap: 4rem;
 }
-.d-gif {
-    position: fixed;
-    top: 40%;
-    z-index: -1;
-    transform: scale(1.75);
-    opacity: .4;
-}
 .doubt {
     width: 100%;
     max-width: 80vw;

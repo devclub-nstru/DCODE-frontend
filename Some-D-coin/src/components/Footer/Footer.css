@@ -31,6 +31,8 @@
   font-size: 1.25rem;
   transition: all 0.2s ease-in-out;
   color: rgba(255, 255, 255, 0.7);
+  position: relative;
+  left: -5%;
 }
 
 .foot-nav-link.active {

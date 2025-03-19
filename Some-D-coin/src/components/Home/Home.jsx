@@ -21,7 +21,7 @@ function Hero() {
         </div>
         <div className="what-btn">
       <NavLink to="/contributors">
-          <button>
+          <button style={{zIndex: 10}} >
             <span>Get Started</span>
             <svg
               width="1rem"
@@ -47,7 +47,7 @@ function Hero() {
           data-aos-delay={200}
           data-aos-easing="ease-in-sine"
         >
-          <img src={"/public/Macbook.png"} alt="" />
+          <img src={"/Macbook.png"} alt="" />
         </div>
       </div>
 
