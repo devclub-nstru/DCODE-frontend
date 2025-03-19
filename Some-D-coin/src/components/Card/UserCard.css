@@ -68,3 +68,59 @@ a {
 .name:hover {
   cursor: pointer;
 }
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .card {
+    width: 16rem; /* Reduce card size for mobile */
+    padding: 0.4em;
+  }
+
+  .card-image {
+    height: 14rem; /* Adjust image height */
+  }
+
+  .category {
+    font-size: 1em;
+  }
+
+  .heading {
+    font-size: 0.9rem;
+  }
+
+  .author {
+    font-size: 0.65rem;
+  }
+}
+
+
+
+
+
+@media (max-width: 480px) {
+  .card {
+    width: 14rem; /* Further reduce card size for small screens */
+    padding: 0.3em;
+  }
+
+  .card-image {
+    height: 12rem; /* Adjust image height */
+  }
+
+  .category {
+    font-size: 0.9em;
+  }
+
+  .heading {
+    font-size: 0.85rem;
+  }
+
+  .author {
+    font-size: 0.6rem;
+  }
+}

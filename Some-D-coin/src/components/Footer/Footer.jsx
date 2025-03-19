@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import "./Footer.css";
 
 function Footer() {
@@ -7,6 +8,15 @@ function Footer() {
       <div className="border !bg-slate-700 opacity-20 !h-[1px]"></div>
       <div className="footer">
         <span id="credits">© 2025 DOCDE. All Rights Reserved.</span>
+
+        <NavLink
+            to="/team"
+            className={({ isActive }) =>
+              `foot-nav-link ${isActive ? "active" : ""} lg-hover`
+            }
+          >
+            Team
+          </NavLink>
 
         <div className="footer-links">
           <span>Contact Us</span>

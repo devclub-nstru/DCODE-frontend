@@ -208,3 +208,99 @@
 .event {
   margin-bottom: 10rem;
 }
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  #main-hero {
+    padding-top: 6rem;
+    min-height: 80vh;
+  }
+
+  .heading #main-txt {
+    font-size: 2rem; /* Further reduce heading size */
+  }
+
+  .heading #sub-txt {
+    font-size: 0.8rem;
+  }
+
+  .hero-img {
+    margin-top: -5rem;
+    width: 100%;
+  }
+
+  .what {
+    font-size: 1.2rem; /* Adjust font size */
+  }
+
+  .kard {
+    width: 18rem; /* Further reduce card size */
+    padding: 1.2rem;
+  }
+
+  .what-btn,
+  .what-btn2 {
+    flex-direction: column; /* Stack buttons */
+    gap: 1rem;
+  }
+
+  .what-btn button,
+  .what-btn2 button {
+    font-size: 0.9rem;
+    padding: 0.7rem 1rem;
+  }
+  
+}
+
+
+
+
+
+@media (max-width: 480px) {
+  #main-hero {
+    padding-top: 5rem;
+    min-height: 70vh;
+  }
+
+  .heading #main-txt {
+    font-size: 1.8rem; /* Reduce heading size for smaller screens */
+  }
+
+  .heading #sub-txt {
+    font-size: 0.75rem;
+  }
+
+  .hero-img {
+    margin-top: -3rem;
+    width: 90%;
+  }
+
+  .what {
+    font-size: 1rem; /* Further adjust font size */
+  }
+
+  .kard {
+    width: 16rem; /* Reduce card width */
+    padding: 1rem;
+  }
+
+  .what-btn,
+  .what-btn2 {
+    flex-direction: column; /* Stack buttons */
+    gap: 0.8rem;
+  }
+
+  .what-btn button,
+  .what-btn2 button {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.9rem;
+  }
+}

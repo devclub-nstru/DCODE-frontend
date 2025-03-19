@@ -47,18 +47,35 @@
     font-size: 0.7rem;
     margin-left: 2rem;
   }
+
+
+
+
+  
   
   @media (max-width: 768px) {
+    .timeline-description {
+      max-width: 100%;
+    }
     .timeline-item {
-      flex-direction: column;
+      flex-direction: column; /* Stack items vertically */
+      gap: 1rem;
+    }
+  
+    .timeline-item-title {
+      font-size: 1.5rem; /* Reduce title size for smaller screens */
+    }
+  
+    .timeline-date {
+      font-size: 0.85rem;
     }
   
     .timeline-description {
+      font-size: 0.9rem;
       max-width: 100%;
     }
   
     .ascii-art {
-      margin-left: 0;
-      margin-top: 1rem;
+      display: none;
     }
   }

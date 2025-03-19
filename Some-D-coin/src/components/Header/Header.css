@@ -93,6 +93,146 @@ a {
     cursor: pointer;
 }
 
+.your-acc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.xp-counter {
+  display: flex;
+  align-items: center;
+  /* border: 1px solid #848484; */
+  border-radius: 3rem;
+}
+.xp-value {
+  font-weight: 700;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+}
+
+.profile-image {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
 /* .close-btn:hover {
   background-color: ;
 } */
+.hamburger {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  #nav-bar {
+    padding: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .nav-items {
+    display: none; /* Hide nav items by default */
+    flex-direction: column;
+    position: absolute;
+    top: 4rem;
+    right: 0;
+    width: 100%;
+    background-color: #000000cc;
+    backdrop-filter: blur(5px);
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  .nav-items.active {
+    display: flex; /* Show nav when active */
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hamburger div {
+    width: 1.5rem;
+    height: 3px;
+    background-color: white;
+    margin: .25rem;
+  }
+  .close-btn {
+    top: 20% !important;
+    left: 80% !important;
+  }
+}
+
+
+
+
+@media (max-width: 480px) {
+  #nav-bar {
+    padding: 0.8rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .nav-items {
+    display: none; /* Hide nav items by default */
+    flex-direction: column;
+    position: absolute;
+    top: 3.5rem;
+    right: 0;
+    width: 100%;
+    background-color: #000000cc;
+    backdrop-filter: blur(5px);
+    padding: 0.8rem 0;
+    text-align: center;
+  }
+
+  .nav-items.active {
+    display: flex; /* Show nav when active */
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hamburger div {
+    width: 1.3rem;
+    height: 2.5px;
+    background-color: white;
+    margin: 0.2rem;
+  }
+
+  .close-btn {
+    top: 28% !important;
+    left: 75% !important;
+    font-size: 0.9rem;
+    padding: 0.6rem 0.9rem;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+  }
+
+  .logo a {
+    font-size: 1.1rem;
+  }
+  .modal {
+    max-width: 100% !important;
+  }
+}
