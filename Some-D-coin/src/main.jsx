@@ -14,7 +14,7 @@ import Home from "./components/Home/Home.jsx";
 import Team from "./components/Team/Team.jsx";
 import About from "./components/About/About.jsx";
 import Transaction from "./components/Transaction/Transaction.jsx"
-import Contributors from "./components/Home/Contributors.jsx";
+// import Contributors from "./components/Home/Contributors.jsx";
 import Wallet from "./components/Wallet/Wallet.jsx";
 
 
