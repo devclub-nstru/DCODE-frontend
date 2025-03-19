@@ -1,6 +1,8 @@
 import React from "react";
 import EventTimeline from "../EventTimeline";
+import {Link, NavLink} from "react-router-dom";
 import "./Home.css";
+import contributors from "./contributors";
 
 function Hero() {
   return (
@@ -18,7 +20,8 @@ function Hero() {
           </p>
         </div>
         <div className="what-btn">
-          <button>
+      <NavLink to="/contributors">
+          <button style={{zIndex: 10}} >
             <span>Get Started</span>
             <svg
               width="1rem"
@@ -35,6 +38,7 @@ function Hero() {
               />
             </svg>
           </button>
+          </NavLink>
         </div>
         <div
           className="hero-img"
