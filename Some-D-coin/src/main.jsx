@@ -16,6 +16,7 @@ import About from "./components/About/About.jsx";
 import Transaction from "./components/Transaction/Transaction.jsx"
 import Contributors from "./components/Contributors/Contributors.jsx";
 import Wallet from "./components/Wallet/Wallet.jsx";
+import IssueDetails from "./components/GitHubIssues/IssueDetails/IssueDetails.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
       <Route path='history' element={<Transaction/>} />
       <Route path='contributors' element={<Contributors/>} />
       <Route path='wallet' element={<Wallet/>} />
+      <Route path='issue' element={<IssueDetails/>} />
     </Route>
   )
 );
