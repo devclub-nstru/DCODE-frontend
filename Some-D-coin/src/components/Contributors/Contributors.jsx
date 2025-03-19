@@ -1,6 +1,6 @@
 // src/ContributorGuide.js
 import React from 'react';
-import './ContributorGuide.css';
+import './Contributors.css';
 
 const ContributorGuide = () => {
   return (
