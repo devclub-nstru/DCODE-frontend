@@ -4,25 +4,27 @@ import Login from "../Login/Login";
 import Modal from "react-modal";
 import { X } from "lucide-react";
 import Auth from "../Login/Login";
-import dGif from "../../../public/Dcode.png";
+import dImg from "../../../public/Dcode.png";
 import "./Header.css";
+
 
 function navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLogin, setisLogin] = useState(null);
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      setisLogin(true);
-    } else {
-      setisLogin(false);
-    }
-  }, []);
+  const [isLogin, setisLogin] = useState(false);
+
+  // useEffect(() => {
+  //   if (localStorage.getItem("token")) {
+  //     setisLogin(true);
+  //   } else {
+  //     setisLogin(false);
+  //   }
+  // }, []);
 
   return (
     <>
       <nav id="nav-bar">
         <div className="logo">
-          <a href="/#">
+          <a href="/#" >
             <svg
               width="2.5rem"
               height="2.5rem"
@@ -46,7 +48,7 @@ function navbar() {
               `nav-link ${isActive ? "active" : ""} lg-hover`
             }
           >
-            <span id="home-nav">Home</span>
+            <span id="home-nav" >Home</span>
           </NavLink>
 
           <NavLink
@@ -57,14 +59,14 @@ function navbar() {
           >
             <span id="shop-nav">Shop</span>
           </NavLink>
-
+          
           <NavLink
             to="/leaderboard"
             className={({ isActive }) =>
               `nav-link ${isActive ? "active" : ""} lg-hover`
             }
           >
-            Leaderboard
+            <span >Leaderboard</span>
           </NavLink>
 
           <NavLink
@@ -73,7 +75,7 @@ function navbar() {
               `nav-link ${isActive ? "active" : ""} lg-hover`
             }
           >
-            About
+            <span >About</span>
           </NavLink>
 
           <NavLink
@@ -90,7 +92,7 @@ function navbar() {
           <div className="your-acc">
             <div className="xp-counter">
               <div className="xp-icon">
-                <img src={dGif} alt="D-coin-icon" height={40} width={40} />
+                <img src={dImg} alt="D-coin-icon" height={40} width={40} />
               </div>
               <div className="xp-value">13,165</div>
             </div>

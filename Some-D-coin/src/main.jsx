@@ -17,18 +17,22 @@ import Transaction from "./components/Transaction/Transaction.jsx"
 import Contributors from "./components/Contributors/Contributors.jsx";
 import Wallet from "./components/Wallet/Wallet.jsx";
 import IssueDetails from "./components/GitHubIssues/IssueDetails/IssueDetails.jsx";
+import Leaderboard from "./components/LeaderBoard/LeaderBoard.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route path="" element={<Home />} />
-      <Route path='shop' element={<GitHubIssues/>} />
-      <Route path="team" element={<Team />} />
+      <Route path='shop' element={<GitHubIssues/>} />{
+         <Route path='shop/issue' element={<IssueDetails/>} />
+      }
+      <Route path='leaderboard' element={<Leaderboard/>} />
       <Route path='about' element={<About/>} />
       <Route path='history' element={<Transaction/>} />
       <Route path='contributors' element={<Contributors/>} />
       <Route path='wallet' element={<Wallet/>} />
-      <Route path='issue' element={<IssueDetails/>} />
+      <Route path="team" element={<Team />} />
+     
     </Route>
   )
 );
