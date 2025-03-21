@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { Link } from "react-router";
 import "./Profile.css"
 
 const Profile = () => {
@@ -123,7 +124,7 @@ const Profile = () => {
             </div>
           </div>
 
-          <button className="view-transactions-btn">View Transactions</button>
+          <Link to={"/wallet"} className="view-transactions-btn">View Transactions</Link>
         </div>
 
         <div className="quote-card">
