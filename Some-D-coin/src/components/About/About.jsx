@@ -1,5 +1,4 @@
 import React from "react";
-import dGif from "../../../public/3dgifmaker07456.gif"
 import "./About.css";
 
 function About() {

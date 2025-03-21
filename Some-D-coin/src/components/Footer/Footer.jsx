@@ -71,7 +71,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="some">
+      <div className="back-to-top">
         <a href="#">
           <button class="button">
             <svg class="svgIcon" viewBox="0 0 384 512">

@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import "./GitHubIssues.css"; // Make sure to create this CSS file
-import dGif from "../../../public/3dgifmaker07456.gif"
+import "./BuyNowPopup.css";
+import "./UserNamePopup.css";
+import dGif from "../../../public/Dcode.png";
+import { Link, NavLink } from "react-router-dom";
+import { ShoppingCart } from "lucide-react";
 
 const GitHubIssues = () => {
   const [activeTab, setActiveTab] = useState("Available");
@@ -15,6 +19,7 @@ const GitHubIssues = () => {
       labels: ["assignment-available"],
       comments: 0,
       avatars: ["https://avatar.iran.liara.run/public"],
+      projectSkills: ["HTML & CSS", "Git & GitHub"],
     },
     {
       id: 2,
@@ -26,6 +31,7 @@ const GitHubIssues = () => {
       labels: ["assignment-available"],
       comments: 2,
       avatars: ["https://avatar.iran.liara.run/public"],
+      projectSkills: ["HTML & CSS", "JavaScript & React", "MongoDB & SQL"],
     },
     {
       id: 3,
@@ -40,6 +46,12 @@ const GitHubIssues = () => {
         "https://avatar.iran.liara.run/public",
         "https://avatar.iran.liara.run/public",
       ],
+      projectSkills: [
+        "JavaScript & React",
+        "MongoDB & SQL",
+        "Git & GitHub",
+        "CI/CD & DevOps",
+      ],
     },
     {
       id: 4,
@@ -48,11 +60,19 @@ const GitHubIssues = () => {
       author: "Ayu-hack",
       openedOn: "Oct 8, 2024",
       price: "25",
-      labels: ["already-assigned"],
+      labels: ["assignment-available"],
       comments: 40,
       avatars: [
         "https://avatar.iran.liara.run/public",
         "https://avatar.iran.liara.run/public",
+      ],
+      projectSkills: [
+        "HTML & CSS",
+        "JavaScript & React",
+        "Node.js & Express",
+        "Git & GitHub",
+        "Docker & Kubernetes",
+        "CI/CD & DevOps",
       ],
     },
     {
@@ -69,6 +89,12 @@ const GitHubIssues = () => {
         "https://avatar.iran.liara.run/public",
         "https://avatar.iran.liara.run/public",
       ],
+      projectSkills: [
+        "HTML & CSS",
+        "Git & GitHub",
+        "Docker & Kubernetes",
+        "CI/CD & DevOps",
+      ],
     },
     {
       id: 6,
@@ -77,11 +103,18 @@ const GitHubIssues = () => {
       author: "Ayu-hack",
       openedOn: "Oct 7, 2024",
       price: "25",
-      labels: ["already-assigned"],
+      labels: ["assignment-available"],
       comments: 8,
       avatars: [
         "https://avatar.iran.liara.run/public",
         "https://avatar.iran.liara.run/public",
+      ],
+      projectSkills: [
+        "JavaScript & React",
+        "Node.js & Express",
+        "MongoDB & SQL",
+        "Git & GitHub",
+        "CI/CD & DevOps",
       ],
     },
     {
@@ -97,6 +130,7 @@ const GitHubIssues = () => {
         "https://avatar.iran.liara.run/public",
         "https://avatar.iran.liara.run/public",
       ],
+      projectSkills: ["HTML & CSS", "JavaScript & React"],
     },
     {
       id: 8,
@@ -110,6 +144,12 @@ const GitHubIssues = () => {
       avatars: [
         "https://avatar.iran.liara.run/public",
         "https://avatar.iran.liara.run/public",
+      ],
+      projectSkills: [
+        "HTML & CSS",
+        "JavaScript & React",
+        "Node.js & Express",
+        "Git & GitHub",
       ],
     },
     {
@@ -125,6 +165,13 @@ const GitHubIssues = () => {
         "https://avatar.iran.liara.run/public",
         "https://avatar.iran.liara.run/public",
       ],
+      projectSkills: [
+        "HTML & CSS",
+        "JavaScript & React",
+        "Node.js & Express",
+        "Docker & Kubernetes",
+        "CI/CD & DevOps",
+      ],
     },
     {
       id: 10,
@@ -139,6 +186,7 @@ const GitHubIssues = () => {
         "https://avatar.iran.liara.run/public",
         "https://avatar.iran.liara.run/public",
       ],
+      projectSkills: ["HTML & CSS", "JavaScript & React", "CI/CD & DevOps"],
     },
     {
       id: 11,
@@ -153,6 +201,14 @@ const GitHubIssues = () => {
         "https://avatar.iran.liara.run/public",
         "https://avatar.iran.liara.run/public",
       ],
+      projectSkills: [
+        "HTML & CSS",
+        "JavaScript & React",
+        "MongoDB & SQL",
+        "Git & GitHub",
+        "Docker & Kubernetes",
+        "CI/CD & DevOps",
+      ],
     },
   ]);
   let numbers = 0;
@@ -163,11 +219,108 @@ const GitHubIssues = () => {
     return numbers;
   });
 
-  // Function to create a new issue
-  const createNewIssue = () => {
-    // Implementation for creating a new issue
-    alert("Create new issue functionality would go here");
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handleBuyClick = () => {
+    setIsPopupOpen(true);
   };
+
+  const handleCancel = () => {
+    setIsPopupOpen(false);
+  };
+
+  const handleConfirm = () => {
+    console.log("Purchase confirmed!");
+    setIsPopupOpen(false);
+  };
+
+  const [showModal, setShowModal] = useState(false);
+  const [username, setUsername] = useState("");
+  const [error, setError] = useState("");
+  const [authenticatedUser, setAuthenticatedUser] = useState("");
+
+  const handleShopClick = () => {
+    if (!authenticatedUser) {
+      setShowModal(true);
+      setError("");
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setUsername(value);
+    if (value.trim().length < 3) {
+      setError("Username must be at least 3 characters");
+    } else {
+      setError("");
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (username.trim().length >= 3) {
+      setAuthenticatedUser(username.trim());
+      setShowModal(false);
+      setUsername("");
+      setError("");
+    } else {
+      setError("Username must be at least 3 characters");
+    }
+  };
+
+  const Modal = () => (
+    <div className="modal-overlay" onClick={() => setShowModal(false)}>
+      <div className="modal" onClick={(e) => e.stopPropagation()}>
+        <h2 className="modal-title">Enter Username</h2>
+        <form onSubmit={handleSubmit} className="modal-form">
+          <div className="input-group">
+            <input
+              type="text"
+              value={username}
+              onChange={handleInputChange}
+              placeholder="Enter your GitHub username"
+              className={`modal-input ${error ? "error" : ""}`}
+              autoFocus
+            />
+            {error && <span className="error-message">{error}</span>}
+          </div>
+          <button
+            type="submit"
+            className="modal-button"
+            disabled={!username.trim() || error}
+          >
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+
+  function ConfirmationPopup({ onCancel, onConfirm, isOpen }) {
+    if (!isOpen) return null;
+
+    return (
+      <div className="buy-overlay">
+        <div className="buy-popup">
+          <div className="buy-popup-content">
+            <ShoppingCart className="cart-icon" />
+            <h3 className="buy-popup-title">Are you sure to buy?</h3>
+            <p className="buy-popup-message">
+              Please confirm your purchase. This action cannot be undone.
+            </p>
+          </div>
+          <div className="buy-popup-actions">
+            <button onClick={onCancel} className="buy-btn buy-btn-cancel">
+              Cancel
+            </button>
+            <button onClick={onConfirm} className="buy-btn buy-btn-confirm">
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     // Main Container
@@ -176,9 +329,7 @@ const GitHubIssues = () => {
         {/* Header Section */}
         <div className="header">
           <div className="action-buttons">
-            <button className="new-issue-button" onClick={createNewIssue}>
-              New issue
-            </button>
+            <button className="new-issue-button">Pick issue</button>
           </div>
         </div>
 
@@ -231,9 +382,9 @@ const GitHubIssues = () => {
                     </div>
                     <div className="issue-content">
                       <div className="issue-title-row">
-                        <a href="#" className="issue-title">
-                          {issue.title}
-                        </a>
+                        <NavLink to="/shop/issue" className={"issue-title"}>
+                          <span>{issue.title}</span>
+                        </NavLink>
                         {issue.labels.includes("already-assigned") &&
                           issue.labels.map((label, idx) => (
                             <span key={idx} className="label">
@@ -248,18 +399,53 @@ const GitHubIssues = () => {
                           ))}
                       </div>
                       <div className="issue-meta">
-                        {issue.number} • {issue.author} opened on{" "}
-                        {issue.openedOn}
+                        Skills •{" "}
+                        {issue.projectSkills.map((skill, idx) => (
+                          <span key={idx}>
+                            {skill}
+                            {idx == issue.projectSkills.length - 1
+                              ? " "
+                              : " | "}
+                          </span>
+                        ))}
                       </div>
                     </div>
                     <div className="issue-stats">
-                      <button>
-                        <span class="box">
-                          Buy Now{" "}
-                          <img src={dGif} alt="Loading Animation" className="btn-gif"/>
-                          {issue.price}
-                        </span>
-                      </button>
+                      {/* onClick={handleBuyClick}  handleShopClick*/}
+                      {authenticatedUser ? (
+                        <button onClick={handleBuyClick}>
+                          <span class="box">
+                            Buy Now{" "}
+                            <img
+                              src={dGif}
+                              alt="Loading Animation"
+                              height={30}
+                              width={30}
+                            />
+                            <div className="issue-price">{issue.price}</div>
+                          </span>
+                        </button>
+                      ) : (
+                        <button onClick={handleShopClick}>
+                          <span class="box">
+                            Buy Now{" "}
+                            <img
+                              src={dGif}
+                              alt="Loading Animation"
+                              height={30}
+                              width={30}
+                            />
+                            <div className="issue-price">{issue.price}</div>
+                          </span>
+                        </button>
+                      )}
+                      {showModal && <Modal />}
+
+                      <ConfirmationPopup
+                        isOpen={isPopupOpen}
+                        onCancel={handleCancel}
+                        onConfirm={handleConfirm}
+                      />
                     </div>
                   </div>
                 ))
@@ -284,16 +470,16 @@ const GitHubIssues = () => {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="green-icon"
+                        className="blue-icon"
                       >
                         <circle cx="12" cy="12" r="10" />
                       </svg>
                     </div>
                     <div className="issue-content">
                       <div className="issue-title-row">
-                        <a href="#" className="issue-title">
-                          {issue.title}
-                        </a>
+                        <NavLink to="/shop/issue" className={"issue-title"}>
+                          <span>{issue.title}</span>
+                        </NavLink>
                         {issue.labels.includes("already-assigned") &&
                           issue.labels.map((label, idx) => (
                             <span key={idx} className="label">
@@ -308,8 +494,15 @@ const GitHubIssues = () => {
                           ))}
                       </div>
                       <div className="issue-meta">
-                        {issue.number} • {issue.author} opened on{" "}
-                        {issue.openedOn}
+                        Skills •{" "}
+                        {issue.projectSkills.map((skill, idx) => (
+                          <span key={idx}>
+                            {skill}
+                            {idx == issue.projectSkills.length - 1
+                              ? " "
+                              : " // "}
+                          </span>
+                        ))}
                       </div>
                     </div>
 

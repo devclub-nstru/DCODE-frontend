@@ -1,0 +1,74 @@
+/* Dark theme styles */
+.container-issue {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  padding-top: 5rem;
+}
+
+
+.back-button-issue {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #c9d1d9;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.issue-card-issue {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  max-width: 800px;
+  color: #ffffff;
+}
+
+.issue-header-issue {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.status-icon-issue {
+  color: #238636;
+}
+
+.issue-title-issue {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.skills-section-issue {
+  margin-bottom: 24px;
+  color: #8b949e;
+  font-size: 16px;
+}
+
+.description-title-issue {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: #c9d1d9;
+}
+
+.description-box-issue {
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 16px;
+  min-height: 120px;
+  color: #8b949e;
+}

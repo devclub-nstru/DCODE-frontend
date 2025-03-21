@@ -9,14 +9,14 @@
   }
   
   .payment-history-container h1 {
-    color: #2c3e50;
+    color: #fff8e1;
     margin-bottom: 20px;
     font-weight: 600;
     text-align: center;
   }
   
   .payment-history-container h2 {
-    color: #ffffff;
+    color: rgba(255, 255, 255, .9);
     margin-bottom: 15px;
     font-weight: 500;
     border-bottom: 1px solid #eee;
@@ -52,6 +52,10 @@
     font-weight: 600;
     color: #27ae60;
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .25rem;
   }
   
   .summary-card.received {
@@ -91,7 +95,7 @@
     display: block;
     margin-bottom: 0.5rem;
     font-size: .85rem;
-    color: #ffffff;
+    color: rgba(255, 255, 255, .8);
   }
   
   .filter-group select {
@@ -153,13 +157,13 @@
   }
   
   .transactions-table tr.received {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #808080;
     background-color: rgba(57, 190, 112, 0.05);
     
   }
   
   .transactions-table tr.sent {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #808080;
     background-color: rgba(231, 76, 60, 0.05);
   }
   

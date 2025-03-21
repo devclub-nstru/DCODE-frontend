@@ -1,0 +1,205 @@
+/* Contributor Guide */
+.contributor-guide {
+    max-width: 900px;
+    margin: 0px auto;
+    padding: 30px;
+    border-radius: 8px;
+    padding-top: 128px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+    color: #adaeb3; /* Set text color to #adaeb3 */
+    line-height: 1.7;
+}
+
+/* Guide Title */
+.guide-title-contri {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #fff; /* White color */
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Intro Text */
+.intro-text-contri {
+    font-size: 1.1rem;
+    text-align: center;
+    color: #adaeb3; 
+    margin-bottom: 25px;
+}
+
+/* Section Title */
+.section-title-contri {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 30px;
+    color: #fff; 
+}
+
+.section-text-contri {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #adaeb3; 
+    line-height: 1.8;
+}
+
+.step-title-contri {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #fff; 
+}
+
+.step-description-contri {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #adaeb3; 
+}
+
+
+.resource-link-contris {
+    list-style: none;
+    padding: 0;
+}
+
+.resource-link-contri {
+    color: #fff; 
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.resource-link-contri:hover {
+    color: #fff; 
+}
+
+.code-snippet-contri {
+    background-color: #f4f4f9;
+    padding: 12px;
+    border-radius: 6px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    word-wrap: break-word;
+    overflow-x: auto;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    color: #2d3748; 
+}
+
+.pr-tips {
+    padding-left: 20px;
+}
+
+.pr-tips li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #adaeb3; 
+}
+
+
+.guidelines-list {
+    padding-left: 20px;
+}
+
+.guidelines-list li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #adaeb3; 
+}
+
+
+.issue-steps {
+    padding-left: 20px;
+}
+
+.issue-steps li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #adaeb3; 
+}
+
+
+.conduct-list {
+    padding-left: 20px;
+}
+
+.conduct-list li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #adaeb3; 
+}
+
+
+.resource-link-contri {
+    color: #fff; 
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.resource-link-contri:hover {
+    color: #fff; 
+}
+
+
+.general-link-contri {
+    color: #fff; 
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.general-link-contri:hover {
+    color: #fff; 
+}
+
+
+.button-contri {
+    background-color: #000; 
+    color: white; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.button-contri:hover {
+    background-color: #fff; 
+    color: #000; 
+}
+
+
+@media (max-width: 768px) {
+    .contributor-guide {
+        padding: 20px;
+    }
+
+    .guide-title-contri {
+        font-size: 2rem;
+    }
+
+    .section-title-contri {
+        font-size: 1.5rem;
+    }
+
+    .step-title-contri {
+        font-size: 1.3rem;
+    }
+
+    .step-description-contri {
+        font-size: 1rem;
+    }
+
+    .resource-link-contri {
+        font-size: 1rem;
+    }
+
+    .code-snippet-contri {
+        font-size: 0.95rem;
+    }
+}

@@ -1,6 +1,8 @@
 import React from "react";
 import EventTimeline from "../EventTimeline";
+import {Link, NavLink} from "react-router-dom";
 import "./Home.css";
+import contributors from "../Contributors/Contributors";
 
 function Hero() {
   return (
@@ -11,14 +13,17 @@ function Hero() {
           <span>24 March 2025</span>
         </div>
         <div className="heading">
-          <p id="main-txt">Code for impact, contribute for change</p>
+          <p id="main-txt" style={{ fontFamily: "outfit" }}>
+            Code for impact, contribute for change
+          </p>
           <p id="sub-txt">
             Open-source is built by contributors like you. Pick an issue, solve
             it, and grow
           </p>
         </div>
+        <NavLink to="/contributors">
         <div className="what-btn">
-          <button>
+          <button style={{zIndex: 10}} >
             <span>Get Started</span>
             <svg
               width="1rem"
@@ -36,6 +41,7 @@ function Hero() {
             </svg>
           </button>
         </div>
+        </NavLink>
         <div
           className="hero-img"
           data-aos="fade-up"
@@ -43,7 +49,7 @@ function Hero() {
           data-aos-delay={200}
           data-aos-easing="ease-in-sine"
         >
-          <img src={"/public/Macbook.png"} alt="" />
+          <img src={"/Macbook.png"} alt="" />
         </div>
       </div>
 

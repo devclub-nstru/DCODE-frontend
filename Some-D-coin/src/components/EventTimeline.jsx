@@ -3,28 +3,28 @@ import "./EventTimeline.css";
 
 const events = [
   {
-    id: "00",
+    id: "0.00",
     title: "Hello World!",
     date: "24 March, 2025",
     description:
       "The event begins with an official announcement, introducing participants to DCoins, how they can be earned, and teaser posts about the Reverse Bug Hunt.",
   },
   {
-    id: "01",
+    id: "0.01",
     title: "Open Source Traversal",
     date: "25 March, 2025",
     description:
       "Participants engage in an open-source challenge, solving riddles, exploring repositories, and taking part in a fun quiz to earn DCoins.",
   },
   {
-    id: "10",
+    id: "0.10",
     title: "Debugging Sandbox",
     date: "26 March, 2025",
     description:
       "A mini bug hunt is launched in a test repository to build excitement, along with interesting bug facts and a temporary leaderboard.",
   },
   {
-    id: "11",
+    id: "0.11",
     title: "Chaos Engineering",
     date: "26 March, 2025 - 31 March, 2025",
     description:
@@ -67,7 +67,7 @@ function EventTimeline() {
       <div className="timeline-divider"></div>
 
       <div className="elements relative">
-        <div className="line bg-[linear-gradient(to_bottom,#000,#6ee7b7,#bfdbfe,#000)]"></div>
+        <div className="line bg-[linear-gradient(to_bottom,#000,#6ee7b754,#526e92ad,#000)]"></div>
         <div className="timeline-items">
           {events.map((event, index) => (
             <div key={index}>

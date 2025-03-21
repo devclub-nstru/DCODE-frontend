@@ -1,15 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Login from "../Login/Login";
 import Modal from "react-modal";
-import { X } from "lucide-react";
 import Auth from "../Login/Login";
-import dGif from "../../../public/3dgifmaker07456.gif";
+import dImg from "../../../public/Dcode.png";
 import "./Header.css";
 
 function navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const isLogin = true
+  const [isLogin, setisLogin] = useState(null);
+
+  const setToken = (token) => {
+    localStorage.setItem("token", token);
+    setisLogin(!!token); // Update isLogin based on the new token
+  };
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const token = localStorage.getItem("token");
+      setisLogin(!!token); // Update isLogin based on the token
+    };
+
+    // Initial check
+    handleStorageChange();
+
+    // Listen for storage changes
+    window.addEventListener("storage", handleStorageChange);
+
+    // Cleanup event listener on unmount
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []); // Empty dependency array to run only on mount
 
   return (
     <>
@@ -70,37 +92,52 @@ function navbar() {
           </NavLink>
 
           <NavLink
-            to="/history"
+            to="/wallet"
             className={({ isActive }) =>
               `nav-link ${isActive ? "active" : ""} lg-hover`
             }
           >
-            History
+            Wallet
           </NavLink>
-
         </div>
-        {isLogin ? 
-        // your-acc
-        <div className="your-acc">
-          <div className="xp-counter">
-            <div className="xp-icon">
-              <img src={dGif} alt="Loading Animation" className="btn-gif" />
+        {isLogin == true ? (
+          // your-acc
+          <div className="your-acc">
+            <div className="xp-counter">
+              <div className="xp-icon">
+                <img src={dImg} alt="D-coin-icon" height={40} width={40} />
+              </div>
+              <div className="xp-value">13,165</div>
             </div>
+<<<<<<< HEAD
             <div className="xp-value">13,165</div>
           </div>
           <div className="profile">
             <Link to="/profile">
+=======
+            <div className="profile">
+              <Link to="/profile">
+>>>>>>> refs/remotes/origin/main
               <img
                 src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
                 alt="Profile"
                 className="profile-image"
               />
+<<<<<<< HEAD
             </Link>
           </div>
         </div>
         :
         // login btn
         <div className="login">
+=======
+                 </Link>
+            </div>
+          </div>
+        ) : isLogin == false ? (
+          // login btn
+          <div className="login">
+>>>>>>> refs/remotes/origin/main
             {" "}
             <button id="account" onClick={() => setIsOpen(true)}>
               <svg
@@ -138,6 +175,7 @@ function navbar() {
                     maxWidth: "40%", // Limit max width
                     padding: "1rem", // Minimal padding
                     margin: "0 auto",
+                    position: "relative",
                   },
                   overlay: {
                     backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -148,31 +186,14 @@ function navbar() {
                 }}
               >
                 {/* Close Button */}
-                <button
-                  className="close-btn"
-                  onClick={() => setIsOpen(false)}
-                  style={{
-                    position: "absolute",
-                    top: "28%",
-                    left: "61%",
-                    background: "transparent",
-                    border: "none",
-                    cursor: "pointer",
-                    color: "#fff",
-                    fontSize: "1.5rem",
-                  }}
-                >
-                  <X size={40} />
-                </button>
 
-                <Login />
+                <Login setIsOpen={setIsOpen} setisLogin={setisLogin} />
               </Modal>
             </div>
           </div>
-        }
-        
-
-        
+        ) : (
+          <div className="w-[4.5rem]"></div>
+        )}
 
         <div class="hamburger" onClick="toggleMenu()">
           <div></div>

@@ -1,0 +1,312 @@
+.leaderboard-container {
+  
+    color: white;
+    min-height: 100vh;
+    max-width: 80vw;
+    margin: 0 auto;
+    padding: 5rem 1.5rem;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  .second-container {
+    border: 1px solid #232323;
+    padding: 5rem 1.5rem;
+    border-radius: 0.5rem;
+  }
+  
+  .leaderboard-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .contest-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .title-line {
+    height: 1px;
+    width: 5rem;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .title-box {
+    background-color: white;
+    color: #1a0f36;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .crown-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .leaderboard-heading {
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 1.5rem 0 3rem;
+  }
+  
+  .top-users {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  .top-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .top-user-1 {
+    order: 2;
+    transform: translateY(-2rem);
+  }
+  
+  .top-user-2 {
+    order: 1;
+  }
+  
+  .top-user-3 {
+    order: 3;
+  }
+  
+  .user-avatar {
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #2a1a4a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .avatar-initials {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    background-color: #404040;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .rank-badge {
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2a1a4a;
+    border-radius: 1rem;
+    padding: 0.25rem 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .rank-crown {
+    width: 12px;
+    height: 12px;
+    color: gold;
+  }
+  
+  .user-name {
+    font-weight: 600;
+    text-align: center;
+    max-width: 8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .user-score {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-weight: 600;
+  }
+  
+  .coin-icon {
+    font-size: 1.2rem;
+  }
+  
+
+  .leaderboard-table {
+    background-color: white;
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+  
+  .table-header {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 2fr 1fr 1fr;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  
+  .header-crown {
+    width: 14px;
+    height: 14px;
+    margin-right: 0.25rem;
+    color: gold;
+  }
+  
+  .table-body {
+    color: #333;
+  }
+  
+  .table-row {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 2fr 1fr 1fr;
+    padding: 1rem;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .table-row:last-child {
+    border-bottom: none;
+  }
+  .header-rank {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  .cell-rank {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
+  
+  .rank-badge-small {
+    background-color: #f5f5f5;
+    border-radius: 1rem;
+    padding: 0.25rem 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+  
+  .rank-crown-small {
+    width: 10px;
+    height: 10px;
+    color: gold;
+  }
+  
+  .cell-change {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  
+  .change-up {
+    color: #4caf50;
+  }
+  
+  .change-down {
+    color: #f44336;
+  }
+  
+  .change-none {
+    color: #9e9e9e;
+  }
+  
+  .cell-name {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .table-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .table-initials {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: #8b3e3e;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+  
+  .cell-xp {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  .coin-icon-small {
+    font-size: 1rem;
+  }
+  
+  .cell-submission {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+
+  .leaderboard-table {
+    background-color: #000000;
+    border: 1px solid #252525;
+  }
+  
+  .table-header {
+    background-color: #101010;
+    color: white;
+  }
+  
+  .table-body {
+    color: rgb(230, 230, 230);
+  }
+  
+  .table-row {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.375);
+  }
+  
+  .rank-badge-small {
+    background-color: #3a2560;
+  }
+  
+  .cell-submission {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  
