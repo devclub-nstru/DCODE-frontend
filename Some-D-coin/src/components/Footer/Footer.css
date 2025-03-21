@@ -4,18 +4,14 @@
   box-sizing: border-box;
 }
 
-/* .border {
-  height: 1px;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.507);
-} */
 .footer {
-  padding: 0 2rem;
+  padding: 0 5rem;
   margin: 2rem 0;
   min-height: 10vh;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 #credits {
@@ -26,19 +22,23 @@
   align-items: center;
 }
 
+.footer-gap{
+  height: 0.5px;
+  background-color: rgb(255, 255, 255, 0.1);
+}
+
 .foot-nav-link {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.25rem;
   transition: all 0.2s ease-in-out;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.2);
 }
 
 .foot-nav-link.active {
   color: #ffffff;
 }
-
 
 .footer-links {
   text-align: center;
@@ -52,11 +52,22 @@
   text-decoration: none;
 }
 
+.footer-link {
+  color: #b0b0b0; /* same color as social icons */
+  text-decoration: none;
+  transition: 0.5s;
+  padding-left: 0.3rem;
+}
+
+.footer-link:hover {
+  color: #ffffff; /* change color to white on hover */
+}
+
 .icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.8rem;
+  gap: 1.5rem;
 }
 
 .icons a svg {
@@ -64,13 +75,13 @@
   height: 1.5rem;
 }
 
-/*     #############     Dikkkkkkaaaaaattttt */
-
-a {
-  opacity: 1;
+.social-icon{
+  transition: 0.5s;
 }
 
-/*     #############     Dikkkkkkaaaaaattttt */
+.social-icon:hover {
+  fill: #ffffff; /* change color to white on hover */
+}
 
 .button {
   width: 3rem;

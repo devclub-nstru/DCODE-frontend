@@ -1,20 +1,21 @@
 "use client"
 
 import { useState } from "react"
+import { Link } from "react-router";
 import "./Profile.css"
 
 const Profile = () => {
   // Sample data - in a real app, this would come from props or an API
   const userData = {
-    name: "Alex Johnson",
-    username: "alexj42",
-    email: "alex.johnson@example.com",
-    walletBalance: 13165,
+    name: "Aditya Kumar",
+    username: "pseudopythonic",
+    email: "pseudopythonic@gmail.com",
+    walletBalance: 0,
     walletAddress: "0x3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b",
     stats: [
-      { icon: "repo", value: 7, label: "Issues Created" },
-      { icon: "git-branch", value: 5, label: "Pull Requests" },
-      { icon: "gift", value: 3, label: "Mystery Boxes" },
+      { icon: "repo", value: 0, label: "Issues Created" },
+      { icon: "git-branch", value: 0, label: "Pull Requests" },
+      { icon: "gift", value: 0, label: "Mystery Boxes" },
     ],
     issues: [
       { title: "Add solution of October 2024", tag: "DCODE", date: "2024-10-08", status: "assigned" },
@@ -112,7 +113,7 @@ const Profile = () => {
             <span className="balance-amount">{userData.walletBalance} DC</span>
           </div>
 
-          <div className="wallet-address-container">
+          {/* <div className="wallet-address-container">
             <p className="address-label">Wallet Address</p>
             <div className="address-input-group">
               <input type="text" className="address-input" value={userData.walletAddress} readOnly />
@@ -121,9 +122,9 @@ const Profile = () => {
                 {copied && <span className="copy-tooltip">Copied!</span>}
               </button>
             </div>
-          </div>
+          </div> */}
 
-          <button className="view-transactions-btn">View Transactions</button>
+          <Link to={"/wallet"} className="view-transactions-btn">View Transactions</Link>
         </div>
 
         <div className="quote-card">
