@@ -23,7 +23,7 @@ const LoginForm = ({ handleGoogleSignIn, setisLogin }) => (
   </form>
 );
 
-const SignupForm = ({ handleGoogleSignIn }) => (
+const SignupForm = ({ handleGoogleSignIn, setisLogin }) => (
   <form className="auth-form">
     <div className="google-signin">
       <button
