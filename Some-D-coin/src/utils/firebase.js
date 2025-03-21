@@ -1,4 +1,4 @@
-import axios from "axios";
+import axiosInstance from "./axiosConfig";
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { toast } from "react-toastify";
@@ -21,10 +21,9 @@ const signInWithGoogle = async (apiURL, setisLogin, setIsOpen) => {
   try {
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
-    const idToken = await user.getIdToken(); // Get Firebase ID token
+    const idToken = await user.getIdToken();
 
-    // Send token to backend for verification
-    var { data: axres } = await axios.post(apiURL, { token: idToken });
+    var { data: axres } = await axiosInstance.post(apiURL, { token: idToken });
     if (!axres.status) {
       return toast.error(axres.message);
     }

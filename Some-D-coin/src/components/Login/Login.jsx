@@ -2,8 +2,8 @@ import React, { useState, useCallback, useEffect } from "react";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import { Mail, Lock, User } from "lucide-react";
-import { signInWithGoogle } from "../../tools/firebase";
-const API_URL = "http://localhost:4000/api/auth";
+import { signInWithGoogle } from "../../utils/firebase";
+const API_URL = "/api/auth";
 import { FcGoogle } from "react-icons/fc";
 import { X } from "lucide-react";
 import "./Login.css"; // Import the CSS file

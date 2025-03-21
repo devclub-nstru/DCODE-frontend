@@ -1,16 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Wallet.css";
 import { Send, QrCode } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 import dImg from "../../../public/Dcode.png";
+import axiosInstance from "../../utils/axiosConfig";
 
 export default function Wallet() {
-  const [transactions] = useState([
+  const [transactions,settransactions] = useState([
     { date: "2025-03-18", type: "Sent", amount: "-200 D-Coins" },
     { date: "2025-03-15", type: "Received", amount: "500 D-Coins" },
   ]);
+  const [userBalance, setuserBalance] = useState(null);
+  useEffect(() => {
+    (async () => {
+      var { data: axres } = await axiosInstance.get("/api/wallet/balance");
+      if (axres.status) {
+        setuserBalance(axres.balance);
+      }
+      var { data: axres } = await axiosInstance.get("/api/transactions/history");
+      if (axres.status) {
+        settransactions(axres.balance);
+      }
+    })();
+  }, []);
 
   return (
     <>
@@ -19,8 +33,8 @@ export default function Wallet() {
           <div className="dcode-icon">
             <img src={dImg} alt="" height={70} width={70} />
           </div>
-          <div className="wallet-balance">Wallet Balance</div>
-          <div className="coin-amount">1000 D-Coins</div>
+          <div className="wallet-balance-page">Wallet Balance</div>
+          <div className="coin-amount">{userBalance} D-Coins</div>
         </div>
 
         <div className="card-wallet">
