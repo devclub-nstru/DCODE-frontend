@@ -105,7 +105,7 @@ export default function Leaderboard() {
             >
               <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14" />
             </svg>
-            MARCH 2025
+            DCODE
           </div>
           <div className="title-line"></div>
         </div>
@@ -142,7 +142,7 @@ export default function Leaderboard() {
               </div>
               <div className="user-name">{user.name}</div>
               <div className="user-score">
-                <span className="coin-icon"><img src={dImg} alt="D-coin-icon" height={20} width={20} /></span> {user.score}
+                {user.score}
               </div>
             </div>
           ))}
@@ -164,10 +164,10 @@ export default function Leaderboard() {
             </svg> 
             RANK
           </div>
-          <div className="header-change">CHANGE</div>
+          {/* <div className="header-change">CHANGE</div> */}
           <div className="header-name">NAME</div>
-          <div className="header-xp">XP THIS MONTH</div>
-          <div className="header-submission">LATEST SUBMISSION</div>
+          <div className="header-xp">POINTS</div>
+          {/* <div className="header-submission">LATEST SUBMISSION</div> */}
         </div>
 
         <div className="table-body">
@@ -194,12 +194,6 @@ export default function Leaderboard() {
                 )}
               </div>
 
-              <div className="cell-change">
-                {user.change > 0 && <span className="change-up">▲ {user.change}</span>}
-                {user.change < 0 && <span className="change-down">▼ {Math.abs(user.change)}</span>}
-                {user.change === 0 && <span className="change-none">-</span>}
-              </div>
-
               <div className="cell-name">
                 {user.avatar ? (
                   <img src={user.avatar || "/placeholder.svg"} alt={user.name} className="table-avatar" />
@@ -210,10 +204,8 @@ export default function Leaderboard() {
               </div>
 
               <div className="cell-xp">
-                <span className="coin-icon-small"><img src={dImg} alt="D-coin-icon" height={15} width={15} /></span> {user.score}
+                {user.score}
               </div>
-
-              <div className="cell-submission">{user.lastSubmission}</div>
             </div>
           ))}
         </div>
