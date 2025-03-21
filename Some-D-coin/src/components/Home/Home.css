@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 #main-hero {
   padding-top: 12.25rem;
   min-height: 100vh;
@@ -16,9 +17,9 @@
 
 .live-btn {
   font-family: "Inter", monospace;
-  font-size: 0.5rem;
+  font-size: 0.7rem;
   font-weight: 300;
-  padding: 0.3rem 0.5rem 0.3rem 0.4rem;
+  padding: 0.4rem 0.6rem 0.4rem 0.4rem;
   border: 1px solid #82d48b30;
   border-radius: 5rem;
 
@@ -60,6 +61,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -68,11 +70,13 @@
 .hero-img {
   margin-top: -14rem;
 }
+
 .hero-img img {
   transform: scale(1);
   /* opacity: 0; */
   /* animation: fadeIn 2s ease-in 0.5s forwards; */
 }
+
 /* New Section */
 
 .what {
@@ -93,6 +97,7 @@
   color: rgba(255, 255, 255, 0.9);
   font-weight: bold;
 }
+
 #what-sub {
   color: rgba(255, 255, 255, 0.7);
 }
@@ -127,6 +132,7 @@
   background-color: black;
   transition: 0.2s;
 }
+
 .kard-image img {
   height: 100%;
   width: 100%;
@@ -137,6 +143,7 @@
 .kard-image:hover {
   transform: scale(1.015);
 }
+
 .kategory {
   font-size: 1.5em;
   font-weight: 500;
@@ -163,6 +170,7 @@
   align-self: center;
   gap: 3rem;
 }
+
 .what-btn button {
   padding: 0.65rem 0.75rem;
   font-size: 0.7rem;
@@ -181,6 +189,7 @@
   opacity: 0;
   animation: fadeIn 2s ease-in 0.7s forwards;
 }
+
 .what-btn2 {
   margin-top: 3.5rem;
   height: 100%;
@@ -190,6 +199,7 @@
   align-self: center;
   gap: 3rem;
 }
+
 .what-btn2 button {
   padding: 1rem 1.5rem;
   font-size: 1.5rem;
@@ -205,6 +215,7 @@
   gap: 1rem;
   cursor: pointer;
 }
+
 .event {
   margin-bottom: 10rem;
 }
@@ -225,7 +236,8 @@
   }
 
   .heading #main-txt {
-    font-size: 2rem; /* Further reduce heading size */
+    font-size: 2rem;
+    /* Further reduce heading size */
   }
 
   .heading #sub-txt {
@@ -238,17 +250,20 @@
   }
 
   .what {
-    font-size: 1.2rem; /* Adjust font size */
+    font-size: 1.2rem;
+    /* Adjust font size */
   }
 
   .kard {
-    width: 18rem; /* Further reduce card size */
+    width: 18rem;
+    /* Further reduce card size */
     padding: 1.2rem;
   }
 
   .what-btn,
   .what-btn2 {
-    flex-direction: column; /* Stack buttons */
+    flex-direction: column;
+    /* Stack buttons */
     gap: 1rem;
   }
 
@@ -257,7 +272,7 @@
     font-size: 0.9rem;
     padding: 0.7rem 1rem;
   }
-  
+
 }
 
 
@@ -271,7 +286,8 @@
   }
 
   .heading #main-txt {
-    font-size: 1.8rem; /* Reduce heading size for smaller screens */
+    font-size: 1.8rem;
+    /* Reduce heading size for smaller screens */
   }
 
   .heading #sub-txt {
@@ -284,17 +300,20 @@
   }
 
   .what {
-    font-size: 1rem; /* Further adjust font size */
+    font-size: 1rem;
+    /* Further adjust font size */
   }
 
   .kard {
-    width: 16rem; /* Reduce card width */
+    width: 16rem;
+    /* Reduce card width */
     padding: 1rem;
   }
 
   .what-btn,
   .what-btn2 {
-    flex-direction: column; /* Stack buttons */
+    flex-direction: column;
+    /* Stack buttons */
     gap: 0.8rem;
   }
 
