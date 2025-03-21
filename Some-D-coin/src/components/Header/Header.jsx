@@ -100,44 +100,29 @@ function navbar() {
             Wallet
           </NavLink>
         </div>
-        {isLogin == true ? (
-          // your-acc
-          <div className="your-acc">
-            <div className="xp-counter">
-              <div className="xp-icon">
-                <img src={dImg} alt="D-coin-icon" height={40} width={40} />
+        {isLogin ? (
+          <>
+            <div className="your-acc">
+              <div className="xp-counter">
+                <div className="xp-icon">
+                  <img src={dImg} alt="D-coin-icon" height={40} width={40} />
+                </div>
+                <div className="xp-value">13,165</div>
               </div>
               <div className="xp-value">13,165</div>
             </div>
-<<<<<<< HEAD
-            <div className="xp-value">13,165</div>
-          </div>
-          <div className="profile">
-            <Link to="/profile">
-=======
             <div className="profile">
               <Link to="/profile">
->>>>>>> refs/remotes/origin/main
-              <img
-                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
-                alt="Profile"
-                className="profile-image"
-              />
-<<<<<<< HEAD
-            </Link>
-          </div>
-        </div>
-        :
-        // login btn
-        <div className="login">
-=======
-                 </Link>
+                <img
+                  src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+                  alt="Profile"
+                  className="profile-image"
+                />
+              </Link>
             </div>
-          </div>
-        ) : isLogin == false ? (
-          // login btn
+          </>
+        ) : (
           <div className="login">
->>>>>>> refs/remotes/origin/main
             {" "}
             <button id="account" onClick={() => setIsOpen(true)}>
               <svg
@@ -191,8 +176,6 @@ function navbar() {
               </Modal>
             </div>
           </div>
-        ) : (
-          <div className="w-[4.5rem]"></div>
         )}
 
         <div class="hamburger" onClick="toggleMenu()">
