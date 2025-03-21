@@ -27,24 +27,32 @@ export default function Wallet() {
           <h2 className="card-wallet-title">Send Money</h2>
           <input
             type="text"
-            placeholder="Receiver's ID"
+            placeholder="Receiver's Email"
             className="input-field"
           />
-          <input type="text" placeholder="Amount" className="input-field" />
+          <input
+            type="text"
+            placeholder="Amount (Min. 100)"
+            min={100}
+            className="input-field"
+          />
           <div className="button-group">
             <button className="send-button">
               <Send size={20} />
               <span>Send D-Coins</span>
             </button>
-            <button className="scan-button">
+            {/* <button className="scan-button">
               <QrCode size={20} />
               <span>Scan QR Code</span>
-            </button>
+            </button> */}
           </div>
-          <p className="fee-note">* 20% fee applies to all transfers.</p>
+          <p className="fee-note">
+            * 20% of the transaction amount is charged as a fee for all
+            transfers.
+          </p>
         </div>
 
-        <div className="card-wallet">
+        {/* <div className="card-wallet">
           <div className="receive-container">
             <h2 className="card-wallet-title">Receive Money</h2>
             <button className="qr-button">
@@ -52,7 +60,7 @@ export default function Wallet() {
               <span>Show QR Code</span>
             </button>
           </div>
-        </div>
+        </div> */}
 
         <div className="card-wallet">
           <div className="wallet-history">

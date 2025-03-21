@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Login from "../Login/Login";
 import Modal from "react-modal";
-import { X } from "lucide-react";
 import Auth from "../Login/Login";
 import dGif from "../../../public/Dcode.png";
 import "./Header.css";
@@ -10,13 +9,29 @@ import "./Header.css";
 function navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLogin, setisLogin] = useState(null);
+
+  const setToken = (token) => {
+    localStorage.setItem("token", token);
+    setisLogin(!!token); // Update isLogin based on the new token
+  };
+
   useEffect(() => {
-    if (localStorage.getItem("token")) {
-      setisLogin(true);
-    } else {
-      setisLogin(false);
-    }
-  }, []);
+    const handleStorageChange = () => {
+      const token = localStorage.getItem("token");
+      setisLogin(!!token); // Update isLogin based on the token
+    };
+
+    // Initial check
+    handleStorageChange();
+
+    // Listen for storage changes
+    window.addEventListener("storage", handleStorageChange);
+
+    // Cleanup event listener on unmount
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []); // Empty dependency array to run only on mount
 
   return (
     <>
@@ -153,24 +168,8 @@ function navbar() {
                 }}
               >
                 {/* Close Button */}
-                <button
-                  className="close-btn"
-                  onClick={() => setIsOpen(false)}
-                  style={{
-                    position: "absolute",
-                    top: "28%",
-                    left: "61%",
-                    background: "transparent",
-                    border: "none",
-                    cursor: "pointer",
-                    color: "#fff",
-                    fontSize: "1.5rem",
-                  }}
-                >
-                  <X size={40} />
-                </button>
 
-                <Login />
+                <Login setIsOpen={setIsOpen} setisLogin={setisLogin} />
               </Modal>
             </div>
           </div>
