@@ -168,7 +168,7 @@ const Profile = () => {
         </div>
 
         {/* Tabs */}
-        <div className="tabs-container">
+        <div className="profile-tabs-container">
           <div className={`tab ${activeTab === "Issues" ? "active" : ""}`} onClick={() => setActiveTab("Issues")}>
             Issues
           </div>
@@ -193,9 +193,9 @@ const Profile = () => {
 
             <div className="issues-list">
               {userData.issues.map((issue, index) => (
-                <div className="issue-item" key={index}>
+                <div className="profile-issue-item" key={index}>
                   <div className="issue-content">
-                    <h3 className="issue-title">{issue.title}</h3>
+                    <h3 className="profile-issue-title">{issue.title}</h3>
                     <div className="issue-meta">
                       <span className="issue-tag">{issue.tag}</span>
                       <span className="issue-date">{issue.date}</span>
