@@ -21,7 +21,7 @@ function Hero() {
             it, and grow
           </p>
         </div>
-        <NavLink to="/contributors">
+{/*         <NavLink to="/contributors">
         <div className="what-btn">
           <button style={{zIndex: 10}} >
             <span>Get Started</span>
@@ -41,7 +41,7 @@ function Hero() {
             </svg>
           </button>
         </div>
-        </NavLink>
+        </NavLink> */}
         <div
           className="hero-img"
           data-aos="fade-up"
