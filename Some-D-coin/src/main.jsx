@@ -18,6 +18,7 @@ import Contributors from "./components/Contributors/Contributors.jsx";
 import Wallet from "./components/Wallet/Wallet.jsx";
 import IssueDetails from "./components/GitHubIssues/IssueDetails/IssueDetails.jsx";
 import Leaderboard from "./components/LeaderBoard/Leaderboard.jsx";
+import Profile from "./components/Profile/Profile.jsx"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
       <Route path="contributors" element={<Contributors />} />
       <Route path="wallet" element={<Wallet />} />
       <Route path="team" element={<Team />} />
+      <Route path="profile" element={<Profile />} />
     </Route>
   )
 );
