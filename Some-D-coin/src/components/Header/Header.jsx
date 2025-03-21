@@ -100,12 +100,14 @@ function navbar() {
             Wallet
           </NavLink>
         </div>
-        {isLogin == true ? (
-          // your-acc
-          <div className="your-acc">
-            <div className="xp-counter">
-              <div className="xp-icon">
-                <img src={dImg} alt="D-coin-icon" height={40} width={40} />
+        {isLogin ? (
+          <>
+            <div className="your-acc">
+              <div className="xp-counter">
+                <div className="xp-icon">
+                  <img src={dImg} alt="D-coin-icon" height={40} width={40} />
+                </div>
+                <div className="xp-value">13,165</div>
               </div>
               <div className="xp-value">13,165</div>
             </div>
@@ -118,9 +120,8 @@ function navbar() {
                 />
               </Link>
             </div>
-          </div>
-        ) : isLogin == false ? (
-          // login btn
+          </>
+        ) : (
           <div className="login">
             {" "}
             <button id="account" onClick={() => setIsOpen(true)}>
@@ -175,8 +176,6 @@ function navbar() {
               </Modal>
             </div>
           </div>
-        ) : (
-          <div className="w-[4.5rem]"></div>
         )}
 
         <div class="hamburger" onClick="toggleMenu()">
