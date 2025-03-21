@@ -110,11 +110,13 @@ function navbar() {
               <div className="xp-value">13,165</div>
             </div>
             <div className="profile">
+              <Link to="/profile">
               <img
                 src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
                 alt="Profile"
                 className="profile-image"
               />
+                 </Link>
             </div>
           </div>
         ) : isLogin == false ? (
