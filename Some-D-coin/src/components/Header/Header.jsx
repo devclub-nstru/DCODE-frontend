@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import Login from "../Login/Login";
 import Modal from "react-modal";
 import Auth from "../Login/Login";
-import dGif from "../../../public/Dcode.png";
+import dImg from "../../../public/Dcode.png";
 import "./Header.css";
 
 function navbar() {
@@ -105,7 +105,7 @@ function navbar() {
           <div className="your-acc">
             <div className="xp-counter">
               <div className="xp-icon">
-                <img src={dGif} alt="D-coin-icon" height={40} width={40} />
+                <img src={dImg} alt="D-coin-icon" height={40} width={40} />
               </div>
               <div className="xp-value">13,165</div>
             </div>
