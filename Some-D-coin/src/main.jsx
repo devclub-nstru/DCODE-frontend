@@ -20,6 +20,7 @@ import IssueDetails from "./components/GitHubIssues/IssueDetails/IssueDetails.js
 import Leaderboard from "./components/LeaderBoard/Leaderboard.jsx";
 import Profile from "./components/Profile/Profile.jsx";
 import RBHIssueProposal from "./components/RBHIssueProposal/RBHIssueProposal"
+import GenralIssueProposal from "./components/GenralIssueProposal/GenralIssueProposal.jsx"
 import "./utils/axiosConfig";
 
 const router = createBrowserRouter(
@@ -36,6 +37,7 @@ const router = createBrowserRouter(
       <Route path="team" element={<Team />} />
       <Route path="profile" element={<Profile />} />
       <Route path="rbhissueproposal" element={<RBHIssueProposal />}/>
+      <Route path="GenralIssueProposal" element={<GenralIssueProposal />}/>
     </Route>
   )
 );

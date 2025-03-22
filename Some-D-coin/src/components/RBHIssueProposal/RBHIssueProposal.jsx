@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import "./RBHIssueProposal.css"
 
 const RBHIssueProposal = () => {
   const [formData, setFormData] = useState({
