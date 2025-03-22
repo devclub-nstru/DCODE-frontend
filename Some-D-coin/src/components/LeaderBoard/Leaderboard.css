@@ -191,7 +191,7 @@
     grid-template-columns: 1fr 5fr 1fr;
     padding: 1rem;
     align-items: center;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.2);
   }
   
   .table-row:last-child {
@@ -310,7 +310,7 @@
   }
   
   .table-row {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.375);
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.375); */
   }
   
   .rank-badge-small {
