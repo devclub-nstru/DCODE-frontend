@@ -74,10 +74,10 @@ function Auth({ setIsOpen, setisLogin }) {
               border: "none",
               cursor: "pointer",
               color: "#fff",
-              fontSize: "1.5rem",
+              fontSize: "0.2rem",
             }}
           >
-            <X size={40} />
+            <X size={24} />
           </button>
           <div className="auth-tabs">
             <div
