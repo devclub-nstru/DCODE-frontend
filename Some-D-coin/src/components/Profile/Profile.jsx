@@ -169,7 +169,7 @@ const Profile = () => {
   };
 
   const handleLogout = () => {
-    window.confirm("Do you really want to leave?")
+    window.confirm("Do you really want to leave?");
     localStorage.removeItem("token");
     window.location.reload();
   };
@@ -178,13 +178,16 @@ const Profile = () => {
     <div className="profile-container !pt-[6rem]">
       <div className="profile-column">
         <div className="profile-card">
-          <div 
-            style={{marginLeft: "20rem", cursor: "pointer"}} 
+          <div
+            style={{ marginLeft: "20rem", cursor: "pointer" }}
             onClick={handleLogout}
             className="logout-button"
             title="Logout"
           >
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAiElEQVR4nO2VwQ2AIAwAqyOwGXESBzHO5Uj6OQPq10RKqBDuX3ppSyvS+SNkon4BMYqXLkCeFhyWLdgBbyngk5NnmeLrDQfMVhUYge1+Zi0uEACmMIiPBDBISQGVBC8Cyu281C+gacGXwIhJ8kAr39BZLiKfGtvMMTI/x5EuINoSaqlXoCMFOQEhLgygtlfoiQAAAABJRU5ErkJggg==" alt="Logout" />
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAiElEQVR4nO2VwQ2AIAwAqyOwGXESBzHO5Uj6OQPq10RKqBDuX3ppSyvS+SNkon4BMYqXLkCeFhyWLdgBbyngk5NnmeLrDQfMVhUYge1+Zi0uEACmMIiPBDBISQGVBC8Cyu281C+gacGXwIhJ8kAr39BZLiKfGtvMMTI/x5EuINoSaqlXoCMFOQEhLgygtlfoiQAAAABJRU5ErkJggg=="
+              alt="Logout"
+            />
           </div>
           <div className="profile-avatar">
             <img
@@ -383,7 +386,7 @@ const Profile = () => {
                       <div className="mystery-box-icon">
                         <span className="icon">⊞</span>
                       </div>
-                      <h3 className="mystery-box-name">{box.name}</h3>
+                      <h3 className="mystery-box-name ">{box.name}</h3>
                       <div
                         className={`mystery-box-rarity ${box.rarity.toLowerCase()}`}
                       >
