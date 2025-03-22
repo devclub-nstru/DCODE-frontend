@@ -2,6 +2,7 @@ import React from "react";
 import EventTimeline from "../EventTimeline";
 import {Link, NavLink} from "react-router-dom";
 import "./Home.css";
+import contributors from "../Contributors/Contributors";
 
 function Hero() {
   return (
@@ -20,9 +21,9 @@ function Hero() {
             it, and grow
           </p>
         </div>
-        <NavLink to="/contributors">
+        {/* <NavLink to="/contributors">
         <div className="what-btn">
-          <button style={{zIndex: 10}} >
+          <button>
             <span>Get Started</span>
             <svg
               width="1rem"
@@ -40,7 +41,7 @@ function Hero() {
             </svg>
           </button>
         </div>
-        </NavLink>
+        </NavLink> */}
         <div
           className="hero-img"
           data-aos="fade-up"

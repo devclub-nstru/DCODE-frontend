@@ -2,39 +2,55 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Login from "../Login/Login";
 import Modal from "react-modal";
-import Auth from "../Login/Login";
 import dImg from "../../../public/Dcode.png";
 import "./Header.css";
-import axiosInstance from "../../utils/axiosConfig";
-import { useBalance } from "../../context/BalanceContext";
 
-function navbar() {
+function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLogin, setisLogin] = useState(null);
-  const { userBalance, updateBalance } = useBalance();
+  const [menuActive, setMenuActive] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuActive(!menuActive);
+  };
 
   const setToken = (token) => {
     localStorage.setItem("token", token);
-    setisLogin(!!token); // Update isLogin based on the new token
+    setisLogin(!!token);
   };
+
+  useEffect(() => {
+    const hamburger = document.querySelector('.hamburger');
+    const navItems = document.querySelector('.nav-items');
+
+    if (hamburger && navItems) {
+      const handleClick = () => {
+        hamburger.classList.toggle('active');
+        navItems.classList.toggle('active');
+      };
+      
+      hamburger.addEventListener('click', handleClick);
+      
+      return () => {
+        hamburger.removeEventListener('click', handleClick);
+      };
+    }
+  }, []);
+
   useEffect(() => {
     const handleStorageChange = () => {
       const token = localStorage.getItem("token");
-      setisLogin(!!token); // Update isLogin based on the token
+      setisLogin(!!token);
     };
-    updateBalance();
 
-    // Initial check
     handleStorageChange();
 
-    // Listen for storage changes
     window.addEventListener("storage", handleStorageChange);
 
-    // Cleanup event listener on unmount
     return () => {
       window.removeEventListener("storage", handleStorageChange);
     };
-  }, []); // Empty dependency array to run only on mount
+  }, []);
 
   return (
     <>
@@ -57,7 +73,7 @@ function navbar() {
           </a>
         </div>
 
-        <div className="nav-items">
+        <div className={`nav-items ${menuActive ? 'active' : ''}`}>
           <NavLink
             to="/#"
             className={({ isActive }) =>
@@ -103,14 +119,15 @@ function navbar() {
             Wallet
           </NavLink>
         </div>
-        {isLogin == true ? (
+        
+        {isLogin === true ? (
           // your-acc
           <div className="your-acc">
             <div className="xp-counter">
               <div className="xp-icon">
                 <img src={dImg} alt="D-coin-icon" height={40} width={40} />
               </div>
-              <div className="xp-value">{userBalance}</div>
+              <div className="xp-value">13,165</div>
             </div>
             <div className="profile">
               <Link to="/profile">
@@ -121,11 +138,8 @@ function navbar() {
                 />
               </Link>
             </div>
-            <button className="logout-btn" onClick={() => setToken(null)}>
-              Logout
-            </button>
           </div>
-        ) : isLogin == false ? (
+        ) : isLogin === false ? (
           // login btn
           <div className="login">
             {" "}
@@ -140,9 +154,9 @@ function navbar() {
                 <path
                   d="M5.31041 14.4788C5.47223 14.136 5.62043 13.788 5.75585 13.4333M12.2849 15.7508C12.7353 14.632 13.0834 13.4834 13.3257 12.3158M16.7691 12.9398C17.0893 11.4203 17.2571 9.85352 17.2571 8.25227C17.2574 7.20273 16.9546 6.17035 16.3772 5.25219C15.7998 4.33403 14.9668 3.56023 13.9564 3.00354C12.946 2.44685 11.7914 2.12554 10.6013 2.06983C9.41107 2.01411 8.22435 2.22581 7.15262 2.68502M2.77832 11.3663C3.05342 10.3673 3.19906 9.32477 3.19906 8.25227C3.19906 6.90602 3.68708 5.65952 4.51663 4.64402M10.2281 8.25152C10.2308 10.8517 9.63749 13.4256 8.48382 15.819M6.53855 10.5C6.65353 9.76502 6.71315 9.01502 6.71315 8.25227C6.71315 7.43146 7.08343 6.64427 7.74253 6.06387C8.40163 5.48347 9.29556 5.1574 10.2277 5.1574C11.1598 5.1574 12.0537 5.48347 12.7128 6.06387C13.3719 6.64427 13.7422 7.43146 13.7422 8.25227C13.7422 8.62877 13.732 9.00302 13.7107 9.37502"
                   stroke="#868F97"
-                  stroke-width="1.125"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="1.125"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
               <span>Login</span>
@@ -175,8 +189,6 @@ function navbar() {
                   },
                 }}
               >
-                {/* Close Button */}
-
                 <Login setIsOpen={setIsOpen} setisLogin={setisLogin} />
               </Modal>
             </div>
@@ -185,7 +197,7 @@ function navbar() {
           <div className="w-[4.5rem]"></div>
         )}
 
-        <div class="hamburger" onClick="toggleMenu()">
+        <div className="hamburger" onClick={toggleMenu}>
           <div></div>
           <div></div>
           <div></div>
@@ -195,8 +207,4 @@ function navbar() {
   );
 }
 
-function toggleMenu() {
-  document.querySelector(".nav-items").classList.toggle("active");
-}
-
-export default navbar;
+export default Navbar;
