@@ -1,16 +1,18 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
 import { Link } from "react-router";
-import "./Profile.css"
+import "./Profile.css";
+import { useBalance } from "../../context/BalanceContext";
 
 const Profile = () => {
+  const { userBalance } = useBalance();
+
   // Sample data - in a real app, this would come from props or an API
   const userData = {
     name: "Aditya Kumar",
     username: "pseudopythonic",
     email: "pseudopythonic@gmail.com",
-    walletBalance: 0,
     walletAddress: "0x3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b",
     stats: [
       { icon: "repo", value: 0, label: "Issues Created" },
@@ -18,22 +20,73 @@ const Profile = () => {
       { icon: "gift", value: 0, label: "Mystery Boxes" },
     ],
     issues: [
-      { title: "Add solution of October 2024", tag: "DCODE", date: "2024-10-08", status: "assigned" },
-      { title: "Please add mini projects here", tag: "DCODE", date: "2024-10-08", status: "assigned" },
-      { title: "Please add the projects on ai-ml here", tag: "DCODE", date: "2024-10-08", status: "assigned" },
-      { title: "Add solution of Weekly Contest 2024", tag: "DCODE", date: "2024-10-07", status: "assigned" },
+      {
+        title: "Add solution of October 2024",
+        tag: "DCODE",
+        date: "2024-10-08",
+        status: "assigned",
+      },
+      {
+        title: "Please add mini projects here",
+        tag: "DCODE",
+        date: "2024-10-08",
+        status: "assigned",
+      },
+      {
+        title: "Please add the projects on ai-ml here",
+        tag: "DCODE",
+        date: "2024-10-08",
+        status: "assigned",
+      },
+      {
+        title: "Add solution of Weekly Contest 2024",
+        tag: "DCODE",
+        date: "2024-10-07",
+        status: "assigned",
+      },
     ],
     pullRequests: [
-      { title: "Fix navigation bug in mobile view", tag: "frontend-app", date: "2024-03-15", status: "merged" },
-      { title: "Update documentation for API v2", tag: "api-docs", date: "2024-03-10", status: "open" },
-      { title: "Implement new dashboard widgets", tag: "dashboard", date: "2024-02-28", status: "merged" },
-      { title: "Add unit tests for user service", tag: "user-service", date: "2024-02-20", status: "open" },
-      { title: "Refactor authentication flow", tag: "auth", date: "2024-02-15", status: "merged" },
+      {
+        title: "Fix navigation bug in mobile view",
+        tag: "frontend-app",
+        date: "2024-03-15",
+        status: "merged",
+      },
+      {
+        title: "Update documentation for API v2",
+        tag: "api-docs",
+        date: "2024-03-10",
+        status: "open",
+      },
+      {
+        title: "Implement new dashboard widgets",
+        tag: "dashboard",
+        date: "2024-02-28",
+        status: "merged",
+      },
+      {
+        title: "Add unit tests for user service",
+        tag: "user-service",
+        date: "2024-02-20",
+        status: "open",
+      },
+      {
+        title: "Refactor authentication flow",
+        tag: "auth",
+        date: "2024-02-15",
+        status: "merged",
+      },
     ],
     mysteryBoxes: [
       { id: 1, name: "Bronze Box", rarity: "Common", unopened: true },
       { id: 2, name: "Silver Box", rarity: "Uncommon", unopened: true },
-      { id: 3, name: "Gold Box", rarity: "Rare", unopened: false, reward: "500 DC" },
+      {
+        id: 3,
+        name: "Gold Box",
+        rarity: "Rare",
+        unopened: false,
+        reward: "500 DC",
+      },
     ],
     achievements: [
       {
@@ -61,27 +114,27 @@ const Profile = () => {
       "Programming isn't about what you know; it's about what you can figure out.",
       "The most important property of a program is whether it accomplishes the intention of its user.",
     ],
-  }
+  };
 
-  const [activeTab, setActiveTab] = useState("Issues")
-  const [copied, setCopied] = useState(false)
-  const [currentQuote, setCurrentQuote] = useState(0)
-  const [openedBoxes, setOpenedBoxes] = useState([])
+  const [activeTab, setActiveTab] = useState("Issues");
+  const [copied, setCopied] = useState(false);
+  const [currentQuote, setCurrentQuote] = useState(0);
+  const [openedBoxes, setOpenedBoxes] = useState([]);
 
   const handleCopy = () => {
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const handleOpenBox = (boxId) => {
     if (!openedBoxes.includes(boxId)) {
-      setOpenedBoxes([...openedBoxes, boxId])
+      setOpenedBoxes([...openedBoxes, boxId]);
     }
-  }
+  };
 
   const cycleQuote = () => {
-    setCurrentQuote((prev) => (prev + 1) % userData.quotes.length)
-  }
+    setCurrentQuote((prev) => (prev + 1) % userData.quotes.length);
+  };
 
   return (
     <div className="profile-container">
@@ -110,7 +163,7 @@ const Profile = () => {
 
           <div className="wallet-balance">
             <span className="balance-label">Balance</span>
-            <span className="balance-amount">{userData.walletBalance} DC</span>
+            <span className="balance-amount">{userBalance} DC</span>
           </div>
 
           {/* <div className="wallet-address-container">
@@ -124,7 +177,9 @@ const Profile = () => {
             </div>
           </div> */}
 
-          <Link to={"/wallet"} className="view-transactions-btn">View Transactions</Link>
+          <Link to={"/wallet"} className="view-transactions-btn">
+            View Transactions
+          </Link>
         </div>
 
         <div className="quote-card">
@@ -159,10 +214,18 @@ const Profile = () => {
               <div className="achievement-item" key={index}>
                 <div className="achievement-header">
                   <h3 className="achievement-title">{achievement.title}</h3>
-                  <span className={`achievement-rarity ${achievement.rarity.toLowerCase()}`}>{achievement.rarity}</span>
+                  <span
+                    className={`achievement-rarity ${achievement.rarity.toLowerCase()}`}
+                  >
+                    {achievement.rarity}
+                  </span>
                 </div>
-                <p className="achievement-date">Acquired: {achievement.acquiredDate}</p>
-                <p className="achievement-description">{achievement.description}</p>
+                <p className="achievement-date">
+                  Acquired: {achievement.acquiredDate}
+                </p>
+                <p className="achievement-description">
+                  {achievement.description}
+                </p>
               </div>
             ))}
           </div>
@@ -170,7 +233,10 @@ const Profile = () => {
 
         {/* Tabs */}
         <div className="tabs-container">
-          <div className={`tab ${activeTab === "Issues" ? "active" : ""}`} onClick={() => setActiveTab("Issues")}>
+          <div
+            className={`tab ${activeTab === "Issues" ? "active" : ""}`}
+            onClick={() => setActiveTab("Issues")}
+          >
             Issues
           </div>
           <div
@@ -202,7 +268,9 @@ const Profile = () => {
                       <span className="issue-date">{issue.date}</span>
                     </div>
                   </div>
-                  <div className={`issue-status ${issue.status}`}>{issue.status}</div>
+                  <div className={`issue-status ${issue.status}`}>
+                    {issue.status}
+                  </div>
                 </div>
               ))}
             </div>
@@ -212,7 +280,9 @@ const Profile = () => {
         {/* Pull Requests */}
         {activeTab === "Pull Requests" && (
           <div className="pr-card">
-            <h2 className="pr-title">Pull Requests ({userData.pullRequests.length})</h2>
+            <h2 className="pr-title">
+              Pull Requests ({userData.pullRequests.length})
+            </h2>
 
             <div className="pr-list">
               {userData.pullRequests.map((pr, index) => (
@@ -238,20 +308,32 @@ const Profile = () => {
 
             <div className="mystery-boxes-grid">
               {userData.mysteryBoxes.map((box) => {
-                const isOpened = openedBoxes.includes(box.id) || !box.unopened
-                const reward = openedBoxes.includes(box.id) ? "250 DC" : box.reward
+                const isOpened = openedBoxes.includes(box.id) || !box.unopened;
+                const reward = openedBoxes.includes(box.id)
+                  ? "250 DC"
+                  : box.reward;
 
                 return (
-                  <div className={`mystery-box ${isOpened ? "opened" : ""}`} key={box.id}>
+                  <div
+                    className={`mystery-box ${isOpened ? "opened" : ""}`}
+                    key={box.id}
+                  >
                     <div className="mystery-box-content">
                       <div className="mystery-box-icon">
                         <span className="icon">⊞</span>
                       </div>
                       <h3 className="mystery-box-name">{box.name}</h3>
-                      <div className={`mystery-box-rarity ${box.rarity.toLowerCase()}`}>{box.rarity}</div>
+                      <div
+                        className={`mystery-box-rarity ${box.rarity.toLowerCase()}`}
+                      >
+                        {box.rarity}
+                      </div>
 
                       {!isOpened ? (
-                        <button className="open-box-btn" onClick={() => handleOpenBox(box.id)}>
+                        <button
+                          className="open-box-btn"
+                          onClick={() => handleOpenBox(box.id)}
+                        >
                           Open Box
                         </button>
                       ) : (
@@ -267,7 +349,11 @@ const Profile = () => {
                           <p className="reward-text">You got: 250 DC!</p>
                           <button
                             className="collect-btn"
-                            onClick={() => setOpenedBoxes(openedBoxes.filter((id) => id !== box.id))}
+                            onClick={() =>
+                              setOpenedBoxes(
+                                openedBoxes.filter((id) => id !== box.id)
+                              )
+                            }
                           >
                             Collect
                           </button>
@@ -275,15 +361,14 @@ const Profile = () => {
                       )}
                     </div>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Profile
-
+export default Profile;

@@ -104,11 +104,11 @@
 
 .send-button {
   background-color: #4169e1;
-  &:hover {
+  /* &:hover {
     transition: 0.5s ease-in-out;
     transform: scale(1.05);
     filter: brightness(120%);
-  }
+  } */
 }
 
 .scan-button {

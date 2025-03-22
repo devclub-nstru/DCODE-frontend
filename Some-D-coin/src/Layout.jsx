@@ -4,6 +4,8 @@ import Footer from "./components/Footer/Footer";
 import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Aos from "aos";
+import axiosInstance from "./utils/axiosConfig";
+import { BalanceProvider } from "./context/BalanceContext";
 
 function Layout() {
   useEffect(() => {
@@ -11,7 +13,7 @@ function Layout() {
   }, []);
 
   return (
-    <>
+    <BalanceProvider>
       <ToastContainer
         position="top-center"
         autoClose={2000}
@@ -26,7 +28,7 @@ function Layout() {
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </BalanceProvider>
   );
 }
 

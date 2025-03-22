@@ -5,21 +5,24 @@ import Modal from "react-modal";
 import Auth from "../Login/Login";
 import dImg from "../../../public/Dcode.png";
 import "./Header.css";
+import axiosInstance from "../../utils/axiosConfig";
+import { useBalance } from "../../context/BalanceContext";
 
 function navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLogin, setisLogin] = useState(null);
+  const { userBalance, updateBalance } = useBalance();
 
   const setToken = (token) => {
     localStorage.setItem("token", token);
     setisLogin(!!token); // Update isLogin based on the new token
   };
-
   useEffect(() => {
     const handleStorageChange = () => {
       const token = localStorage.getItem("token");
       setisLogin(!!token); // Update isLogin based on the token
     };
+    updateBalance();
 
     // Initial check
     handleStorageChange();
@@ -107,7 +110,7 @@ function navbar() {
               <div className="xp-icon">
                 <img src={dImg} alt="D-coin-icon" height={40} width={40} />
               </div>
-              <div className="xp-value">13,165</div>
+              <div className="xp-value">{userBalance}</div>
             </div>
             <div className="profile">
               <Link to="/profile">

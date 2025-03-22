@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./GitHubIssues.css"; // Make sure to create this CSS file
 import "./BuyNowPopup.css";
 import "./UserNamePopup.css";
 import dGif from "../../../public/Dcode.png";
 import { Link, NavLink } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
+import axiosInstance from "../../utils/axiosConfig";
 
 const GitHubIssues = () => {
   const [activeTab, setActiveTab] = useState("Available");
@@ -212,12 +213,21 @@ const GitHubIssues = () => {
     },
   ]);
   let numbers = 0;
-  const issuesNums = issues.filter((issue) => {
-    if (issue.labels.includes("already-assigned")) {
-      numbers += 1;
-    }
-    return numbers;
-  });
+  const issuesNums = 0;
+  // const issuesNums = issues.filter((issue) => {
+  //   if (issue.labels.available) {
+  //     numbers += 1;
+  //   }
+  //   return numbers;
+  // });
+  useEffect(() => {
+    (async () => {
+      var { data: axres } = await axiosInstance.get("/api/marketplace/issues");
+      if (axres.status) {
+        setIssues(axres.issues);
+      }
+    })();
+  }, []);
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -263,13 +273,14 @@ const GitHubIssues = () => {
       setShowModal(false);
       setUsername("");
       setError("");
+      setIsPopupOpen(true);
     } else {
       setError("Username must be at least 3 characters");
     }
   };
 
   const Modal = () => (
-    <div className="modal-overlay" onClick={() => setShowModal(false)}>
+    <div className="modal-overlay !z-[99]" onClick={() => setShowModal(false)}>
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <h2 className="modal-title">Enter Username</h2>
         <form onSubmit={handleSubmit} className="modal-form">
@@ -328,8 +339,8 @@ const GitHubIssues = () => {
       <div className="github-issues">
         {/* Header Section */}
         <div className="header">
-          <div className="action-buttons">
-            <button className="new-issue-button">Pick issue</button>
+          <div className="action-buttons !py-[0.3rem]">
+            <button className="font-semibold text-[1.1rem]">Pick issue</button>
           </div>
         </div>
 
@@ -342,15 +353,18 @@ const GitHubIssues = () => {
                 onClick={() => setActiveTab("Available")}
               >
                 Available{" "}
-                <span className="count">
-                  {issues.length - issuesNums.length}
-                </span>
+                {/* <span className="count">
+                  {issues.reduce((prev, cur) => {
+                    prev + (cur.available ? 1 : 0);
+                  }, 0)}
+                </span> */}
               </button>
               <button
                 className={`tab ${activeTab === "Assigned" ? "active" : ""}`}
                 onClick={() => setActiveTab("Assigned")}
               >
-                Assigned <span className="count">{issuesNums.length}</span>
+                Assigned
+                {/* <span className="count">{issuesNums}</span> */}
               </button>
             </div>
           </div>
@@ -359,46 +373,54 @@ const GitHubIssues = () => {
         {/* Issue List */}
         {activeTab === "Available" && (
           <div className="issue-list">
-            {issues.map(
-              (issue) =>
-                issue.labels.includes("more-assignment-needed") ||
-                (issue.labels.includes("assignment-available") && (
-                  <div key={issue.id} className="issue-item">
-                    <div className="issue-icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="green-icon"
-                      >
-                        <circle cx="12" cy="12" r="10" />
-                      </svg>
-                    </div>
-                    <div className="issue-content">
-                      <div className="issue-title-row">
-                        <NavLink to="/shop/issue" className={"issue-title"}>
-                          <span>{issue.title}</span>
-                        </NavLink>
-                        {issue.labels.includes("already-assigned") &&
-                          issue.labels.map((label, idx) => (
-                            <span key={idx} className="label">
-                              {label}
-                            </span>
-                          ))}
-                        {issue.labels.includes("assignment-available") &&
-                          issue.labels.map((label, idx) => (
-                            <span key={idx} className="available-label">
-                              {label}
-                            </span>
-                          ))}
-                      </div>
-                      <div className="issue-meta">
+            {issues.map((issue) => (
+              <div key={issue.id} className="issue-item">
+                <div className="issue-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="green-icon"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                  </svg>
+                </div>
+                <div className="issue-content">
+                  <div className="issue-title-row">
+                    <NavLink to="/shop/issue" className={"issue-title !m-0"}>
+                      <span>{issue.title}</span>
+                    </NavLink>
+                    {issue.labels.includes("already-assigned") &&
+                      issue.labels.map((label, idx) => (
+                        <span
+                          key={idx}
+                          className={` ${
+                            label == "easy"
+                              ? "!bg-green-400 !px-[8px] py-[2px] text-[12px] rounded-[12px]"
+                              : label == "medium"
+                              ? "!bg-orange-400 !px-[8px] py-[2px] text-[12px] rounded-[12px]"
+                              : label == "hard"
+                              ? "!bg-red-500 !px-[8px] py-[2px] text-[12px] rounded-[12px]"
+                              : " label "
+                          }`}
+                        >
+                          {label}
+                        </span>
+                      ))}
+                    {issue.labels.includes("assignment-available") &&
+                      issue.labels.map((label, idx) => (
+                        <span key={idx} className="available-label">
+                          {label}
+                        </span>
+                      ))}
+                  </div>
+                  {/* <div className="issue-meta">
                         Skills •{" "}
                         {issue.projectSkills.map((skill, idx) => (
                           <span key={idx}>
@@ -408,120 +430,127 @@ const GitHubIssues = () => {
                               : " | "}
                           </span>
                         ))}
-                      </div>
-                    </div>
-                    <div className="issue-stats">
-                      {/* onClick={handleBuyClick}  handleShopClick*/}
-                      {authenticatedUser ? (
-                        <button onClick={handleBuyClick}>
-                          <span class="box">
-                            Buy Now{" "}
-                            <img
-                              src={dGif}
-                              alt="Loading Animation"
-                              height={30}
-                              width={30}
-                            />
-                            <div className="issue-price">{issue.price}</div>
-                          </span>
-                        </button>
-                      ) : (
-                        <button onClick={handleShopClick}>
-                          <span class="box">
-                            Buy Now{" "}
-                            <img
-                              src={dGif}
-                              alt="Loading Animation"
-                              height={30}
-                              width={30}
-                            />
-                            <div className="issue-price">{issue.price}</div>
-                          </span>
-                        </button>
-                      )}
-                      {showModal && <Modal />}
-
-                      <ConfirmationPopup
-                        isOpen={isPopupOpen}
-                        onCancel={handleCancel}
-                        onConfirm={handleConfirm}
-                      />
-                    </div>
-                  </div>
-                ))
-            )}
-          </div>
-        )}
-
-        {activeTab === "Assigned" && (
-          <div className="issue-list">
-            {issues.map(
-              (issue) =>
-                issue.labels.includes("already-assigned") && (
-                  <div key={issue.id} className="issue-item">
-                    <div className="issue-icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="blue-icon"
-                      >
-                        <circle cx="12" cy="12" r="10" />
-                      </svg>
-                    </div>
-                    <div className="issue-content">
-                      <div className="issue-title-row">
-                        <NavLink to="/shop/issue" className={"issue-title"}>
-                          <span>{issue.title}</span>
-                        </NavLink>
-                        {issue.labels.includes("already-assigned") &&
-                          issue.labels.map((label, idx) => (
-                            <span key={idx} className="label">
-                              {label}
-                            </span>
-                          ))}
-                        {issue.labels.includes("assignment-available") &&
-                          issue.labels.map((label, idx) => (
-                            <span key={idx} className="available-label">
-                              {label}
-                            </span>
-                          ))}
-                      </div>
-                      <div className="issue-meta">
-                        Skills •{" "}
-                        {issue.projectSkills.map((skill, idx) => (
-                          <span key={idx}>
-                            {skill}
-                            {idx == issue.projectSkills.length - 1
-                              ? " "
-                              : " // "}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="avatar-group">
-                      {issue.labels.includes("already-assigned") &&
-                        issue.avatars.map((avatar, idx) => (
+                      </div> */}
+                </div>
+                {issue.available ? (
+                  <div className="issue-stats">
+                    {/* onClick={handleBuyClick}  handleShopClick*/}
+                    {authenticatedUser ? (
+                      <button onClick={handleBuyClick}>
+                        <span class="box">
+                          Buy Now{" "}
                           <img
-                            key={idx}
-                            src={avatar || "/placeholder.svg"}
-                            alt="User avatar"
-                            className="avatar"
+                            src={dGif}
+                            alt="Loading Animation"
+                            height={30}
+                            width={30}
                           />
-                        ))}
-                    </div>
+                          <div className="issue-price">{issue.price}</div>
+                        </span>
+                      </button>
+                    ) : (
+                      <button onClick={handleShopClick}>
+                        <span class="box">
+                          Buy Now{" "}
+                          <img
+                            src={dGif}
+                            alt="Loading Animation"
+                            height={30}
+                            width={30}
+                          />
+                          <div className="issue-price">{issue.price}</div>
+                        </span>
+                      </button>
+                    )}
+                    {showModal && <Modal />}
+
+                    <ConfirmationPopup
+                      isOpen={isPopupOpen}
+                      onCancel={handleCancel}
+                      onConfirm={handleConfirm}
+                    />
                   </div>
-                )
-            )}
+                ) : (
+                  ""
+                )}
+              </div>
+            ))}
           </div>
         )}
+
+        {
+          // {activeTab === "Assigned" && (
+          //   <div className="issue-list">
+          //     {issues.map(
+          //       (issue) =>
+          //         !issue.available && (
+          //           <div key={issue.id} className="issue-item">
+          //             <div className="issue-icon">
+          //               <svg
+          //                 xmlns="http://www.w3.org/2000/svg"
+          //                 width="20"
+          //                 height="20"
+          //                 viewBox="0 0 24 24"
+          //                 fill="none"
+          //                 stroke="currentColor"
+          //                 strokeWidth="2"
+          //                 strokeLinecap="round"
+          //                 strokeLinejoin="round"
+          //                 className="blue-icon"
+          //               >
+          //                 <circle cx="12" cy="12" r="10" />
+          //               </svg>
+          //             </div>
+          //             <div className="issue-content">
+          //               <div className="issue-title-row">
+          //                 <NavLink
+          //                   to="/shop/issue"
+          //                   className={"issue-title !m-0 py-[1rem]"}
+          //                 >
+          //                   <span>{issue.title}</span>
+          //                 </NavLink>
+          //                 {issue.labels.includes("already-assigned") &&
+          //                   issue.labels.map((label, idx) => (
+          //                     <span key={idx} className="label">
+          //                       {label}
+          //                     </span>
+          //                   ))}
+          //                 {issue.labels.includes("assignment-available") &&
+          //                   issue.labels.map((label, idx) => (
+          //                     <span key={idx} className="available-label">
+          //                       {label}
+          //                     </span>
+          //                   ))}
+          //               </div>
+          //               {/* <div className="issue-meta">
+          //                 Skills •{" "}
+          //                 {issue.projectSkills.map((skill, idx) => (
+          //                   <span key={idx}>
+          //                     {skill}
+          //                     {idx == issue.projectSkills.length - 1
+          //                       ? " "
+          //                       : " // "}
+          //                   </span>
+          //                 ))}
+          //               </div> */}
+          //             </div>
+          //             {/* <div className="avatar-group">
+          //               {issue.labels.includes("already-assigned") &&
+          //                 issue.avatars.map((avatar, idx) => (
+          //                   <img
+          //                     key={idx}
+          //                     src={avatar || "/placeholder.svg"}
+          //                     alt="User avatar"
+          //                     className="avatar"
+          //                   />
+          //                 ))}
+          //             </div> */}
+          //           </div>
+          //         )
+          //     )}
+          //   </div>
+          // )}
+        }
       </div>
     </div>
   );
