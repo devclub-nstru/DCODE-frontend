@@ -88,128 +88,124 @@ export default function Leaderboard() {
 
   return (
     <div className="leaderboard-container">
-    <div className="second-container">
-      <div className="leaderboard-header">
-
-        <div className="contest-title">
-          <div className="title-line"></div>
-          <div className="title-box">
-            <svg 
-              className="crown-icon" 
-              viewBox="0 0 24 24" 
-              width="24" 
-              height="24" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              fill="none"
-            >
-              <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14" />
-            </svg>
-            DCODE
-          </div>
-          <div className="title-line"></div>
-        </div>
-
-      </div>
-
-      <h1 className="leaderboard-heading">Leaderboard</h1>
-
-      <div className="top-users">
-        {topUsers
-          .sort((a, b) => a.id - b.id)
-          .map((user) => (
-            <div key={user.id} className={`top-user top-user-${user.id}`}>
-              <div className="user-avatar">
-                {user.avatar ? (
-                  <img src={user.avatar || "/placeholder.svg"} alt={user.name} className="avatar-img" />
-                ) : (
-                  <div className="avatar-initials">{user.initials}</div>
-                )}
-                <div className="rank-badge">
-                  <svg 
-                    className="rank-crown" 
-                    viewBox="0 0 24 24" 
-                    width="24" 
-                    height="24" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    fill="none"
-                  >
-                    <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14" />
-                  </svg>
-                  <span>{user.id}</span>
-                </div>
-              </div>
-              <div className="user-name">{user.name}</div>
-              <div className="user-score">
-                {user.score}
-              </div>
+      <div className="second-container">
+        <div className="leaderboard-header">
+          <div className="contest-title">
+            <div className="title-line"></div>
+            <div className="title-box">
+              <svg 
+                className="crown-icon" 
+                viewBox="0 0 24 24" 
+                width="24" 
+                height="24" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                fill="none"
+              >
+                <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14" />
+              </svg>
+              DCODE
             </div>
-          ))}
-      </div>
-
-      <div className="leaderboard-table">
-        <div className="table-header">
-          <div className="header-rank">
-            <svg 
-              className="header-crown" 
-              viewBox="0 0 24 24" 
-              width="24" 
-              height="24" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              fill="none"
-            >
-              <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14" />
-            </svg> 
-            RANK
+            <div className="title-line"></div>
           </div>
-          {/* <div className="header-change">CHANGE</div> */}
-          <div className="header-name">NAME</div>
-          <div className="header-xp">POINTS</div>
-          {/* <div className="header-submission">LATEST SUBMISSION</div> */}
         </div>
 
-        <div className="table-body">
-          {leaderboardData.map((user) => (
-            <div key={user.id} className={`table-row ${user.rank <= 3 ? `rank-${user.rank}` : ""}`}>
-              <div className="cell-rank">
-                {user.rank <= 3 ? (
-                  <div className="rank-badge-small">
+        <h1 className="leaderboard-heading">Leaderboard</h1>
+
+        <div className="top-users">
+          {topUsers
+            .sort((a, b) => a.id - b.id)
+            .map((user) => (
+              <div key={user.id} className={`top-user top-user-${user.id}`}>
+                <div className="user-avatar">
+                  {user.avatar ? (
+                    <img src={user.avatar || "/placeholder.svg"} alt={user.name} className="avatar-img" />
+                  ) : (
+                    <div className="avatar-initials">{user.initials}</div>
+                  )}
+                  <div className="rank-badge">
                     <svg 
-                      className="rank-crown-small" 
+                      className="rank-crown" 
                       viewBox="0 0 24 24" 
-                      width="16" 
-                      height="16" 
+                      width="24" 
+                      height="24" 
                       stroke="currentColor" 
                       strokeWidth="2" 
                       fill="none"
                     >
                       <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14" />
                     </svg>
-                    <span>{user.rank}</span>
+                    <span>{user.id}</span>
                   </div>
-                ) : (
-                  <span>{user.rank}</span>
-                )}
+                </div>
+                <div className="user-name">{user.name}</div>
+                <div className="user-score">
+                  {user.score}
+                </div>
               </div>
-
-              <div className="cell-name">
-                {user.avatar ? (
-                  <img src={user.avatar || "/placeholder.svg"} alt={user.name} className="table-avatar" />
-                ) : (
-                  <div className="table-initials">{user.initials}</div>
-                )}
-                <span>{user.name}</span>
-              </div>
-
-              <div className="cell-xp">
-                {user.score}
-              </div>
-            </div>
-          ))}
+            ))}
         </div>
-      </div>
+
+        <div className="leaderboard-table">
+          <div className="table-header">
+            <div className="header-rank">
+              <svg 
+                className="header-crown" 
+                viewBox="0 0 24 24" 
+                width="24" 
+                height="24" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                fill="none"
+              >
+                <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14" />
+              </svg> 
+              RANK
+            </div>
+            <div className="header-name">NAME</div>
+            <div className="header-xp">POINTS</div>
+          </div>
+
+          <div className="table-body">
+            {leaderboardData.map((user) => (
+              <div key={user.id} className={`table-row ${user.rank <= 3 ? `rank-${user.rank}` : ""}`}>
+                <div className="cell-rank">
+                  {user.rank <= 3 ? (
+                    <div className="rank-badge-small">
+                      <svg 
+                        className="rank-crown-small" 
+                        viewBox="0 0 24 24" 
+                        width="16" 
+                        height="16" 
+                        stroke="currentColor" 
+                        strokeWidth="2" 
+                        fill="none"
+                      >
+                        <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14" />
+                      </svg>
+                      <span>{user.rank}</span>
+                    </div>
+                  ) : (
+                    <span>{user.rank}</span>
+                  )}
+                </div>
+
+                <div className="cell-name">
+                  {user.avatar ? (
+                    <img src={user.avatar || "/placeholder.svg"} alt={user.name} className="table-avatar" />
+                  ) : (
+                    <div className="table-initials">{user.initials}</div>
+                  )}
+                  <span>{user.name}</span>
+                </div>
+
+                <div className="cell-xp">
+                  {user.score}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   )
