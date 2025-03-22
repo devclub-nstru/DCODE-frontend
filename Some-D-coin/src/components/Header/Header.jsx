@@ -4,11 +4,13 @@ import Login from "../Login/Login";
 import Modal from "react-modal";
 import dImg from "../../../public/Dcode.png";
 import "./Header.css";
+import { useBalance } from "../../context/BalanceContext";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLogin, setisLogin] = useState(null);
   const [menuActive, setMenuActive] = useState(false);
+  const { userBalance, updateBalance } = useBalance();
 
   const toggleMenu = () => {
     setMenuActive(!menuActive);
@@ -20,19 +22,19 @@ function Navbar() {
   };
 
   useEffect(() => {
-    const hamburger = document.querySelector('.hamburger');
-    const navItems = document.querySelector('.nav-items');
+    const hamburger = document.querySelector(".hamburger");
+    const navItems = document.querySelector(".nav-items");
 
     if (hamburger && navItems) {
       const handleClick = () => {
-        hamburger.classList.toggle('active');
-        navItems.classList.toggle('active');
+        hamburger.classList.toggle("active");
+        navItems.classList.toggle("active");
       };
-      
-      hamburger.addEventListener('click', handleClick);
-      
+
+      hamburger.addEventListener("click", handleClick);
+
       return () => {
-        hamburger.removeEventListener('click', handleClick);
+        hamburger.removeEventListener("click", handleClick);
       };
     }
   }, []);
@@ -73,7 +75,7 @@ function Navbar() {
           </a>
         </div>
 
-        <div className={`nav-items ${menuActive ? 'active' : ''}`}>
+        <div className={`nav-items ${menuActive ? "active" : ""}`}>
           <NavLink
             to="/#"
             className={({ isActive }) =>
@@ -119,7 +121,7 @@ function Navbar() {
             Wallet
           </NavLink>
         </div>
-        
+
         {isLogin === true ? (
           // your-acc
           <div className="your-acc">
@@ -127,7 +129,7 @@ function Navbar() {
               <div className="xp-icon">
                 <img src={dImg} alt="D-coin-icon" height={40} width={40} />
               </div>
-              <div className="xp-value">13,165</div>
+              <div className="xp-value">{userBalance}</div>
             </div>
             <div className="profile">
               <Link to="/profile">
