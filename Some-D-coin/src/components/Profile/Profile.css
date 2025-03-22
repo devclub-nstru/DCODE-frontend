@@ -358,7 +358,7 @@ body {
 }
 
 /* Tabs */
-.tabs-container {
+.profile-tabs-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     background-color: #262626;
@@ -403,7 +403,7 @@ body {
     gap: 15px;
 }
 
-.issue-item,
+.profile-issue-item,
 .pr-item {
     display: flex;
     justify-content: space-between;
@@ -413,7 +413,7 @@ body {
     background-color: #262626;
 }
 
-.issue-title,
+.profile-issue-title,
 .pr-title {
     font-size: 16px;
     font-weight: 500;
@@ -480,6 +480,12 @@ body {
     align-items: center;
     text-align: center;
     min-height: 220px;
+}
+.mystery-box-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .mystery-box:hover {
@@ -658,7 +664,7 @@ body {
     background-color: #262626;
 }
 
-.issue-title,
+.profile-issue-title,
 .pr-item-title {
     font-size: 16px;
     font-weight: 500;

@@ -2,7 +2,6 @@ import React from "react";
 import EventTimeline from "../EventTimeline";
 import {Link, NavLink} from "react-router-dom";
 import "./Home.css";
-import contributors from "../Contributors/Contributors";
 
 function Hero() {
   return (
