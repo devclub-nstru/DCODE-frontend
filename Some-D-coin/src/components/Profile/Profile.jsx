@@ -126,7 +126,7 @@ const Profile = () => {
   var refreshUserdata = async () => {
     var { data: axres } = await axiosInstance.get("/api/user/details");
     if (axres.status) {
-      console.log(axres.user);
+      // console.log(axres.user);
       setuserData(axres.user);
     }
   };
@@ -151,7 +151,7 @@ const Profile = () => {
 
         if (response.status) {
           setOpenedBoxes([...openedBoxes, boxId]);
-          setopenedReward(response.reward);
+          // setopenedReward(response.reward);
           // Optionally update user balance or other data based on response
         } else {
           console.error("Failed to open mystery box:", response.message);
@@ -220,7 +220,7 @@ const Profile = () => {
         <div className="wallet-card">
           <div className="wallet-header">
             <span className="icon">◳</span>
-            <h2>Dcoin Wallet</h2>
+            <h2>DCoin Wallet</h2>
           </div>
 
           <div className="wallet-balance">
@@ -411,7 +411,7 @@ const Profile = () => {
                         <div className="mystery-box-opened-animation">
                           <div className="confetti"></div>
                           <p className="reward-text">
-                            You got: {openedReward} D-Coins!
+                            You got: {openedReward} DCoin!
                           </p>
                           <button
                             className="collect-btn"

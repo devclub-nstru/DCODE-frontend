@@ -121,8 +121,8 @@ function Navbar() {
           >
             Wallet
           </NavLink>
-          
-          <NavLink 
+
+          <NavLink
             to="/proposal"
             className={({ isActive }) =>
               `nav-link ${isActive ? "active" : ""} lg-hover`
@@ -137,7 +137,7 @@ function Navbar() {
           <div className="your-acc">
             <div className="xp-counter">
               <div className="xp-icon">
-                <img src={dImg} alt="D-coin-icon" height={40} width={40} />
+                <img src={dImg} alt="DCoin-icon" height={40} width={40} />
               </div>
               <div className="xp-value">{userBalance}</div>
             </div>

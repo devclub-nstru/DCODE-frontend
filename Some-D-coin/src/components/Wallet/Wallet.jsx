@@ -42,10 +42,10 @@ export default function Wallet() {
     form.preventDefault();
     setisSendingAmount(true);
     var receiverId = document.querySelector(
-      "#emailInputForDCOINS_TRANSFER"
+      "#emailInputForDCoinS_TRANSFER"
     )?.value;
     var amount = document.querySelector(
-      "#amountInputForDCOINS_TRANSFER"
+      "#amountInputForDCoinS_TRANSFER"
     )?.value;
     var axres = {};
     try {
@@ -62,7 +62,7 @@ export default function Wallet() {
       console.log(error);
       toast.error(axres.message);
     }
-    document.querySelector("#amountInputForDCOINS_TRANSFER").value = "";
+    document.querySelector("#amountInputForDCoinS_TRANSFER").value = "";
     updateBalance();
     updateHistory();
     setisSendingAmount(false);
@@ -75,7 +75,7 @@ export default function Wallet() {
             <img src={dImg} alt="" height={70} width={70} />
           </div>
           <div className="wallet-balance-page">Wallet Balance</div>
-          <div className="coin-amount">{userBalance} D-Coins</div>
+          <div className="coin-amount">{userBalance} DCoin</div>
         </div>
 
         <form
@@ -87,14 +87,14 @@ export default function Wallet() {
           <h2 className="card-wallet-title">Send Money</h2>
           <input
             type="text"
-            id="emailInputForDCOINS_TRANSFER"
+            id="emailInputForDCoinS_TRANSFER"
             required
             placeholder="Receiver's Email"
             className="input-field"
           />
           <input
             type="number"
-            id="amountInputForDCOINS_TRANSFER"
+            id="amountInputForDCoinS_TRANSFER"
             required
             placeholder="Amount (Min. 100)"
             min={100}
@@ -139,7 +139,7 @@ export default function Wallet() {
               ) : (
                 <>
                   <Send size={20} />
-                  <span>Send D-Coins</span>
+                  <span>Send DCoin</span>
                 </>
               )}
             </button>
