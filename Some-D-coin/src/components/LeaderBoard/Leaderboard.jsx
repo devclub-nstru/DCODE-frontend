@@ -14,8 +14,8 @@ export default function Leaderboard() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
   const topUsers = [
-    { id: 2, name: "Ved Pawar", initials: "VP", score: 118, avatar: null },
-    { id: 1, name: "Hardik Jaiswal", initials: "HJ",score: 125, avatar: null },
+    { id: 1, name: "Ved Pawar", initials: "VP", score: 1118, avatar: null },
+    { id: 2, name: "Hardik Jaiswal", initials: "HJ",score: 125, avatar: null },
     { id: 3, name: "Aditya Kumar", initials: "AK",score: 115, avatar: null },
   ]
 
