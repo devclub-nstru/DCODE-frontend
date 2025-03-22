@@ -481,6 +481,7 @@ body {
     text-align: center;
     min-height: 220px;
 }
+
 .mystery-box-content {
     display: flex;
     flex-direction: column;
