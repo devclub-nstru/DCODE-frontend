@@ -233,7 +233,10 @@ const Profile = () => {
 
         {/* Tabs */}
         <div className="profile-tabs-container">
-          <div className={`tab ${activeTab === "Issues" ? "active" : ""}`} onClick={() => setActiveTab("Issues")}>
+          <div
+            className={`tab ${activeTab === "Issues" ? "active" : ""}`}
+            onClick={() => setActiveTab("Issues")}
+          >
             Issues
           </div>
           <div
