@@ -9,7 +9,7 @@ import axiosInstance from "../../utils/axiosConfig";
 const Profile = () => {
   const navigate = useNavigate();
   const { userBalance, updateBalance } = useBalance();
-  const [openedReward, setopenedReward] = useState(0);
+  const [openedReward, setopenedReward] = useState({});
   var quotes = [
     "Code is like humor. When you have to explain it, it's bad.",
     "The best error message is the one that never shows up.",
@@ -151,7 +151,7 @@ const Profile = () => {
 
         if (response.status) {
           setOpenedBoxes([...openedBoxes, boxId]);
-          // setopenedReward(response.reward);
+          setopenedReward((prev) => ({ ...prev, [boxId]: response.reward }));
           // Optionally update user balance or other data based on response
         } else {
           console.error("Failed to open mystery box:", response.message);
@@ -411,7 +411,7 @@ const Profile = () => {
                         <div className="mystery-box-opened-animation">
                           <div className="confetti"></div>
                           <p className="reward-text">
-                            You got: {openedReward} DCoin!
+                            You got: {openedReward[box.id]} DCoin!
                           </p>
                           <button
                             className="collect-btn"

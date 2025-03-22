@@ -186,6 +186,8 @@ export default function Wallet() {
                             : transaction.receiverId == currentUserId
                             ? "text-green-400"
                             : ""
+                          : transaction.type == "earn"
+                          ? "text-green-400"
                           : ""
                       }`}
                     >
@@ -195,15 +197,31 @@ export default function Wallet() {
                           : transaction.receiverId == currentUserId
                           ? "Recieved"
                           : ""
+                        : transaction.type == "earn"
+                        ? "Earned"
                         : transaction.type}
                     </td>
-                    <td>{`${
+                    <td
+                      className={`${
+                        transaction.type == "transfer"
+                          ? transaction.senderId == currentUserId
+                            ? "text-red-400"
+                            : transaction.receiverId == currentUserId
+                            ? "text-green-400"
+                            : ""
+                          : transaction.type == "earn"
+                          ? "text-green-400"
+                          : ""
+                      }`}
+                    >{`${
                       transaction.type == "transfer"
                         ? transaction.senderId == currentUserId
                           ? "-"
                           : transaction.receiverId == currentUserId
                           ? "+"
                           : ""
+                        : transaction.type == "earn"
+                        ? "+"
                         : ""
                     }${transaction.amount}`}</td>
                   </tr>
