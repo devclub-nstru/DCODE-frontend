@@ -120,6 +120,15 @@ function Navbar() {
           >
             Wallet
           </NavLink>
+          
+          <NavLink 
+            to="/proposal"
+            className={({ isActive }) =>
+              `nav-link ${isActive ? "active" : ""} lg-hover`
+            }
+          >
+            Issue Proposal
+          </NavLink>
         </div>
 
         {isLogin === true ? (
