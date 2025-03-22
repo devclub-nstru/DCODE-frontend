@@ -3,9 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 a {
   text-decoration: none;
 }
+
 .nav-link {
   display: flex;
   justify-content: center;
@@ -97,6 +99,7 @@ a {
   align-items: center;
   gap: 1.5rem;
 }
+
 .xp-counter {
   display: flex;
   align-items: center;
@@ -104,15 +107,20 @@ a {
   /* border: 1px solid #848484; */
   border-radius: 3rem;
 }
+
 .xp-value {
   font-weight: 700;
 }
 
 .profile {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
+  font-size: 0.9rem;
+  font-family: "Fira Code", monospace;
+  color: rgba(255, 255, 255, 0.7);
+  background-color: transparent;
+  border: none;
   cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  margin-left: 1rem;
 }
 
 .profile-image {
@@ -121,11 +129,27 @@ a {
   border-radius: 50%;
   object-fit: cover;
 }
+
 /* .close-btn:hover {
   background-color: ;
 } */
 .hamburger {
   display: none;
+}
+
+.logout-btn {
+  font-size: 0.9rem;
+  font-family: "Fira Code", monospace;
+  color: rgba(255, 255, 255, 0.7);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  margin-left: 1rem;
+}
+
+.logout-btn:hover {
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -136,7 +160,8 @@ a {
   }
 
   .nav-items {
-    display: none; /* Hide nav items by default */
+    display: none;
+    /* Hide nav items by default */
     flex-direction: column;
     position: absolute;
     top: 4rem;
@@ -149,7 +174,8 @@ a {
   }
 
   .nav-items.active {
-    display: flex; /* Show nav when active */
+    display: flex;
+    /* Show nav when active */
   }
 
   .hamburger {
@@ -163,6 +189,7 @@ a {
     background-color: white;
     margin: 0.25rem;
   }
+
   .close-btn {
     top: 20% !important;
     left: 80% !important;
@@ -177,7 +204,8 @@ a {
   }
 
   .nav-items {
-    display: none; /* Hide nav items by default */
+    display: none;
+    /* Hide nav items by default */
     flex-direction: column;
     position: absolute;
     top: 3.5rem;
@@ -190,7 +218,8 @@ a {
   }
 
   .nav-items.active {
-    display: flex; /* Show nav when active */
+    display: flex;
+    /* Show nav when active */
   }
 
   .hamburger {
@@ -219,6 +248,7 @@ a {
   .logo a {
     font-size: 1.1rem;
   }
+
   .modal {
     max-width: 100% !important;
   }

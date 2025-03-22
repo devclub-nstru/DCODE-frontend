@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./About.css";
 
 function About() {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   return (
     <div className="main-about">
-      <div className="doubt">
+      <div className="doubt" data-aos="fade-up" data-aos-duration={1500}
+          data-aos-delay={200}>
         <h1>What is Open-Source?</h1>
         <div className="description">
           <p>
@@ -19,7 +26,8 @@ function About() {
           </p>
         </div>
       </div>
-      <div className="doubt">
+      <div className="doubt" data-aos="fade-up" data-aos-duration={1500}
+          data-aos-delay={200}>
         <h1>What is DCODE?</h1>
         <div className="description">
           <p>
@@ -45,7 +53,8 @@ function About() {
           </p>
         </div>
       </div>
-      <div className="doubt">
+      <div className="doubt" data-aos="fade-up" data-aos-duration={1500}
+          data-aos-delay={200}>
         <h1>What are D-Coins?</h1>
         <div className="description">
           <p>
