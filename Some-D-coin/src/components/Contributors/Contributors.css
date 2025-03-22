@@ -75,17 +75,17 @@
 }
 
 .code-snippet-contri {
-    background-color: #f4f4f9;
+    background-color: #2d2d2d; /* Darker background for code snippets */
     padding: 12px;
     border-radius: 6px;
     font-family: 'Courier New', Courier, monospace;
     font-size: 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid #444; /* Darker border */
     word-wrap: break-word;
     overflow-x: auto;
     margin-top: 10px;
     margin-bottom: 25px;
-    color: #2d3748; 
+    color: #f8f8f2; /* Light text color */
 }
 
 .pr-tips {
@@ -177,6 +177,7 @@
 @media (max-width: 768px) {
     .contributor-guide {
         padding: 20px;
+        padding-top: 100px;
     }
 
     .guide-title-contri {

@@ -309,10 +309,6 @@
     color: rgb(230, 230, 230);
   }
   
-  .table-row {
-    /* border-bottom: 1px solid rgba(255, 255, 255, 0.375); */
-  }
-  
   .rank-badge-small {
     background-color: #3a2560;
   }
