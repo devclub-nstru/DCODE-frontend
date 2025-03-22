@@ -1,15 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import "./Profile.css";
 import { useBalance } from "../../context/BalanceContext";
 import axiosInstance from "../../utils/axiosConfig";
 
 const Profile = () => {
-  const navigate = useNavigate();
-  const { userBalance, updateBalance } = useBalance();
-  const [openedReward, setopenedReward] = useState({});
+  const { userBalance } = useBalance();
+  const { userDetails, refreshUserdata } = useAccount();
+  useEffect(() => {
+    refreshUserdata();
+  }, []);
+
   var quotes = [
     "Code is like humor. When you have to explain it, it's bad.",
     "The best error message is the one that never shows up.",
@@ -21,8 +24,7 @@ const Profile = () => {
     name: "Aditya Kumar",
     username: "pseudopythonic",
     email: "pseudopythonic@gmail.com",
-    profilePicture:
-      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png",
+    walletAddress: "0x3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b",
     stats: [
       { icon: "repo", value: 0, label: "Issues Created" },
       { icon: "git-branch", value: 0, label: "Pull Requests" },
@@ -123,15 +125,15 @@ const Profile = () => {
   const [copied, setCopied] = useState(false);
   var [currentQuote, setCurrentQuote] = useState(0);
   var [openedBoxes, setOpenedBoxes] = useState([]);
-  var refreshUserdata = async () => {
-    var { data: axres } = await axiosInstance.get("/api/user/details");
-    if (axres.status) {
-      // console.log(axres.user);
-      setuserData(axres.user);
-    }
-  };
+
   useEffect(() => {
-    refreshUserdata();
+    (async () => {
+      var { data: axres } = await axiosInstance.get("/api/user/details");
+      if (axres.status) {
+        console.log(axres.user);
+        setuserData(axres.user);
+      }
+    })();
   }, []);
 
   const handleCopy = () => {
@@ -139,56 +141,21 @@ const Profile = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleOpenBox = async (boxId) => {
+  const handleOpenBox = (boxId) => {
     if (!openedBoxes.includes(boxId)) {
-      try {
-        const { data: response } = await axiosInstance.post(
-          "/api/mystery-box/open",
-          {
-            boxId: boxId,
-          }
-        );
-
-        if (response.status) {
-          setOpenedBoxes([...openedBoxes, boxId]);
-          setopenedReward((prev) => ({ ...prev, [boxId]: response.reward }));
-          // Optionally update user balance or other data based on response
-        } else {
-          console.error("Failed to open mystery box:", response.message);
-        }
-      } catch (error) {
-        console.error("Error opening mystery box:", error);
-      }
+      setOpenedBoxes([...openedBoxes, boxId]);
     }
-    updateBalance();
-    refreshUserdata();
   };
 
   const cycleQuote = () => {
     setCurrentQuote((prev) => (prev + 1) % quotes.length);
   };
 
-  const handleLogout = () => {
-    window.confirm("Do you really want to leave?");
-    localStorage.removeItem("token");
-    window.location.reload();
-  };
-
   return (
     <div className="profile-container !pt-[6rem]">
+      {/* Left column - User profile */}
       <div className="profile-column">
         <div className="profile-card">
-          <div
-            style={{ marginLeft: "20rem", cursor: "pointer" }}
-            onClick={handleLogout}
-            className="logout-button"
-            title="Logout"
-          >
-            <img
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAiElEQVR4nO2VwQ2AIAwAqyOwGXESBzHO5Uj6OQPq10RKqBDuX3ppSyvS+SNkon4BMYqXLkCeFhyWLdgBbyngk5NnmeLrDQfMVhUYge1+Zi0uEACmMIiPBDBISQGVBC8Cyu281C+gacGXwIhJ8kAr39BZLiKfGtvMMTI/x5EuINoSaqlXoCMFOQEhLgygtlfoiQAAAABJRU5ErkJggg=="
-              alt="Logout"
-            />
-          </div>
           <div className="profile-avatar">
             <img
               src={userData?.profilePicture}
@@ -220,7 +187,7 @@ const Profile = () => {
         <div className="wallet-card">
           <div className="wallet-header">
             <span className="icon">◳</span>
-            <h2>DCoin Wallet</h2>
+            <h2>Dcoin Wallet</h2>
           </div>
 
           <div className="wallet-balance">
@@ -386,7 +353,7 @@ const Profile = () => {
                       <div className="mystery-box-icon">
                         <span className="icon">⊞</span>
                       </div>
-                      <h3 className="mystery-box-name ">{box.name}</h3>
+                      <h3 className="mystery-box-name">{box.name}</h3>
                       <div
                         className={`mystery-box-rarity ${box.rarity.toLowerCase()}`}
                       >
@@ -410,9 +377,7 @@ const Profile = () => {
                       {openedBoxes.includes(box.id) && (
                         <div className="mystery-box-opened-animation">
                           <div className="confetti"></div>
-                          <p className="reward-text">
-                            You got: {openedReward[box.id]} DCoin!
-                          </p>
+                          <p className="reward-text">You got: 250 DC!</p>
                           <button
                             className="collect-btn"
                             onClick={() =>
@@ -421,7 +386,7 @@ const Profile = () => {
                               )
                             }
                           >
-                            Done
+                            Collect
                           </button>
                         </div>
                       )}

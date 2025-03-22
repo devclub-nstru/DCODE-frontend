@@ -135,12 +135,14 @@ function Navbar() {
         {isLogin === true ? (
           // your-acc
           <div className="your-acc">
-            <div className="xp-counter">
-              <div className="xp-icon">
-                <img src={dImg} alt="DCoin-icon" height={40} width={40} />
+            <Link to="/wallet">
+              <div className="xp-counter cursor-pointer">
+                <div className="xp-icon">
+                  <img src={dImg} alt="DCoin-icon" height={40} width={40} />
+                </div>
+                <div className="xp-value">{userBalance}</div>
               </div>
-              <div className="xp-value">{userBalance}</div>
-            </div>
+            </Link>
             <div className="profile">
               <Link to="/profile">
                 <img
