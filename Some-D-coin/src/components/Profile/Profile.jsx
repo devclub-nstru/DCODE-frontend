@@ -134,6 +134,16 @@ const Profile = () => {
         setuserData(axres.user);
       }
     })();
+  
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      window.location.href = "/";
+    }
+  }, []);
+  
+  useEffect(() => {
+    refreshUserdata();
   }, []);
 
   const handleCopy = () => {
@@ -145,10 +155,43 @@ const Profile = () => {
     if (!openedBoxes.includes(boxId)) {
       setOpenedBoxes([...openedBoxes, boxId]);
     }
+      try {
+        const { data: response } = await axiosInstance.post(
+          "/api/mystery-box/open",
+          {
+            boxId: boxId,
+          }
+        );
+
+        if (response.status) {
+          setOpenedBoxes([...openedBoxes, boxId]);
+          setopenedReward((prev) => ({ ...prev, [boxId]: response.reward }));
+          // Optionally update user balance or other data based on response
+        } else {
+          console.error("Failed to open mystery box:", response.message);
+        }
+      } catch (error) {
+        console.error("Error opening mystery box:", error);
+        // Handle unauthorized errors
+        if (error.response && (error.response.status === 401 || error.response.status === 403)) {
+          localStorage.removeItem("token");
+          window.location.href = "/";
+        }
+      }
+    }
+    updateBalance();
+    refreshUserdata();
   };
 
   const cycleQuote = () => {
     setCurrentQuote((prev) => (prev + 1) % quotes.length);
+  };
+
+  const handleLogout = () => {
+    if (window.confirm("Do you really want to leave?")) {
+      localStorage.removeItem("token");
+      window.location.href = "/";
+    }
   };
 
   return (
