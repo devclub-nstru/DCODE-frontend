@@ -174,7 +174,7 @@ export default function Leaderboard() {
 
           <div className="table-body">
             {leaderboardData.map((user) => (
-              <div key={user.id} className={`table-row ${user.rank <= 3 ? `rank-${user.rank}` : ""}`} data-aos="fade-up">
+              <div key={user.id} className={`table-row ${user.rank <= 3 ? `rank-${user.rank}` : ""}`} >
                 <div className="cell-rank">
                   {user.rank <= 3 ? (
                     <div className="rank-badge-small">
