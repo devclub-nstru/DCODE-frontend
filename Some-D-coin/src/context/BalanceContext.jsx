@@ -5,7 +5,7 @@ const BalanceContext = createContext();
 
 export function BalanceProvider({ children }) {
   const [userBalance, setUserBalance] = useState(null);
-  const [userDetails, updateUserDetails] = useState(null);
+  const [userData, updateUserDetails] = useState({});
   var refreshUserdata = async () => {
     var { data: axres } = await axiosInstance.get("/api/user/details");
     if (axres.status) {
@@ -22,7 +22,7 @@ export function BalanceProvider({ children }) {
 
   return (
     <BalanceContext.Provider
-      value={{ userBalance, updateBalance, userDetails, refreshUserdata }}
+      value={{ userBalance, updateBalance, userData, refreshUserdata }}
     >
       {children}
     </BalanceContext.Provider>
