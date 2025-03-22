@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import "./Profile.css";
 import { useBalance } from "../../context/BalanceContext";
 import axiosInstance from "../../utils/axiosConfig";
 
 const Profile = () => {
+  const navigate = useNavigate();
   const { userBalance, updateBalance } = useBalance();
   const [openedReward, setopenedReward] = useState(0);
   var quotes = [
@@ -166,11 +167,23 @@ const Profile = () => {
     setCurrentQuote((prev) => (prev + 1) % quotes.length);
   };
 
+  const handleLogout = () => {
+    window.confirm("Do you really want to leave?")
+    localStorage.removeItem("token");
+  };
+
   return (
     <div className="profile-container !pt-[6rem]">
-      {/* Left column - User profile */}
       <div className="profile-column">
         <div className="profile-card">
+          <div 
+            style={{marginLeft: "20rem", cursor: "pointer"}} 
+            onClick={handleLogout}
+            className="logout-button"
+            title="Logout"
+          >
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAiElEQVR4nO2VwQ2AIAwAqyOwGXESBzHO5Uj6OQPq10RKqBDuX3ppSyvS+SNkon4BMYqXLkCeFhyWLdgBbyngk5NnmeLrDQfMVhUYge1+Zi0uEACmMIiPBDBISQGVBC8Cyu281C+gacGXwIhJ8kAr39BZLiKfGtvMMTI/x5EuINoSaqlXoCMFOQEhLgygtlfoiQAAAABJRU5ErkJggg==" alt="Logout" />
+          </div>
           <div className="profile-avatar">
             <img
               src={userData?.profilePicture}
