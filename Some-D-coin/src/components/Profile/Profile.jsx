@@ -1,15 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import "./Profile.css";
 import { useBalance } from "../../context/BalanceContext";
+import axiosInstance from "../../utils/axiosConfig";
 
 const Profile = () => {
-  const { userBalance } = useBalance();
-
+  const { userBalance, updateBalance } = useBalance();
+  const [openedReward, setopenedReward] = useState(0);
+  var quotes = [
+    "Code is like humor. When you have to explain it, it's bad.",
+    "The best error message is the one that never shows up.",
+    "Programming isn't about what you know; it's about what you can figure out.",
+    "The most important property of a program is whether it accomplishes the intention of its user.",
+  ];
   // Sample data - in a real app, this would come from props or an API
-  const userData = {
+  var [userData, setuserData] = useState({
     name: "Aditya Kumar",
     username: "pseudopythonic",
     email: "pseudopythonic@gmail.com",
@@ -108,43 +115,80 @@ const Profile = () => {
         description: "First PR merged",
       },
     ],
-    quotes: [
-      "Code is like humor. When you have to explain it, it's bad.",
-      "The best error message is the one that never shows up.",
-      "Programming isn't about what you know; it's about what you can figure out.",
-      "The most important property of a program is whether it accomplishes the intention of its user.",
-    ],
-  };
+  });
 
-  const [activeTab, setActiveTab] = useState("Issues");
+  var [activeTab, setActiveTab] = useState("Issues");
   const [copied, setCopied] = useState(false);
-  const [currentQuote, setCurrentQuote] = useState(0);
-  const [openedBoxes, setOpenedBoxes] = useState([]);
+  var [currentQuote, setCurrentQuote] = useState(0);
+  var [openedBoxes, setOpenedBoxes] = useState([]);
+  var refreshUserdata = async () => {
+    var { data: axres } = await axiosInstance.get("/api/user/details");
+    if (axres.status) {
+      console.log(axres.user);
+      setuserData(axres.user);
+    }
+  };
+  useEffect(() => {
+    refreshUserdata();
+  }, []);
 
   const handleCopy = () => {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleOpenBox = (boxId) => {
+  const handleOpenBox = async (boxId) => {
     if (!openedBoxes.includes(boxId)) {
-      setOpenedBoxes([...openedBoxes, boxId]);
+      try {
+        const { data: response } = await axiosInstance.post(
+          "/api/mystery-box/open",
+          {
+            boxId: boxId,
+          }
+        );
+
+        if (response.status) {
+          setOpenedBoxes([...openedBoxes, boxId]);
+          setopenedReward(response.reward);
+          // Optionally update user balance or other data based on response
+        } else {
+          console.error("Failed to open mystery box:", response.message);
+        }
+      } catch (error) {
+        console.error("Error opening mystery box:", error);
+      }
     }
+    updateBalance();
+    refreshUserdata();
   };
 
   const cycleQuote = () => {
-    setCurrentQuote((prev) => (prev + 1) % userData.quotes.length);
+    setCurrentQuote((prev) => (prev + 1) % quotes.length);
   };
 
   return (
-    <div className="profile-container">
+    <div className="profile-container !pt-[6rem]">
       {/* Left column - User profile */}
       <div className="profile-column">
         <div className="profile-card">
           <div className="profile-avatar">
-            <div className="avatar-circle"></div>
+            <img
+              src={userData?.profilePicture}
+              className="rounded-full w-[8rem] object-fit"
+              onError={(el) =>
+                el.currentTarget.setAttribute(
+                  "src",
+                  "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+                )
+              }
+              alt=""
+            />
           </div>
-          <h1 className="profile-name">{userData.name}</h1>
+          <h1 className="profile-name">
+            {userData?.username.includes(" ")
+              ? userData?.username.split(" ")?.[0]
+              : userData?.username}
+          </h1>
           <p className="profile-username">@{userData.username}</p>
 
           <div className="profile-email">
@@ -183,7 +227,7 @@ const Profile = () => {
         </div>
 
         <div className="quote-card">
-          <p className="quote-text">"{userData.quotes[currentQuote]}"</p>
+          <p className="quote-text">"{quotes[currentQuote]}"</p>
           <button className="quote-btn" onClick={cycleQuote}>
             New Quote
           </button>
@@ -223,9 +267,9 @@ const Profile = () => {
                 <p className="achievement-date">
                   Acquired: {achievement.acquiredDate}
                 </p>
-                <p className="achievement-description">
+                {/* <p className="achievement-description">
                   {achievement.description}
-                </p>
+                </p> */}
               </div>
             ))}
           </div>
@@ -265,7 +309,9 @@ const Profile = () => {
                     <h3 className="profile-issue-title">{issue.title}</h3>
                     <div className="issue-meta">
                       <span className="issue-tag">{issue.tag}</span>
-                      <span className="issue-date">{issue.date}</span>
+                      <span className="issue-date">
+                        {new Date(issue.date).toDateString()}
+                      </span>
                     </div>
                   </div>
                   <div className={`issue-status ${issue.status}`}>
@@ -346,7 +392,9 @@ const Profile = () => {
                       {openedBoxes.includes(box.id) && (
                         <div className="mystery-box-opened-animation">
                           <div className="confetti"></div>
-                          <p className="reward-text">You got: 250 DC!</p>
+                          <p className="reward-text">
+                            You got: {openedReward} DCOINS!
+                          </p>
                           <button
                             className="collect-btn"
                             onClick={() =>
@@ -355,7 +403,7 @@ const Profile = () => {
                               )
                             }
                           >
-                            Collect
+                            Done
                           </button>
                         </div>
                       )}

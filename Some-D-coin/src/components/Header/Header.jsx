@@ -46,6 +46,7 @@ function Navbar() {
     };
 
     handleStorageChange();
+    updateBalance();
 
     window.addEventListener("storage", handleStorageChange);
 
