@@ -13,12 +13,31 @@ a {
   justify-content: center;
   align-items: center;
   font-size: 0.9rem;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   color: rgba(255, 255, 255, 0.7);
+  position: relative;
+  padding: 0.5rem 1rem;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
 }
 
 .nav-link:hover {
   color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.nav-link:hover::after {
+  width: 70%;
 }
 
 .nav-link.lg-hover:hover {
@@ -31,6 +50,10 @@ a {
   color: #ffffff;
 }
 
+.nav-link.active::after {
+  width: 70%;
+}
+
 #nav-bar {
   padding: 0 5rem;
   padding-top: 2rem;
@@ -38,11 +61,17 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   backdrop-filter: blur(2.5px);
   background-color: #00000080;
   position: fixed;
   z-index: 10;
+  transition: padding 0.4s ease, background-color 0.4s ease;
+}
+
+#nav-bar.scrolled {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #000000cc;
 }
 
 .logo a {
@@ -53,13 +82,17 @@ a {
   font-size: 1.25rem;
   font-weight: bolder;
   color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.logo a:hover {
+  transform: scale(1.05);
 }
 
 .nav-items {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* width: 40%; */
   gap: 3rem;
 }
 
@@ -74,6 +107,12 @@ a {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#account:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
 .close-btn {
@@ -85,12 +124,38 @@ a {
   color: #000000;
   border: none;
   border-radius: 0.15rem;
-
   display: flex;
   justify-content: center;
   align-self: center;
   gap: 0.5rem;
   cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.close-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease;
+}
+
+.close-btn:hover::before {
+  left: 100%;
+}
+
+.close-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn:active {
+  transform: translateY(-1px);
 }
 
 .your-acc {
@@ -104,23 +169,37 @@ a {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  /* border: 1px solid #848484; */
   border-radius: 3rem;
+  transition: all 0.3s ease;
+  padding: 0.3rem 0.7rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.xp-counter:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
 }
 
 .xp-value {
   font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.xp-counter:hover .xp-value {
+  color: #ffffff;
 }
 
 .profile {
-  font-size: 0.9rem;
-  font-family: "Fira Code", monospace;
-  color: rgba(255, 255, 255, 0.7);
-  background-color: transparent;
-  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
   cursor: pointer;
-  transition: color 0.2s ease-in-out;
-  margin-left: 1rem;
+  transition: all 0.3s ease;
+}
+
+.profile:hover {
+  transform: translateY(-2px);
 }
 
 .profile-image {
@@ -128,127 +207,155 @@ a {
   height: 2.5rem;
   border-radius: 50%;
   object-fit: cover;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
-/* .close-btn:hover {
-  background-color: ;
-} */
+.profile:hover .profile-image {
+  border-color: #ffffff;
+  transform: scale(1.05);
+}
+
 .hamburger {
   display: none;
-}
-
-.logout-btn {
-  font-size: 0.9rem;
-  font-family: "Fira Code", monospace;
-  color: rgba(255, 255, 255, 0.7);
-  background-color: transparent;
-  border: none;
   cursor: pointer;
-  transition: color 0.2s ease-in-out;
-  margin-left: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 20;
 }
 
-.logout-btn:hover {
-  color: #ffffff;
+.hamburger div {
+  width: 1.5rem;
+  height: 3px;
+  background-color: white;
+  margin: 0.25rem;
+  transition: all 0.3s ease;
 }
 
-@media (max-width: 768px) {
+.hamburger:hover div {
+  background-color: #ffffff;
+}
+
+.hamburger.active div:nth-child(1) {
+  transform: rotate(-45deg) translate(-4px, 6px);
+}
+
+.hamburger.active div:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+  transform: rotate(45deg) translate(-4px, -6px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Changed from 768px to 770px for the breakpoint */
+@media (max-width: 770px) {
   #nav-bar {
     padding: 1rem;
     flex-direction: row;
     justify-content: space-between;
   }
-
+  
   .nav-items {
-    display: none;
-    /* Hide nav items by default */
+    display: none; /* Hide nav items by default */
     flex-direction: column;
-    position: absolute;
-    top: 4rem;
-    right: 0;
+    position: fixed; /* Changed from absolute to fixed */
+    top: 0; /* Start from the top of the viewport */
+    left: 0;
     width: 100%;
-    background-color: #000000cc;
-    backdrop-filter: blur(5px);
-    padding: 1rem 0;
+    height: 100vh; /* Full viewport height */
+    background-color: #000000;
+    padding-top: 5rem; /* Add space for the navbar */
     text-align: center;
+    z-index: 5; /* Below the navbar but above everything else */
+    justify-content: flex-start; /* Align items at the top */
   }
-
+  
   .nav-items.active {
-    display: flex;
-    /* Show nav when active */
+    display: flex; /* Show nav when active */
+    animation: slideIn 0.4s ease forwards;
   }
-
+  
+  .nav-items .nav-link {
+    padding: 1.5rem 0; /* Increase padding for better spacing in full-height menu */
+    font-size: 1.2rem; /* Slightly larger font for better visibility */
+    opacity: 0;
+  }
+  
+  .nav-items.active .nav-link {
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  .nav-items.active .nav-link:nth-child(1) { animation-delay: 0.1s; }
+  .nav-items.active .nav-link:nth-child(2) { animation-delay: 0.2s; }
+  .nav-items.active .nav-link:nth-child(3) { animation-delay: 0.3s; }
+  .nav-items.active .nav-link:nth-child(4) { animation-delay: 0.4s; }
+  .nav-items.active .nav-link:nth-child(5) { animation-delay: 0.5s; }
+  
   .hamburger {
     display: block;
-    cursor: pointer;
+    position: relative;
+    z-index: 20; /* Ensure it's above the menu */
   }
-
-  .hamburger div {
-    width: 1.5rem;
-    height: 3px;
-    background-color: white;
-    margin: 0.25rem;
-  }
-
+  
   .close-btn {
     top: 20% !important;
     left: 80% !important;
+    animation: fadeIn 0.5s ease 0.6s forwards;
+    opacity: 0;
   }
 }
 
 @media (max-width: 480px) {
   #nav-bar {
     padding: 0.8rem;
-    flex-direction: row;
-    justify-content: space-between;
   }
-
+  
   .nav-items {
-    display: none;
-    /* Hide nav items by default */
-    flex-direction: column;
-    position: absolute;
-    top: 3.5rem;
-    right: 0;
-    width: 100%;
-    background-color: #000000cc;
-    backdrop-filter: blur(5px);
-    padding: 0.8rem 0;
-    text-align: center;
+    padding-top: 4rem; /* Adjust for smaller navbar height */
   }
-
-  .nav-items.active {
-    display: flex;
-    /* Show nav when active */
-  }
-
-  .hamburger {
-    display: block;
-    cursor: pointer;
-  }
-
+  
   .hamburger div {
     width: 1.3rem;
     height: 2.5px;
-    background-color: white;
     margin: 0.2rem;
   }
-
+  
   .close-btn {
     top: 28% !important;
     left: 75% !important;
     font-size: 0.9rem;
     padding: 0.6rem 0.9rem;
   }
-
+  
   .nav-link {
     font-size: 0.85rem;
   }
-
+  
   .logo a {
     font-size: 1.1rem;
   }
-
+  
   .modal {
     max-width: 100% !important;
   }

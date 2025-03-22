@@ -1,9 +1,15 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ChevronDown } from "lucide-react"
+import AOS from "aos"
+import "aos/dist/aos.css"
 import dImg from "../../../public/Dcode.png";
 import "./Leaderboard.css"
 
 export default function Leaderboard() {
+  useEffect(() => {
+    AOS.init({ duration: 1500 }) // Increased duration to slow down the animation
+  }, [])
+
   const [timeFilter, setTimeFilter] = useState("Mar 25")
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
@@ -89,7 +95,7 @@ export default function Leaderboard() {
   return (
     <div className="leaderboard-container">
       <div className="second-container">
-        <div className="leaderboard-header">
+        <div className="leaderboard-header" data-aos="fade-down">
           <div className="contest-title">
             <div className="title-line"></div>
             <div className="title-box">
@@ -110,9 +116,9 @@ export default function Leaderboard() {
           </div>
         </div>
 
-        <h1 className="leaderboard-heading">Leaderboard</h1>
+        <h1 className="leaderboard-heading" data-aos="fade-up">Leaderboard</h1>
 
-        <div className="top-users">
+        <div className="top-users" data-aos="fade-up">
           {topUsers
             .sort((a, b) => a.id - b.id)
             .map((user) => (
@@ -146,7 +152,7 @@ export default function Leaderboard() {
             ))}
         </div>
 
-        <div className="leaderboard-table">
+        <div className="leaderboard-table" data-aos="fade-up">
           <div className="table-header">
             <div className="header-rank">
               <svg 
@@ -168,7 +174,7 @@ export default function Leaderboard() {
 
           <div className="table-body">
             {leaderboardData.map((user) => (
-              <div key={user.id} className={`table-row ${user.rank <= 3 ? `rank-${user.rank}` : ""}`}>
+              <div key={user.id} className={`table-row ${user.rank <= 3 ? `rank-${user.rank}` : ""}`} data-aos="fade-up">
                 <div className="cell-rank">
                   {user.rank <= 3 ? (
                     <div className="rank-badge-small">

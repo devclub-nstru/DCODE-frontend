@@ -1,7 +1,7 @@
 .leaderboard-container {
   
     color: white;
-    min-height: 100vh;
+    min-height: 95vh;
     max-width: 80vw;
     margin: 0 auto;
     padding: 5rem 1.5rem;
@@ -307,10 +307,6 @@
   
   .table-body {
     color: rgb(230, 230, 230);
-  }
-  
-  .table-row {
-    /* border-bottom: 1px solid rgba(255, 255, 255, 0.375); */
   }
   
   .rank-badge-small {
