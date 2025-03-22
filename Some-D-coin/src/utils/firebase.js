@@ -17,7 +17,12 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-const signInWithGoogle = async (apiURL, setisLogin, setIsOpen) => {
+const signInWithGoogle = async (
+  apiURL,
+  setisLogin,
+  setIsOpen,
+  callbackUpdateUser
+) => {
   try {
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
@@ -30,6 +35,7 @@ const signInWithGoogle = async (apiURL, setisLogin, setIsOpen) => {
     localStorage.setItem("token", axres.token);
     setisLogin(true);
     toast.success(axres.message);
+    callbackUpdateUser();
   } catch (error) {
     setisLogin(false);
     console.error("Google Sign-In Error:", error);
