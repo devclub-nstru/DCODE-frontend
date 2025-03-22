@@ -174,39 +174,47 @@ export default function Wallet() {
               </tr>
             </thead>
             <tbody>
-              {transactions.map((transaction, index) => (
-                <tr key={index}>
-                  <td>{new Date(transaction.createdAt).toDateString()}</td>
-                  <td
-                    className={`${
+              {transactions.length === 0 ? (
+                <tr>
+                  <td colSpan="3" className="text-center">
+                    No transactions Yet.
+                  </td>
+                </tr>
+              ) : (
+                transactions.map((transaction, index) => (
+                  <tr key={index}>
+                    <td>{new Date(transaction.createdAt).toDateString()}</td>
+                    <td
+                      className={`${
+                        transaction.type == "transfer"
+                          ? transaction.senderId == currentUserId
+                            ? "text-red-400"
+                            : transaction.receiverId == currentUserId
+                            ? "text-green-400"
+                            : ""
+                          : ""
+                      }`}
+                    >
+                      {transaction.type == "transfer"
+                        ? transaction.senderId == currentUserId
+                          ? "Transfered"
+                          : transaction.receiverId == currentUserId
+                          ? "Recieved"
+                          : ""
+                        : transaction.type}
+                    </td>
+                    <td>{`${
                       transaction.type == "transfer"
                         ? transaction.senderId == currentUserId
-                          ? "text-red-400"
+                          ? "-"
                           : transaction.receiverId == currentUserId
-                          ? "text-green-400"
+                          ? "+"
                           : ""
                         : ""
-                    }`}
-                  >
-                    {transaction.type == "transfer"
-                      ? transaction.senderId == currentUserId
-                        ? "Transfered"
-                        : transaction.receiverId == currentUserId
-                        ? "Recieved"
-                        : ""
-                      : transaction.type}
-                  </td>
-                  <td>{`${
-                    transaction.type == "transfer"
-                      ? transaction.senderId == currentUserId
-                        ? "-"
-                        : transaction.receiverId == currentUserId
-                        ? "+"
-                        : ""
-                      : ""
-                  }${transaction.amount}`}</td>
-                </tr>
-              ))}
+                    }${transaction.amount}`}</td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>
