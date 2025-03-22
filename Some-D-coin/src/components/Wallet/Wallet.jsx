@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./Wallet.css";
 import { Send, QrCode } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
@@ -70,7 +70,7 @@ export default function Wallet() {
   return (
     <>
       <div className="wallet-container">
-        <div className="wallet-card" data-aos="fade-up">
+        <div className="wallet-card" data-aos="fade-in">
           <div className="dcode-icon">
             <img src={dImg} alt="" height={70} width={70} />
           </div>
@@ -78,7 +78,12 @@ export default function Wallet() {
           <div className="coin-amount">{userBalance} D-Coins</div>
         </div>
 
-        <form onSubmit={TransferformSubmiited} className="card-wallet" data-aos="fade-up">
+        <form
+          onSubmit={TransferformSubmiited}
+          className="card-wallet"
+          data-aos="fade-in"
+          data-aos-delay="150"
+        >
           <h2 className="card-wallet-title">Send Money</h2>
           <input
             type="text"
@@ -145,7 +150,12 @@ export default function Wallet() {
           </p>
         </form>
 
-        <div className="card-wallet">
+        <div
+          className="card-wallet"
+          data-aos="fade-in"
+          data-aos-delay="250"
+          data-aos-offset="-350"
+        >
           <div className="wallet-history">
             <span className="card-wallet-title">Transaction History</span>
           </div>
