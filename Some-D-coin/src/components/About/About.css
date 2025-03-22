@@ -7,26 +7,40 @@
     align-items: center;
     gap: 4rem;
 }
+
 .doubt {
     width: 100%;
     max-width: 80vw;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    padding: 2rem;
+    border-radius: 10px;
 }
+
 .doubt h1 {
     font-size: 2rem;
-    font-weight: 300;
-    font-family: "Inter",monospace;
+    font-weight: 500;
+    font-family: "Outfit", monospace;
+    margin-bottom: 0.5rem;
+
 }
+
 .doubt p {
     font-size: 1.25rem;
     padding-left: 1rem;
     font-weight: 200;
     line-height: 1.6;
+    color: rgba(255, 255, 255, 0.76);
+    font-family: "Fira Code", monospace;
+    margin-bottom: 1rem;
 }
+
 .description {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    padding: 1rem;
+    border-left: 4px solid #3498db;
+    border-radius: 5px;
 }
