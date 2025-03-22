@@ -212,6 +212,8 @@ const GitHubIssues = () => {
       ],
     },
   ]);
+  const [username, setUsername] = useState("");
+  const [currentIssueId, setcurrentIssueId] = useState(null);
   let numbers = 0;
   const issuesNums = 0;
   // const issuesNums = issues.filter((issue) => {
@@ -231,7 +233,8 @@ const GitHubIssues = () => {
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  const handleBuyClick = () => {
+  const handleBuyClick = (issueid) => {
+    setcurrentIssueId(issueid);
     setIsPopupOpen(true);
   };
 
@@ -239,18 +242,23 @@ const GitHubIssues = () => {
     setIsPopupOpen(false);
   };
 
-  const handleConfirm = () => {
-    console.log("Purchase confirmed!");
+  const handleConfirm = async () => {
+    // console.log("Purchase confirmed!");
+    var { data: axres } = await axiosInstance.post(
+      "/api/marketplace/purchase",
+      { issueId: currentIssueId, githubUsername: username }
+    );
     setIsPopupOpen(false);
   };
 
   const [showModal, setShowModal] = useState(false);
-  const [username, setUsername] = useState("");
+
   const [error, setError] = useState("");
   const [authenticatedUser, setAuthenticatedUser] = useState("");
 
-  const handleShopClick = () => {
+  const handleShopClick = (issueid) => {
     if (!authenticatedUser) {
+      setIssues(issueid);
       setShowModal(true);
       setError("");
     }
@@ -346,28 +354,30 @@ const GitHubIssues = () => {
 
         {/* Tab Navigation */}
         <div className="tab-navigation">
-          <div className="tabs-container">
-            <div className="tabs">
-              <button
-                className={`tab ${activeTab === "Available" ? "active" : ""}`}
-                onClick={() => setActiveTab("Available")}
-              >
-                Available{" "}
-                {/* <span className="count">
-                  {issues.reduce((prev, cur) => {
-                    prev + (cur.available ? 1 : 0);
-                  }, 0)}
-                </span> */}
-              </button>
-              <button
-                className={`tab ${activeTab === "Assigned" ? "active" : ""}`}
-                onClick={() => setActiveTab("Assigned")}
-              >
-                Assigned
-                {/* <span className="count">{issuesNums}</span> */}
-              </button>
-            </div>
-          </div>
+          {
+            // <div className="tabs-container">
+            //   <div className="tabs">
+            //     <button
+            //       className={`tab ${activeTab === "Available" ? "active" : ""}`}
+            //       onClick={() => setActiveTab("Available")}
+            //     >
+            //       Available{" "}
+            //       {/* <span className="count">
+            //       {issues.reduce((prev, cur) => {
+            //         prev + (cur.available ? 1 : 0);
+            //       }, 0)}
+            //     </span> */}
+            //     </button>
+            //     <button
+            //       className={`tab ${activeTab === "Assigned" ? "active" : ""}`}
+            //       onClick={() => setActiveTab("Assigned")}
+            //     >
+            //       Assigned
+            //       {/* <span className="count">{issuesNums}</span> */}
+            //     </button>
+            //   </div>
+            // </div>
+          }
         </div>
 
         {/* Issue List */}
@@ -396,29 +406,24 @@ const GitHubIssues = () => {
                     <NavLink to="/shop/issue" className={"issue-title !m-0"}>
                       <span>{issue.title}</span>
                     </NavLink>
-                    {issue.labels.includes("already-assigned") &&
-                      issue.labels.map((label, idx) => (
-                        <span
-                          key={idx}
-                          className={` ${
-                            label == "easy"
-                              ? "!bg-green-400 !px-[8px] py-[2px] text-[12px] rounded-[12px]"
-                              : label == "medium"
-                              ? "!bg-orange-400 !px-[8px] py-[2px] text-[12px] rounded-[12px]"
-                              : label == "hard"
-                              ? "!bg-red-500 !px-[8px] py-[2px] text-[12px] rounded-[12px]"
-                              : " label "
-                          }`}
-                        >
-                          {label}
-                        </span>
-                      ))}
-                    {issue.labels.includes("assignment-available") &&
-                      issue.labels.map((label, idx) => (
-                        <span key={idx} className="available-label">
-                          {label}
-                        </span>
-                      ))}
+                    {issue.labels.map((label, idx) => (
+                      <span
+                        key={idx}
+                        className={` ${
+                          label == "easy"
+                            ? "!bg-green-700 !px-[8px] py-[2px] text-[12px] rounded-[12px]"
+                            : label == "medium"
+                            ? "!bg-orange-500 !px-[8px] py-[2px] text-[12px] rounded-[12px]"
+                            : label == "hard"
+                            ? "!bg-red-500 !px-[8px] py-[2px] text-[12px] rounded-[12px]"
+                            : label == "already-assigned"
+                            ? "!bg-blue-600 !px-[8px] py-[2px] text-[12px] rounded-[12px]"
+                            : " label "
+                        }`}
+                      >
+                        {label}
+                      </span>
+                    ))}
                   </div>
                   {/* <div className="issue-meta">
                         Skills •{" "}
@@ -432,11 +437,11 @@ const GitHubIssues = () => {
                         ))}
                       </div> */}
                 </div>
-                {issue.available ? (
+                {issue?.available ? (
                   <div className="issue-stats">
                     {/* onClick={handleBuyClick}  handleShopClick*/}
                     {authenticatedUser ? (
-                      <button onClick={handleBuyClick}>
+                      <button onClick={()=>handleBuyClick()}>
                         <span class="box">
                           Buy Now{" "}
                           <img
@@ -449,7 +454,7 @@ const GitHubIssues = () => {
                         </span>
                       </button>
                     ) : (
-                      <button onClick={handleShopClick}>
+                      <button onClick={() => handleShopClick(issue._id)}>
                         <span class="box">
                           Buy Now{" "}
                           <img
@@ -463,7 +468,6 @@ const GitHubIssues = () => {
                       </button>
                     )}
                     {showModal && <Modal />}
-
                     <ConfirmationPopup
                       isOpen={isPopupOpen}
                       onCancel={handleCancel}
