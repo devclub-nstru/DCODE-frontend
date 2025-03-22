@@ -145,7 +145,7 @@ export default function Wallet() {
           </p>
         </form>
 
-        <div className="card-wallet" data-aos="fade-up">
+        <div className="card-wallet">
           <div className="wallet-history">
             <span className="card-wallet-title">Transaction History</span>
           </div>
