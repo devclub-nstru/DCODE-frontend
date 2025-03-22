@@ -171,6 +171,7 @@ const Profile = () => {
   const handleLogout = () => {
     window.confirm("Do you really want to leave?")
     localStorage.removeItem("token");
+    window.location.reload();
   };
 
   return (
