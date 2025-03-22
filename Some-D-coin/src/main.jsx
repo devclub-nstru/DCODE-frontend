@@ -19,6 +19,7 @@ import Wallet from "./components/Wallet/Wallet.jsx";
 import IssueDetails from "./components/GitHubIssues/IssueDetails/IssueDetails.jsx";
 import Leaderboard from "./components/LeaderBoard/Leaderboard.jsx";
 import Profile from "./components/Profile/Profile.jsx";
+import RBHIssueProposal from "./components/RBHIssueProposal/RBHIssueProposal"
 import "./utils/axiosConfig";
 
 const router = createBrowserRouter(
@@ -34,6 +35,7 @@ const router = createBrowserRouter(
       <Route path="wallet" element={<Wallet />} />
       <Route path="team" element={<Team />} />
       <Route path="profile" element={<Profile />} />
+      <Route path="rbhissueproposal" element={<RBHIssueProposal />}/>
     </Route>
   )
 );
