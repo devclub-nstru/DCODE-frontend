@@ -2,59 +2,57 @@ import React, { useState } from 'react'
 import "./RBHIssueProposal.css"
 
 const RBHIssueProposal = () => {
-  const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    skills: ''
-  });
+  const [skills, setSkills] = useState([]);
+  const [skillInput, setSkillInput] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+  const addSkill = () => {
+    if (skillInput.trim() && !skills.includes(skillInput)) {
+      setSkills([...skills, skillInput]);
+      setSkillInput("");
+    }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', formData);
+  const removeSkill = (skill) => {
+    setSkills(skills.filter((s) => s !== skill));
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="title">Title:</label>
+    <div className="issue-container">
+      <h2 className="title">Reverse Bug Hunt Issue Proposal</h2>
+      <p className="subtitle">
+        Submit a new issue or feature request for the development team to consider
+      </p>
+      <label>Issue Title</label>
+      <input
+        type="text"
+        placeholder="Enter a clear and concise title for your issue"
+        className="input-field"
+      />
+      <label>Description</label>
+      <textarea
+        placeholder="Describe the issue in detail..."
+        className="textarea-field"
+      ></textarea>
+      <label>Skills Needed</label>
+      <div className="skills-input-container">
         <input
           type="text"
-          id="title"
-          name="title"
-          value={formData.title}
-          onChange={handleChange}
+          placeholder="Add skills needed (e.g., React, UI/UX, API Design)"
+          value={skillInput}
+          onChange={(e) => setSkillInput(e.target.value)}
+          className="input-field"
         />
+        <button className="add-btn" onClick={addSkill}>+</button>
       </div>
-      <div>
-        <label htmlFor="description">Description:</label>
-        <textarea
-          id="description"
-          name="description"
-          value={formData.description}
-          onChange={handleChange}
-        />
+      <div className="skills-list">
+        {skills.map((skill, index) => (
+          <span key={index} className="skill-tag">
+            {skill} <button className="remove-btn" onClick={() => removeSkill(skill)}>×</button>
+          </span>
+        ))}
       </div>
-      <div>
-        <label htmlFor="skills">Skills Needed:</label>
-        <input
-          type="text"
-          id="skills"
-          name="skills"
-          value={formData.skills}
-          onChange={handleChange}
-        />
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+      <button className="submit-btn">Submit Issue</button>
+    </div>
   );
 }
 

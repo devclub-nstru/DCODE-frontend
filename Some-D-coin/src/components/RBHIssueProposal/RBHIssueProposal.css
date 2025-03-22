@@ -1,0 +1,96 @@
+.issue-container {
+    padding: 10rem 0;
+    min-height: 80vh;
+    gap: 4rem;
+    width: 100%;
+    margin: 0 auto;
+    background-color: black;
+    max-width: 50em;
+}
+
+.title {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 0.9em;
+    color: #aaaaaa;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-size: 1em;
+}
+
+.input-field,
+.textarea-field {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: #282828;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.textarea-field {
+    height: 100px;
+}
+
+.skills-input-container {
+    display: flex;
+    align-items: center;
+}
+
+.add-btn {
+    margin-left: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.skill-tag {
+    background-color: #333;
+    padding: 5px 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: #ff5555;
+    font-size: 1em;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #174373;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}

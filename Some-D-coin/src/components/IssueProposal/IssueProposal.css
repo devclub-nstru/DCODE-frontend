@@ -1,0 +1,273 @@
+/* IssueProposal.css */
+.issue-proposal-container {
+  padding: 10rem 0;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+  max-width: 80vw;
+  margin: 0 auto;
+}
+
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.section-heading h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: "Outfit", monospace;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.section-heading p {
+  font-size: 1.25rem;
+  font-weight: 200;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.76);
+  font-family: "Fira Code", monospace;
+}
+
+.proposal-cards {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.proposal-card {
+  width: 320px;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  padding-top: 3rem;
+}
+
+.proposal-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  transition: all 0.3s ease;
+}
+
+.rbh-card::before {
+  background: linear-gradient(90deg, #3498db, #2980b9);
+}
+
+.general-card::before {
+  background: linear-gradient(90deg, #27ae60, #2ecc71);
+}
+
+.proposal-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+}
+
+.rbh-card:hover {
+  box-shadow: 0 15px 25px rgba(52, 152, 219, 0.2);
+}
+
+.general-card:hover {
+  box-shadow: 0 15px 25px rgba(39, 174, 96, 0.2);
+}
+
+.card-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.card-icon svg {
+  height: 60px;
+  width: 60px;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.proposal-card:hover .card-icon svg {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.card-category {
+  padding: 0 1.5rem 0.5rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-family: "Outfit", monospace;
+  text-align: center;
+}
+
+.rbh-card .card-category {
+  color: #3498db;
+}
+
+.general-card .card-category {
+  color: #27ae60;
+}
+
+.card-explanation {
+  padding: 0 1.5rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 200;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.76);
+  font-family: "Fira Code", monospace;
+  text-align: center;
+}
+
+.card-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0 1.5rem 1.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.15rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.rbh-card .card-button {
+  background-color: rgba(52, 152, 219, 0.15);
+  color: rgba(52, 152, 219, 0.9);
+}
+
+.general-card .card-button {
+  background-color: rgba(39, 174, 96, 0.15);
+  color: rgba(39, 174, 96, 0.9);
+}
+
+.card-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s ease;
+}
+
+.rbh-card .card-button::before {
+  background: rgba(52, 152, 219, 0.1);
+}
+
+.general-card .card-button::before {
+  background: rgba(39, 174, 96, 0.1);
+}
+
+.card-button:hover::before {
+  left: 100%;
+}
+
+.rbh-card .card-button:hover {
+  color: #3498db;
+  transform: translateY(-2px);
+  background-color: rgba(52, 152, 219, 0.25);
+}
+
+.general-card .card-button:hover {
+  color: #27ae60;
+  transform: translateY(-2px);
+  background-color: rgba(39, 174, 96, 0.25);
+}
+
+.card-button svg {
+  transition: transform 0.3s ease;
+}
+
+.rbh-card .card-button svg path {
+  fill: rgba(52, 152, 219, 0.9);
+}
+
+.general-card .card-button svg path {
+  fill: rgba(39, 174, 96, 0.9);
+}
+
+.card-button:hover svg {
+  transform: translateX(2px);
+}
+
+@media (max-width: 770px) {
+  .issue-proposal-container {
+    padding: 6rem 0;
+    gap: 3rem;
+    max-width: 90vw;
+  }
+
+  .section-heading h2 {
+    font-size: 1.8rem;
+  }
+
+  .section-heading p {
+    font-size: 1.1rem;
+  }
+
+  .proposal-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .proposal-card {
+    width: 100%;
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 480px) {
+  .issue-proposal-container {
+    padding: 5rem 0;
+    gap: 2rem;
+    max-width: 95vw;
+  }
+
+  .section-heading h2 {
+    font-size: 1.6rem;
+  }
+
+  .section-heading p {
+    font-size: 1rem;
+  }
+
+  .card-icon svg {
+    height: 50px;
+    width: 50px;
+  }
+
+  .card-category {
+    font-size: 1.3rem;
+    padding: 0 1.2rem 0.5rem;
+  }
+
+  .card-explanation {
+    padding: 0 1.2rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .card-button {
+    margin: 0 1.2rem 1.2rem;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.9rem;
+  }
+}

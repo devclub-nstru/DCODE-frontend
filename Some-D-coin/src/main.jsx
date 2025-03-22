@@ -22,6 +22,7 @@ import Profile from "./components/Profile/Profile.jsx";
 import RBHIssueProposal from "./components/RBHIssueProposal/RBHIssueProposal"
 import GenralIssueProposal from "./components/GenralIssueProposal/GenralIssueProposal.jsx"
 import "./utils/axiosConfig";
+import IssueProposal from "./components/IssueProposal/IssueProposal.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,6 +37,7 @@ const router = createBrowserRouter(
       <Route path="wallet" element={<Wallet />} />
       <Route path="team" element={<Team />} />
       <Route path="profile" element={<Profile />} />
+      <Route path="proposal" element={<IssueProposal />}/>
       <Route path="rbhissueproposal" element={<RBHIssueProposal />}/>
       <Route path="GenralIssueProposal" element={<GenralIssueProposal />}/>
     </Route>
