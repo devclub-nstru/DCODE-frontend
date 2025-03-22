@@ -7,6 +7,7 @@ const API_URL = "/api/auth";
 import { FcGoogle } from "react-icons/fc";
 import { X } from "lucide-react";
 import "./Login.css"; // Import the CSS file
+import { useBalance } from "../../context/BalanceContext";
 
 const LoginForm = ({ handleGoogleSignIn, setisLogin }) => (
   <form className="auth-form">
@@ -40,6 +41,7 @@ const SignupForm = ({ handleGoogleSignIn, setisLogin }) => (
 
 function Auth({ setIsOpen, setisLogin }) {
   const [isLogin, setIsLogin] = useState(true);
+  const { userBalance, updateBalance } = useBalance();
 
   useEffect(() => {
     setMessage({ text: "", isError: false });
@@ -50,7 +52,12 @@ function Auth({ setIsOpen, setisLogin }) {
 
   const handleGoogleSignIn = async (setisLogin) => {
     try {
-      await signInWithGoogle(`${API_URL}/google`, setisLogin, setIsOpen);
+      await signInWithGoogle(
+        `${API_URL}/google`,
+        setisLogin,
+        setIsOpen,
+        updateBalance
+      );
     } catch (error) {
       setMessage({
         text: "Google sign-in failed. Please try again.",
