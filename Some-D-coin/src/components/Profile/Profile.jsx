@@ -123,13 +123,33 @@ const Profile = () => {
   const [copied, setCopied] = useState(false);
   var [currentQuote, setCurrentQuote] = useState(0);
   var [openedBoxes, setOpenedBoxes] = useState([]);
+  
+  // Check if user is authenticated
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      // Redirect to home/login page if no token exists
+      window.location.href = "/";
+    }
+  }, []);
+  
   var refreshUserdata = async () => {
-    var { data: axres } = await axiosInstance.get("/api/user/details");
-    if (axres.status) {
-      console.log(axres.user);
-      setuserData(axres.user);
+    try {
+      var { data: axres } = await axiosInstance.get("/api/user/details");
+      if (axres.status) {
+        console.log(axres.user);
+        setuserData(axres.user);
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+      // If API request fails due to auth issues, redirect to login
+      if (error.response && (error.response.status === 401 || error.response.status === 403)) {
+        localStorage.removeItem("token");
+        window.location.href = "/";
+      }
     }
   };
+  
   useEffect(() => {
     refreshUserdata();
   }, []);
@@ -158,6 +178,11 @@ const Profile = () => {
         }
       } catch (error) {
         console.error("Error opening mystery box:", error);
+        // Handle unauthorized errors
+        if (error.response && (error.response.status === 401 || error.response.status === 403)) {
+          localStorage.removeItem("token");
+          window.location.href = "/";
+        }
       }
     }
     updateBalance();
@@ -169,9 +194,10 @@ const Profile = () => {
   };
 
   const handleLogout = () => {
-    window.confirm("Do you really want to leave?");
-    localStorage.removeItem("token");
-    window.location.reload();
+    if (window.confirm("Do you really want to leave?")) {
+      localStorage.removeItem("token");
+      window.location.href = "/";
+    }
   };
 
   return (
