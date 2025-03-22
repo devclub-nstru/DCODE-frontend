@@ -23,8 +23,8 @@ export default function Leaderboard() {
     {
       id: 1,
       rank: 1,
-      name: "Hardik Jaiswal",
-      score: 125,
+      name: "Ved Pawar",
+      score: 1118,
       change: 2,
       avatar: null,
       initials: "HJ",
@@ -33,8 +33,8 @@ export default function Leaderboard() {
     {
       id: 2,
       rank: 2,
-      name: "Ved Pawar",
-      score: 118,
+      name: "Hardik Jaiswal",
+      score: 125,
       change: -1,
       avatar: null,
       initials: "VP",

@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import "./Wallet.css";
 import { Send, QrCode } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
@@ -25,10 +27,9 @@ export default function Wallet() {
     }
   }
   useEffect(() => {
-    (async () => {
-      updateBalance();
-      updateHistory();
-    })();
+    AOS.init({ duration: 1000 });
+    updateBalance();
+    updateHistory();
   }, []);
   function updateActualSendingAmount(el) {
     let amount = Number(el.target.value);
@@ -69,7 +70,7 @@ export default function Wallet() {
   return (
     <>
       <div className="wallet-container">
-        <div className="wallet-card">
+        <div className="wallet-card" data-aos="fade-up">
           <div className="dcode-icon">
             <img src={dImg} alt="" height={70} width={70} />
           </div>
@@ -77,7 +78,7 @@ export default function Wallet() {
           <div className="coin-amount">{userBalance} D-Coins</div>
         </div>
 
-        <form onSubmit={TransferformSubmiited} className="card-wallet">
+        <form onSubmit={TransferformSubmiited} className="card-wallet" data-aos="fade-up">
           <h2 className="card-wallet-title">Send Money</h2>
           <input
             type="text"
@@ -137,10 +138,6 @@ export default function Wallet() {
                 </>
               )}
             </button>
-            {/* <button className="scan-button">
-              <QrCode size={20} />
-              <span>Scan QR Code</span>
-            </button> */}
           </div>
           <p className="fee-note">
             * 20% of the transaction amount is charged as a fee for all
@@ -148,24 +145,9 @@ export default function Wallet() {
           </p>
         </form>
 
-        {/* <div className="card-wallet">
-          <div className="receive-container">
-            <h2 className="card-wallet-title">Receive Money</h2>
-            <button className="qr-button">
-              <QrCode size={20} />
-              <span>Show QR Code</span>
-            </button>
-          </div>
-        </div> */}
-
-        <div className="card-wallet">
+        <div className="card-wallet" data-aos="fade-up">
           <div className="wallet-history">
             <span className="card-wallet-title">Transaction History</span>
-            {/* <button className="detail-button">
-              <NavLink to="/history">
-                <span>Details</span>
-              </NavLink>
-            </button> */}
           </div>
           <table className="transaction-table">
             <thead>
