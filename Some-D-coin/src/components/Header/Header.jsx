@@ -114,12 +114,11 @@ function navbar() {
             </div>
             <div className="profile">
               <Link to="/profile">
-                {/* <img
+                <img
                   src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
                   alt="Profile"
                   className="profile-image"
-                /> */}
-                Profile
+                />
               </Link>
             </div>
             <button className="logout-btn" onClick={() => setToken(null)}>
