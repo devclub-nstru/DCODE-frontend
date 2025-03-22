@@ -20,7 +20,8 @@ const Profile = () => {
     name: "Aditya Kumar",
     username: "pseudopythonic",
     email: "pseudopythonic@gmail.com",
-    walletAddress: "0x3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b",
+    profilePicture:
+      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png",
     stats: [
       { icon: "repo", value: 0, label: "Issues Created" },
       { icon: "git-branch", value: 0, label: "Pull Requests" },
@@ -393,7 +394,7 @@ const Profile = () => {
                         <div className="mystery-box-opened-animation">
                           <div className="confetti"></div>
                           <p className="reward-text">
-                            You got: {openedReward} DCOINS!
+                            You got: {openedReward} D-Coins!
                           </p>
                           <button
                             className="collect-btn"
