@@ -1,6 +1,6 @@
 import React from "react";
 import EventTimeline from "../EventTimeline";
-import {Link, NavLink} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Home.css";
 import contributors from "../Contributors/Contributors";
 
@@ -85,7 +85,7 @@ function Hero() {
             </div>
             <div class="kategory">Contribute & Earn</div>
             <div class="explanation">
-              Solve issues to earn D-Coins while making meaningful contributions
+              Solve issues to earn DCoin while making meaningful contributions
               to open-source.
             </div>
           </div>

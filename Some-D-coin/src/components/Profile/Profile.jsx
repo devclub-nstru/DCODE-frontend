@@ -9,7 +9,7 @@ import axiosInstance from "../../utils/axiosConfig";
 const Profile = () => {
   const navigate = useNavigate();
   const { userBalance, updateBalance } = useBalance();
-  const [openedReward, setopenedReward] = useState(0);
+  const [openedReward, setopenedReward] = useState({});
   var quotes = [
     "Code is like humor. When you have to explain it, it's bad.",
     "The best error message is the one that never shows up.",
@@ -124,31 +124,12 @@ const Profile = () => {
   var [currentQuote, setCurrentQuote] = useState(0);
   var [openedBoxes, setOpenedBoxes] = useState([]);
   
-  // Check if user is authenticated
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
-      // Redirect to home/login page if no token exists
       window.location.href = "/";
     }
   }, []);
-  
-  var refreshUserdata = async () => {
-    try {
-      var { data: axres } = await axiosInstance.get("/api/user/details");
-      if (axres.status) {
-        console.log(axres.user);
-        setuserData(axres.user);
-      }
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-      // If API request fails due to auth issues, redirect to login
-      if (error.response && (error.response.status === 401 || error.response.status === 403)) {
-        localStorage.removeItem("token");
-        window.location.href = "/";
-      }
-    }
-  };
   
   useEffect(() => {
     refreshUserdata();
@@ -171,7 +152,7 @@ const Profile = () => {
 
         if (response.status) {
           setOpenedBoxes([...openedBoxes, boxId]);
-          setopenedReward(response.reward);
+          setopenedReward((prev) => ({ ...prev, [boxId]: response.reward }));
           // Optionally update user balance or other data based on response
         } else {
           console.error("Failed to open mystery box:", response.message);
@@ -246,7 +227,7 @@ const Profile = () => {
         <div className="wallet-card">
           <div className="wallet-header">
             <span className="icon">◳</span>
-            <h2>Dcoin Wallet</h2>
+            <h2>DCoin Wallet</h2>
           </div>
 
           <div className="wallet-balance">
@@ -437,7 +418,7 @@ const Profile = () => {
                         <div className="mystery-box-opened-animation">
                           <div className="confetti"></div>
                           <p className="reward-text">
-                            You got: {openedReward} D-Coins!
+                            You got: {openedReward[box.id]} DCoin!
                           </p>
                           <button
                             className="collect-btn"
