@@ -16,17 +16,18 @@ export default function Wallet() {
   const [actualAmountBeingSent, setactualAmountBeingSent] = useState(null);
   const [amountBeingSent, setamountBeingSent] = useState(null);
   const [isSendingAmount, setisSendingAmount] = useState(false);
+  async function updateHistory() {
+    var { data: axres } = await axiosInstance.get("/api/transactions/history");
+
+    if (axres.status) {
+      setcurrentUserId(axres.currentUserId);
+      settransactions(axres.transactions);
+    }
+  }
   useEffect(() => {
     (async () => {
       updateBalance();
-      var { data: axres } = await axiosInstance.get(
-        "/api/transactions/history"
-      );
-
-      if (axres.status) {
-        setcurrentUserId(axres.currentUserId);
-        settransactions(axres.transactions);
-      }
+      updateHistory();
     })();
   }, []);
   function updateActualSendingAmount(el) {
@@ -62,6 +63,7 @@ export default function Wallet() {
     }
     document.querySelector("#amountInputForDCOINS_TRANSFER").value = "";
     updateBalance();
+    updateHistory();
     setisSendingAmount(false);
   };
   return (

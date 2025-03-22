@@ -6,214 +6,16 @@ import dGif from "../../../public/Dcode.png";
 import { Link, NavLink } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import axiosInstance from "../../utils/axiosConfig";
+import { toast } from "react-toastify";
+import { useBalance } from "../../context/BalanceContext";
 
 const GitHubIssues = () => {
   const [activeTab, setActiveTab] = useState("Available");
-  const [issues, setIssues] = useState([
-    {
-      id: 1,
-      number: "#347",
-      title: "Add solution of November 2024.",
-      author: "Adit-ino",
-      openedOn: "Dec 1, 2024",
-      price: "30",
-      labels: ["assignment-available"],
-      comments: 0,
-      avatars: ["https://avatar.iran.liara.run/public"],
-      projectSkills: ["HTML & CSS", "Git & GitHub"],
-    },
-    {
-      id: 2,
-      number: "#340",
-      title: "Add solution of November 2024.",
-      author: "Ayu-hack",
-      openedOn: "Nov 2, 2024",
-      price: "25",
-      labels: ["assignment-available"],
-      comments: 2,
-      avatars: ["https://avatar.iran.liara.run/public"],
-      projectSkills: ["HTML & CSS", "JavaScript & React", "MongoDB & SQL"],
-    },
-    {
-      id: 3,
-      number: "#47",
-      title: "Add solution of October 2024.",
-      author: "Ayu-hack",
-      openedOn: "Oct 8, 2024",
-      price: "25",
-      labels: ["already-assigned"],
-      comments: 36,
-      avatars: [
-        "https://avatar.iran.liara.run/public",
-        "https://avatar.iran.liara.run/public",
-      ],
-      projectSkills: [
-        "JavaScript & React",
-        "MongoDB & SQL",
-        "Git & GitHub",
-        "CI/CD & DevOps",
-      ],
-    },
-    {
-      id: 4,
-      number: "#26",
-      title: "Please add mini projects here",
-      author: "Ayu-hack",
-      openedOn: "Oct 8, 2024",
-      price: "25",
-      labels: ["assignment-available"],
-      comments: 40,
-      avatars: [
-        "https://avatar.iran.liara.run/public",
-        "https://avatar.iran.liara.run/public",
-      ],
-      projectSkills: [
-        "HTML & CSS",
-        "JavaScript & React",
-        "Node.js & Express",
-        "Git & GitHub",
-        "Docker & Kubernetes",
-        "CI/CD & DevOps",
-      ],
-    },
-    {
-      id: 5,
-      number: "#25",
-      title: "Please add the projects on ai-ml here",
-      author: "Ayu-hack",
-      openedOn: "Oct 8, 2024",
-      price: "25",
-      labels: ["already-assigned"],
-      comments: 23,
-      avatars: [
-        "https://avatar.iran.liara.run/public",
-        "https://avatar.iran.liara.run/public",
-        "https://avatar.iran.liara.run/public",
-      ],
-      projectSkills: [
-        "HTML & CSS",
-        "Git & GitHub",
-        "Docker & Kubernetes",
-        "CI/CD & DevOps",
-      ],
-    },
-    {
-      id: 6,
-      number: "#19",
-      title: "Add solution of Weekly Contest 2024.",
-      author: "Ayu-hack",
-      openedOn: "Oct 7, 2024",
-      price: "25",
-      labels: ["assignment-available"],
-      comments: 8,
-      avatars: [
-        "https://avatar.iran.liara.run/public",
-        "https://avatar.iran.liara.run/public",
-      ],
-      projectSkills: [
-        "JavaScript & React",
-        "Node.js & Express",
-        "MongoDB & SQL",
-        "Git & GitHub",
-        "CI/CD & DevOps",
-      ],
-    },
-    {
-      id: 7,
-      number: "#18",
-      title: "Add solution of September 2024.",
-      author: "Ayu-hack",
-      openedOn: "Oct 7, 2024",
-      price: "25",
-      labels: ["already-assigned"],
-      comments: 28,
-      avatars: [
-        "https://avatar.iran.liara.run/public",
-        "https://avatar.iran.liara.run/public",
-      ],
-      projectSkills: ["HTML & CSS", "JavaScript & React"],
-    },
-    {
-      id: 8,
-      number: "#17",
-      title: "Add solution of June 2024.",
-      author: "Ayu-hack",
-      openedOn: "Oct 7, 2024",
-      price: "25",
-      labels: ["already-assigned"],
-      comments: 14,
-      avatars: [
-        "https://avatar.iran.liara.run/public",
-        "https://avatar.iran.liara.run/public",
-      ],
-      projectSkills: [
-        "HTML & CSS",
-        "JavaScript & React",
-        "Node.js & Express",
-        "Git & GitHub",
-      ],
-    },
-    {
-      id: 9,
-      number: "#16",
-      title: "Add solution of May 2024.",
-      author: "Ayu-hack",
-      openedOn: "Oct 7, 2024",
-      price: "25",
-      labels: ["already-assigned", "more-assignment-needed"],
-      comments: 14,
-      avatars: [
-        "https://avatar.iran.liara.run/public",
-        "https://avatar.iran.liara.run/public",
-      ],
-      projectSkills: [
-        "HTML & CSS",
-        "JavaScript & React",
-        "Node.js & Express",
-        "Docker & Kubernetes",
-        "CI/CD & DevOps",
-      ],
-    },
-    {
-      id: 10,
-      number: "#15",
-      title: "Add solution of April 2024.",
-      author: "Ayu-hack",
-      openedOn: "Oct 7, 2024",
-      price: "25",
-      labels: ["already-assigned"],
-      comments: 16,
-      avatars: [
-        "https://avatar.iran.liara.run/public",
-        "https://avatar.iran.liara.run/public",
-      ],
-      projectSkills: ["HTML & CSS", "JavaScript & React", "CI/CD & DevOps"],
-    },
-    {
-      id: 11,
-      number: "#14",
-      title: "Add solution of March 2024.",
-      author: "Ayu-hack",
-      openedOn: "Oct 7, 2024",
-      price: "25",
-      labels: ["already-assigned"],
-      comments: 15,
-      avatars: [
-        "https://avatar.iran.liara.run/public",
-        "https://avatar.iran.liara.run/public",
-      ],
-      projectSkills: [
-        "HTML & CSS",
-        "JavaScript & React",
-        "MongoDB & SQL",
-        "Git & GitHub",
-        "Docker & Kubernetes",
-        "CI/CD & DevOps",
-      ],
-    },
-  ]);
-  const [username, setUsername] = useState("");
+
+  const [issues, setIssues] = useState();
+  const [githubusername, setUsername] = useState("");
   const [currentIssueId, setcurrentIssueId] = useState(null);
+  const { updateBalance } = useBalance();
   let numbers = 0;
   const issuesNums = 0;
   // const issuesNums = issues.filter((issue) => {
@@ -222,13 +24,14 @@ const GitHubIssues = () => {
   //   }
   //   return numbers;
   // });
+  var loadIssues = async () => {
+    var { data: axres } = await axiosInstance.get("/api/marketplace/issues");
+    if (axres.status) {
+      setIssues(axres.issues);
+    }
+  };
   useEffect(() => {
-    (async () => {
-      var { data: axres } = await axiosInstance.get("/api/marketplace/issues");
-      if (axres.status) {
-        setIssues(axres.issues);
-      }
-    })();
+    loadIssues();
   }, []);
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -243,12 +46,36 @@ const GitHubIssues = () => {
   };
 
   const handleConfirm = async () => {
-    // console.log("Purchase confirmed!");
-    var { data: axres } = await axiosInstance.post(
-      "/api/marketplace/purchase",
-      { issueId: currentIssueId, githubUsername: username }
-    );
-    setIsPopupOpen(false);
+    if (!githubusername) {
+      console.error("No GitHub username found");
+      return;
+    }
+
+    try {
+      const { data: axres } = await axiosInstance.post(
+        "/api/marketplace/purchase",
+        {
+          issueId: currentIssueId,
+          githubUsername: githubusername.trim(),
+        }
+      );
+      if (axres.status) {
+        updateBalance();
+        setIsPopupOpen(false);
+        toast.success(
+          "Issue Purchased Sucessfully!\nIssue will be assigned to you by the maintainer shortly."
+        );
+        loadIssues();
+        // alert(
+        //   "Issue Purchased Sucessfully and will be assigned to you sortly by EOD. Thanks for the purchase"
+        // );
+      } else {
+        toast.error(axres.message);
+      }
+    } catch (error) {
+      toast.error("Error Occured");
+      console.error("Error during purchase:", error);
+    }
   };
 
   const [showModal, setShowModal] = useState(false);
@@ -258,14 +85,14 @@ const GitHubIssues = () => {
 
   const handleShopClick = (issueid) => {
     if (!authenticatedUser) {
-      setIssues(issueid);
+      setcurrentIssueId(issueid);
       setShowModal(true);
       setError("");
     }
   };
 
   const handleInputChange = (e) => {
-    const value = e.target.value;
+    const value = e.currentTarget.value;
     setUsername(value);
     if (value.trim().length < 3) {
       setError("Username must be at least 3 characters");
@@ -276,10 +103,9 @@ const GitHubIssues = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (username.trim().length >= 3) {
-      setAuthenticatedUser(username.trim());
+    if (githubusername.trim().length >= 3) {
+      setAuthenticatedUser(githubusername.trim());
       setShowModal(false);
-      setUsername("");
       setError("");
       setIsPopupOpen(true);
     } else {
@@ -289,16 +115,24 @@ const GitHubIssues = () => {
 
   const Modal = () => (
     <div className="modal-overlay !z-[99]" onClick={() => setShowModal(false)}>
-      <div className="modal" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="modal"
+        style={{
+          background: "rgba(0, 0, 0, 0.6)",
+          backdropFilter: "blur(1px)",
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
         <h2 className="modal-title">Enter Username</h2>
         <form onSubmit={handleSubmit} className="modal-form">
           <div className="input-group">
             <input
               type="text"
-              value={username}
+              value={githubusername}
               onChange={handleInputChange}
               placeholder="Enter your GitHub username"
               className={`modal-input ${error ? "error" : ""}`}
+              style={{ background: "rgba(255,255,255,0.04)" }}
               autoFocus
             />
             {error && <span className="error-message">{error}</span>}
@@ -306,7 +140,7 @@ const GitHubIssues = () => {
           <button
             type="submit"
             className="modal-button"
-            disabled={!username.trim() || error}
+            disabled={!githubusername.trim() || error}
           >
             Continue
           </button>
@@ -383,7 +217,7 @@ const GitHubIssues = () => {
         {/* Issue List */}
         {activeTab === "Available" && (
           <div className="issue-list">
-            {issues.map((issue) => (
+            {issues?.map((issue) => (
               <div key={issue.id} className="issue-item">
                 <div className="issue-icon">
                   <svg
@@ -403,7 +237,10 @@ const GitHubIssues = () => {
                 </div>
                 <div className="issue-content">
                   <div className="issue-title-row">
-                    <NavLink to="/shop/issue" className={"issue-title !m-0"}>
+                    <NavLink
+                      to={`/shop/issue?id=${issue._id}`}
+                      className={"issue-title !m-0"}
+                    >
                       <span>{issue.title}</span>
                     </NavLink>
                     {issue.labels.map((label, idx) => (
@@ -441,7 +278,7 @@ const GitHubIssues = () => {
                   <div className="issue-stats">
                     {/* onClick={handleBuyClick}  handleShopClick*/}
                     {authenticatedUser ? (
-                      <button onClick={()=>handleBuyClick()}>
+                      <button onClick={() => handleBuyClick(issue._id)}>
                         <span class="box">
                           Buy Now{" "}
                           <img
