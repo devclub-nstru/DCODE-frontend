@@ -355,28 +355,22 @@ const GitHubIssues = () => {
         {/* Tab Navigation */}
         <div className="tab-navigation">
           {
-            // <div className="tabs-container">
-            //   <div className="tabs">
-            //     <button
-            //       className={`tab ${activeTab === "Available" ? "active" : ""}`}
-            //       onClick={() => setActiveTab("Available")}
-            //     >
-            //       Available{" "}
-            //       {/* <span className="count">
-            //       {issues.reduce((prev, cur) => {
-            //         prev + (cur.available ? 1 : 0);
-            //       }, 0)}
-            //     </span> */}
-            //     </button>
-            //     <button
-            //       className={`tab ${activeTab === "Assigned" ? "active" : ""}`}
-            //       onClick={() => setActiveTab("Assigned")}
-            //     >
-            //       Assigned
-            //       {/* <span className="count">{issuesNums}</span> */}
-            //     </button>
-            //   </div>
-            // </div>
+            <div className="tabs-outliner">
+              <div className="tabs">
+                <button
+                  className={`tab ${activeTab === "Available" ? "active" : ""}`}
+                  onClick={() => setActiveTab("Available")}
+                >
+                  Available{" "}
+                </button>
+                <button
+                  className={`tab ${activeTab === "Assigned" ? "active" : ""}`}
+                  onClick={() => setActiveTab("Assigned")}
+                >
+                  Assigned
+                </button>
+              </div>
+            </div>
           }
         </div>
 
